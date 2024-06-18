@@ -1,5 +1,5 @@
 import React from 'react';
-import { ReactComponent as ReactIcon } from '../../assets/img/svg/icon-react-purp512.svg';
+import { ReactComponent as ReactIcon } from './../../assets/img/svg/icon-react-purp512.svg';
 
 const Soon = () => {
   return (
@@ -10,4 +10,4 @@ const Soon = () => {
   )
 }
 
-export default Soon
+export default Soon;
