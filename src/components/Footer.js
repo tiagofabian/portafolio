@@ -35,7 +35,7 @@ const Footer = () => {
       </div>
       <div className='foot-date-container'>
         <hr />
-        <span className='foot-date-text'>©{date.getFullYear()} por Tiago Alcázar.</span>
+        <span className='foot-date-text'>©{date.getFullYear()} por Tiago.</span>
       </div>
     </footer>
   )
