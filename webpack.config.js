@@ -60,7 +60,11 @@ module.exports = {
         extensions: [".js", ".jsx"],
     },
     // devtool: "eval-cheap-module-source-map",
+<<<<<<< HEAD
     devtool: "source-map",
+=======
+    devtool: "eval-cheap-module-source-map",
+>>>>>>> master
     devServer: {
         static: {
             directory: path.resolve(__dirname, "public"),

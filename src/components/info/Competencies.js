@@ -84,6 +84,23 @@ const Competencies = () => {
         card: "https://i.ibb.co/6bdgtF3/mongodb-card.png",
         accDegree: 0
       },
+<<<<<<< HEAD
+=======
+      {
+        name: "SQL",
+        progressBar: 0,
+        max: 55,
+        card: "https://i.ibb.co/xXcfnVt/Curso-SQL.png",
+        accDegree: 0
+      },
+      {
+        name: "MySql",
+        progressBar: 0,
+        max: 62,
+        card: "https://i.ibb.co/7CXrv0m/mysql.jpg",
+        accDegree: 0
+      },
+>>>>>>> master
     ]
   });
 
