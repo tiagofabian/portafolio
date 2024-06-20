@@ -35,11 +35,7 @@ const Footer = () => {
       </div>
       <div className='foot-date-container'>
         <hr />
-<<<<<<< HEAD
-        <span className='foot-date-text'>©{date.getFullYear()} por Tiago Alcázar.</span>
-=======
         <span className='foot-date-text'>©{date.getFullYear()} por Tiago.</span>
->>>>>>> master
       </div>
     </footer>
   )
