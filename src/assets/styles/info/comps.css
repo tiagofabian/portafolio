@@ -141,7 +141,7 @@
     -webkit-backface-visibility: hidden; /* Safari */
 }
 
-@media screen and (max-width: 719px) {
+@media screen and (max-width: 719.9px) {
     .comps-container {
         padding: 8% 5% 5.5% 5%;
         gap: 9.5vw;

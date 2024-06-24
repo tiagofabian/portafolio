@@ -42,7 +42,7 @@
     padding: 2%;
 }
 
-@media screen and (max-width: 719px) {
+@media screen and (max-width: 719.9px) {
     .aboutme-container {
         padding: 5% 5% 5% 5%;
         flex-direction: column;
