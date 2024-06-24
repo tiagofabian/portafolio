@@ -1,7 +1,7 @@
 import React from 'react';
 import "../assets/styles/app/nav.css"
 import { Link } from "react-router-dom";
-import perfilIMG from "../assets/img/images/LinkedinPerfil2.png"
+// import perfilIMG from "../assets/img/images/LinkedinPerfil2.png"
 
 const Nav = () => {
     
