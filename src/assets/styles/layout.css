@@ -13,7 +13,7 @@
     background: #e7e9eb;
 }
 
-@media screen and (max-width: 719px) {
+@media screen and (max-width: 719.9px) {
     .layout-container {
         width: 92%;
         margin: 5.5% 4%;

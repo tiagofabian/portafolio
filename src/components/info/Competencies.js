@@ -27,6 +27,13 @@ const Competencies = () => {
         accDegree: 0
       },
       {
+        name: "Typescript",
+        progressBar: 0,
+        max: 65,
+        card: "https://i.ibb.co/ySFkLtv/typescript.png",
+        accDegree: 0
+      },
+      {
         name: "C#",
         progressBar: 0,
         max: 35,
