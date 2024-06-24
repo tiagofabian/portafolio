@@ -1,0 +1,17 @@
+@media screen and (max-width: 719.9px) {
+    div > span {
+        font-size: calc(8px + 1vw);
+    }
+}
+
+@media screen and (min-width: 720px) and (max-width: 1024px) {
+    div > span {
+        font-size: calc(8px + 0.75vw);
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    div > span {
+        font-size: calc(6px + 0.5vw);
+    }
+}

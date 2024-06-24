@@ -2,27 +2,23 @@
 /**** CSS Variables ****/
 /***********************/
 
-@media screen and (max-width: 719px) {
+@media screen and (max-width: 719.9px) {
     :root {
         /**** fonts ****/
-        --font-size-tiny: calc(1);
-        --font-size-small: calc(1);
-        --font-color-green: green;
+        
     }
 }
 
 @media screen and (min-width: 720px) and (max-width: 1024) {
     :root {
         /**** fonts ****/
-        --font-tiny: calc(1);
-        --font-small: calc(1);
+        
     }
 }
 
 @media screen and (min-width: 1025px) {
     :root {
         /**** fonts ****/
-        --font-tiny: calc(1);
-        --font-small: calc(1);
+        
     }
 }

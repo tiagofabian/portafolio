@@ -1,4 +1,5 @@
 import React from 'react';
+import "../../assets/styles/extra/soon.css";
 import { ReactComponent as ReactIcon } from './../../assets/img/svg/icon-react-purp512.svg';
 
 const Soon = () => {
