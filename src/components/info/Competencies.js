@@ -64,17 +64,17 @@ const Competencies = () => {
         accDegree: 0
       },
       {
-        name: "Node",
+        name: "Express",
         progressBar: 0,
         max: 60,
-        card: "https://i.ibb.co/xS7VCbG/node-card.png",
+        card: "https://i.ibb.co/Ykc8MMy/expressjs.png",
         accDegree: 0
       },
       {
         name: "Graphql",
         progressBar: 0,
         max: 50,
-        card: "https://i.ibb.co/6gSPXLz/graphql-card.png",
+        card: "https://i.ibb.co/MZgm8Fz/graphql-card.png",
         accDegree: 0
       },
       {
@@ -89,6 +89,13 @@ const Competencies = () => {
         progressBar: 0,
         max: 40,
         card: "https://i.ibb.co/6bdgtF3/mongodb-card.png",
+        accDegree: 0
+      },
+      {
+        name: "Nest",
+        progressBar: 0,
+        max: 77,
+        card: "https://i.ibb.co/XWHF1gB/nestjs.png",
         accDegree: 0
       },
       {
@@ -133,6 +140,9 @@ const Competencies = () => {
     const cardInner = document.querySelectorAll(".comps-flipcard-inner");
     if (!scrollCheckFlag) {
       setScrollCheckFlag(true);
+      cardInner.forEach(card => {
+        card.style.transition = "transform 1.8s";
+      });
       setCompetencies(prevState => ({
         ...prevState,
         skills: prevState.skills.map(skill => 
