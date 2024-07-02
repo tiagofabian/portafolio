@@ -1,5 +1,6 @@
 import React from 'react';
 import '../../assets/styles/reuse/modal.css';
+import { ReactComponent as CloseICO } from '../../assets/img/svg/close-ico3.svg';
 
 const Modal = ({ isOpen, onClose, content, props }) => {
   if (!isOpen) return null;
@@ -7,7 +8,9 @@ const Modal = ({ isOpen, onClose, content, props }) => {
   return (
     <div className="modal" onClick={() => onClose(props.name)}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-        <button className="close" onClick={() => onClose(props.name)}>&times;</button>
+        <button className="close" onClick={() => onClose(props.name)}>
+          <CloseICO width="100%" height="100%" fill="#1c3357"/>
+        </button>
         {content ? content(props) : <p>No hay contenido</p>}
       </div>
     </div>
