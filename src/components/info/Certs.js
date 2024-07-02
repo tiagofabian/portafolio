@@ -5,6 +5,13 @@ import Modal from "../../components/reuse/Modal";
 const Certs = () => {
     const [arrayCerts, setArrayCerts ] = useState([
         {
+            name: "aiep-egress-cert",
+            url: "https://i.ibb.co/VSzxyqN/cert-egreso-aiep-2021-image.png",
+            alt: "aiep",
+            modalState: false
+        },
+        
+        {
             name: "javascript",
             url: "https://i.ibb.co/5sXwcpz/certificacion-javascript.png",
             alt: "js",
