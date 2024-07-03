@@ -27,13 +27,6 @@ const Certs = () => {
     const { isMobile, isDesktop } = useDevice();
     const [arrayCerts, setArrayCerts ] = useState([
         {
-            name: "aiep-egress-cert",
-            url: "https://i.ibb.co/VSzxyqN/cert-egreso-aiep-2021-image.png",
-            alt: "aiep",
-            modalState: false
-        },
-        
-        {
             name: "javascript",
             urlIMG: javascriptCert,
             alt: "js",
