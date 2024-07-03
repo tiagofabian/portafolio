@@ -12,7 +12,7 @@ const Certs = () => {
         },
         {
             name: "react",
-            url: "https://i.ibb.co/4gsFTsH/certificacion-react.png",
+            url: "https://i.ibb.co/qrxZK1v/certificacion-react.png",
             alt: "react",
             modalState: false
         },
