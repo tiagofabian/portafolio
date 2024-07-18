@@ -73,7 +73,7 @@ const Certs = () => {
 
     return (
         <div className='certs-container'>
-        <h2 className='certs-title'>Certificaciones</h2>
+        <h2 className='certs-title'>Certificados</h2>
         <section className='certs-section'>
             {arrayCerts.map((cert, index) => (
                 <div className='certs-card' key={index}>
