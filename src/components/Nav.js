@@ -17,7 +17,7 @@ const Nav = () => {
                         experiencia en el manejo de proyectos
                         a gran escala, incluyendo plataformas
                         de E-commerce y otras aplicaciones
-                        web complejas. A lo largo de mi carrera
+                        web. A lo largo de mi carrera
                         he estudiado diferentes tipos de
                         tecnologías y siempre estoy listo para
                         afrontar nuevos desafios.
