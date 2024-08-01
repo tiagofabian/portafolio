@@ -37,6 +37,7 @@ const Trajectory = () => {
             "Curso de React JS.",
             "Curso de Node JS.",
             "Curso de Graphql.",
+            "Curso de Nest TS.",
           ]
         }
       }
