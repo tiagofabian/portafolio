@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../assets/styles/reuse/modal.css';
-import { ReactComponent as CloseICO } from '../../assets/img/svg/close-ico3.svg';
+import { ReactComponent as CloseICO } from '../../assets/img/icon/svg/close-ico.svg';
 
 const Modal = ({ isOpen, onClose, content, props }) => {
   if (!isOpen) return null;
