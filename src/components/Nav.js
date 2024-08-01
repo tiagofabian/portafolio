@@ -1,13 +1,14 @@
 import React from 'react';
 import "../assets/styles/app/nav.css"
 import { Link } from "react-router-dom";
+import perfilIMG from "../assets/img/images/LinkedinPerfil2.png"
 
 const Nav = () => {
     
     return (
         <nav>
             <div className='nav-presentation'>
-                <img src="https://i.ibb.co/VB8KfnL/Linkedin-Perfil2.png" alt="perfil-img" className='nav-photo-img'/>
+                <img src={perfilIMG} alt="perfil-img" className='nav-photo-img'/>
                 <div className='nav-presentation-title'>
                     <h1><span>TIAGO</span> <br /> <span id="cyan">ALCÁZAR</span></h1>
                     <h4>DESAROLLADOR DE SOFTWARE</h4>

@@ -19,14 +19,31 @@ module.exports = {
                 use: ["style-loader", "css-loader"],
             },
             {
-                test: /\.(gif|png|jep?g)$/i,
-                use: [
-                    "file-loader",
+                test: /\.(gif|png|jpe?g|webp)$/i,
+                oneOf: [
                     {
-                        loader: "image-webpack-loader",
-                        options: {
-                            bypassOnDebug: true,
-                            disable: true,
+                        issuer: /\.[jt]sx?$/,
+                        use: [
+                            {
+                                loader: 'url-loader',
+                                options: {
+                                    limit: 8192, // Imágenes menores a 8KB se convierten en base64
+                                    name: 'images/[name].[hash].[ext]',
+                                },
+                            },
+                            {
+                                loader: "image-webpack-loader",
+                                options: {
+                                    bypassOnDebug: true,
+                                    disable: true,
+                                },
+                            },
+                        ],
+                    },
+                    {
+                        type: 'asset/resource',
+                        generator: {
+                            filename: 'images/[name].[hash][ext]',
                         },
                     },
                 ],

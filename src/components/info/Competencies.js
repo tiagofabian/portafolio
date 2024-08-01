@@ -1,5 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import "../../assets/styles/info/comps.css";
+// Importaciones skills
+import htmlCard from '../../assets/img/images/card/html5-card.jpg';
+import cssCard from '../../assets/img/images/card/css3-card.png';
+import javascriptCard from '../../assets/img/images/card/javascript-card.png';
+import typescriptCard from '../../assets/img/images/card/typescript.png';
+import csharpCard from '../../assets/img/images/card/csharp-card.png';
+import javaCard from '../../assets/img/images/card/java-card.png';
+import phpCard from '../../assets/img/images/card/php-card.webp';
+// Importaciones techs
+import reactCard from '../../assets/img/images/card/react-card.jpg';
+import expressCard from '../../assets/img/images/card/expressjs.png';
+import graphqlCard from '../../assets/img/images/card/graphql-card.png';
+import firebaseCard from '../../assets/img/images/card/firebase-card.png';
+import mongoCard from '../../assets/img/images/card/mongodb-card.png';
+import nestCard from '../../assets/img/images/card/nestjs.png';
+import sqlCard from '../../assets/img/images/card/Curso-SQL.png';
+import mysqlCard from '../../assets/img/images/card/mysql.jpeg';
 
 const Competencies = () => {
   const [scrollCheckFlag, setScrollCheckFlag] = useState(false);
@@ -9,108 +26,108 @@ const Competencies = () => {
         name: "HTML",
         progressBar: 0,
         max: 82,
-        card: "https://i.ibb.co/PDc3Zfc/html5-card.jpg",
+        card: htmlCard,
         accDegree: 0
       },
       {
-        name: "CSS",
-        progressBar: 0,
-        max: 83,
-        card: "https://i.ibb.co/PznLD6j/css3-card.png",
-        accDegree: 0
+          name: "CSS",
+          progressBar: 0,
+          max: 83,
+          card: cssCard,
+          accDegree: 0
       },
       {
-        name: "Javascript",
-        progressBar: 0,
-        max: 85,
-        card: "https://i.ibb.co/HHLQMBS/javascript-card.png",
-        accDegree: 0
+          name: "Javascript",
+          progressBar: 0,
+          max: 85,
+          card: javascriptCard,
+          accDegree: 0
       },
       {
-        name: "Typescript",
-        progressBar: 0,
-        max: 65,
-        card: "https://i.ibb.co/ySFkLtv/typescript.png",
-        accDegree: 0
+          name: "Typescript",
+          progressBar: 0,
+          max: 65,
+          card: typescriptCard,
+          accDegree: 0
       },
       {
-        name: "C#",
-        progressBar: 0,
-        max: 35,
-        card: "https://i.ibb.co/fn2B4kz/csharp-card.png",
-        accDegree: 0
+          name: "C#",
+          progressBar: 0,
+          max: 35,
+          card: csharpCard,
+          accDegree: 0
       },
       {
-        name: "Java",
-        progressBar: 0,
-        max: 45,
-        card: "https://i.ibb.co/XZKvKFw/java-card.png",
-        accDegree: 0
+          name: "Java",
+          progressBar: 0,
+          max: 45,
+          card: javaCard,
+          accDegree: 0
       },
       {
-        name: "PHP",
-        progressBar: 0,
-        max: 60,
-        card: "https://i.ibb.co/8dSgmK7/php-card.webp",
-        accDegree: 0
-      }
+          name: "PHP",
+          progressBar: 0,
+          max: 60,
+          card: phpCard,
+          accDegree: 0
+      },
     ],
     techs: [
       {
         name: "React",
         progressBar: 0,
         max: 90,
-        card: "https://i.ibb.co/4gZNTYd/react-card.jpg",
+        card: reactCard,
         accDegree: 0
       },
       {
-        name: "Express",
-        progressBar: 0,
-        max: 60,
-        card: "https://i.ibb.co/Ykc8MMy/expressjs.png",
-        accDegree: 0
+          name: "Express",
+          progressBar: 0,
+          max: 60,
+          card: expressCard,
+          accDegree: 0
       },
       {
-        name: "Graphql",
-        progressBar: 0,
-        max: 50,
-        card: "https://i.ibb.co/MZgm8Fz/graphql-card.png",
-        accDegree: 0
+          name: "Graphql",
+          progressBar: 0,
+          max: 50,
+          card: graphqlCard,
+          accDegree: 0
       },
       {
-        name: "Firebase",
-        progressBar: 0,
-        max: 48,
-        card: "https://i.ibb.co/023B5FV/firebase-card.png",
-        accDegree: 0
+          name: "Firebase",
+          progressBar: 0,
+          max: 48,
+          card: firebaseCard,
+          accDegree: 0
       },
       {
-        name: "Mongo",
-        progressBar: 0,
-        max: 40,
-        card: "https://i.ibb.co/6bdgtF3/mongodb-card.png",
-        accDegree: 0
+          name: "Mongo",
+          progressBar: 0,
+          max: 40,
+          card: mongoCard,
+          accDegree: 0
       },
       {
-        name: "Nest",
-        progressBar: 0,
-        max: 77,
-        card: "https://i.ibb.co/XWHF1gB/nestjs.png",
-        accDegree: 0
+          name: "Nest",
+          progressBar: 0,
+          max: 77,
+          card: nestCard,
+          accDegree: 0
       },
       {
-        name: "SQL",
-        progressBar: 0,
-        max: 55,
-        card: "https://i.ibb.co/xXcfnVt/Curso-SQL.png",
-        accDegree: 0
+          name: "SQL",
+          progressBar: 0,
+          max: 55,
+          card: sqlCard,
+          accDegree: 0
       },
       {
-        name: "MySql",
-        progressBar: 0,
-        max: 62,
-        card: "https://i.ibb.co/7CXrv0m/mysql.jpg",
-        accDegree: 0
+          name: "MySql",
+          progressBar: 0,
+          max: 62,
+          card: mysqlCard,
+          accDegree: 0
       },
     ]
   });
