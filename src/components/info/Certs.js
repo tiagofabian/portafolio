@@ -1,54 +1,62 @@
 import React, { useState } from 'react';
 import "../../assets/styles/info/certs.css";
 import Modal from "../../components/reuse/Modal";
+import javascriptCert from '../../assets/img/images/cert/certificacion-javascript.png';
+import reactCert from '../../assets/img/images/cert/certificacion-react.png';
+import nodeCert from '../../assets/img/images/cert/certificacion-node.png';
+import aiepEgressCert from '../../assets/img/images/cert/certificado_egreso_aiep_bellavista.png';
+import aiepSoftwareQualityCert from '../../assets/img/images/cert/certificado_calidad_de_software_aiep_bellavista.png';
+import aiepSoftwareBasicCert from '../../assets/img/images/cert/certificado_programacion_basica_de_software_aiep_bellavista.png';
+import aiepWebApplicationsCert from '../../assets/img/images/cert/certificado_programacion_y_aplicaciones_web_aiep_bellavista.png';
+import aiepHardwareSoftwareSupportCert from '../../assets/img/images/cert/certificado_soporte_hardware_y_software_aiep_bellavista.png';
 
 const Certs = () => {
     const [arrayCerts, setArrayCerts ] = useState([
         {
             name: "javascript",
-            url: "https://i.ibb.co/5sXwcpz/certificacion-javascript.png",
+            url: javascriptCert,
             alt: "js",
             modalState: false
         },
         {
             name: "react",
-            url: "https://i.ibb.co/qrxZK1v/certificacion-react.png",
+            url: reactCert,
             alt: "react",
             modalState: false
         },
         {
             name: "node",
-            url: "https://i.ibb.co/DbWm931/certificacion-node.png",
+            url: nodeCert,
             alt: "node",
             modalState: false
         },
         {
             name: "aiep-egress-cert",
-            url: "https://i.ibb.co/Wt54p15/certificado-egreso-aiep-bellavista.png",
+            url: aiepEgressCert,
             alt: "aiep",
             modalState: false
         },
         {
             name: "aiep-softwarequality-cert",
-            url: "https://i.ibb.co/5nkSDvT/certificado-calidad-de-software-aiep-bellavista.png",
+            url: aiepSoftwareQualityCert,
             alt: "aiep",
             modalState: false
         },
         {
             name: "aiep-softwarebasic-cert",
-            url: "https://i.ibb.co/1nDRgJ1/certificado-programacion-basica-de-software-aiep-bellavista.png",
+            url: aiepSoftwareBasicCert,
             alt: "aiep",
             modalState: false
         },
         {
             name: "aiep-webapplications-cert",
-            url: "https://i.ibb.co/L5Y6WRB/certificado-programacion-y-aplicaciones-web-aiep-bellavista.png",
+            url: aiepWebApplicationsCert,
             alt: "aiep",
             modalState: false
         },
         {
             name: "aiep-hardwaresoftwaresupport-cert",
-            url: "https://i.ibb.co/s6Nx50V/certificado-soporte-hardware-y-software-aiep-bellavista.png",
+            url: aiepHardwareSoftwareSupportCert,
             alt: "aiep",
             modalState: false
         },

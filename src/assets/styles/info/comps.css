@@ -49,7 +49,7 @@
     box-sizing: border-box;
     position: relative;
     cursor: pointer;
-    background: url("https://i.ibb.co/PmKdLBh/abstract-white-squares.jpg");
+    background: url("../../img/background/abstract-white-squares.jpg");
     background-size: 120%;
 }
 .comps-progressbar-title {
