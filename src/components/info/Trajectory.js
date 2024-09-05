@@ -37,7 +37,7 @@ const Trajectory = () => {
             "Curso de React JS.",
             "Curso de Node JS.",
             "Curso de Graphql.",
-            "Curso de Nest TS.",
+            "Curso de Nest JS.",
           ]
         }
       }
@@ -52,12 +52,14 @@ const Trajectory = () => {
           yearRange: "2023-2024",
           subjects: [
             "Vtex.",
-            "React-typescript",
+            "React",
+            "Typescript",
             "Graphql",
             "Node",
             "GTM",
             "GitLab",
             "Azure",
+            "Mysql",
           ]
         }
       },
