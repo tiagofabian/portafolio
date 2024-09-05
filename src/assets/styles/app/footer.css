@@ -94,7 +94,6 @@ footer {
 }
 
 .foot-date-text {
-    font-size: 13px;
     color: #dde1e3
 }
 
@@ -187,7 +186,7 @@ footer {
 
     /**** date ****/
     .foot-date-text {
-        font-size: calc(4px + 0.5vw);
+        font-size: calc(4px + 0.4vw);
     }
 
     .foot-date-container hr {
