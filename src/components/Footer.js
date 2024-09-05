@@ -40,7 +40,7 @@ const Footer = () => {
       </div>
       <div className='foot-date-container'>
         <hr />
-        <span className='foot-date-text'>©{date.getFullYear()} por Tiago.</span>
+        <span className='foot-date-text'>©{date.getFullYear()} - CL</span>
       </div>
     </footer>
   )
