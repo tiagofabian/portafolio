@@ -2,7 +2,7 @@ import React from 'react';
 import '../../assets/styles/reuse/modal.css';
 import { ReactComponent as CloseICO } from '../../assets/img/icon/svg/close-ico.svg';
 
-const Modal = ({ isOpen, onClose, content, props }) => {
+const Modal = ({ isOpen, onClose, props }) => {
   if (!isOpen) return null;
 
   return (
@@ -11,7 +11,7 @@ const Modal = ({ isOpen, onClose, content, props }) => {
         <button className="close" onClick={() => onClose(props.name)}>
           <CloseICO width="100%" height="100%" fill="#1c3357"/>
         </button>
-        {content ? content(props) : <p>No hay contenido</p>}
+          <img className="certs-modal-img" src={props.urlIMG} alt={props.alt}/>
       </div>
     </div>
   );
