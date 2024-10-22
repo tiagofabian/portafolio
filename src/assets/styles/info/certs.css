@@ -12,7 +12,7 @@
     position: relative;
 }
 
-.certs-section {
+.certs-splide {
     display: inline-flex;
     flex-direction: row;
     padding: 0;
@@ -21,7 +21,7 @@
     width: 100%;
 }
 
-.certs-card {
+.certs-splidecard {
     display: inline-flex;
     padding: 0;
     margin: 0;
@@ -32,7 +32,7 @@
     box-sizing: border-box;
 }
 
-.certs-card > button {
+.certs-splidecard > button {
     display: inline-flex;
     padding: 0;
     margin: 0;
@@ -43,24 +43,37 @@
     overflow: hidden;
 }
 
-.certs-card > button > img {
+.certs-splidecard > button > img {
     display: block;
     object-fit: cover;
+    object-position: top center;
     line-height: 0;
-    height: 115%;
-    width: 115%;
+    height: 100%;
+    width: 100%;
     cursor: pointer;
     box-sizing: border-box;
     filter: brightness(0.95);
     transition: filter .5s ease;
 }
 
-.certs-card:hover {
+.certs-splidecard:hover {
     width: 10%;
     border: 1px solid #c7c7c777;
 }
-.certs-card:hover > button > img {
+.certs-splidecard:hover > button > img {
     filter: brightness(0.98);
+}
+
+/*********** Splide - Dots ***********/
+.splide__pagination {
+    bottom: 0!important;
+    z-index: 100!important;
+    transform: translateY(2.5vh);
+}
+.splide__pagination__page {
+    width: calc(8px + 0.1vw)!important;
+    height: calc(8px + 0.1vw)!important;
+    background-color: #424e5bc4!important;
 }
 
 @media screen and (max-width: 719.9px) {
@@ -80,7 +93,7 @@
         gap: 3vw;
     }
     
-    .certs-card {
+    .certs-splidecard {
         flex-basis: calc((100% - (3vw * (2 - 1))) / 2);
         max-width: calc((100% - (3vw * (2 - 1))) / 2);
         height: 100px;
@@ -103,7 +116,7 @@
         flex-wrap: nowrap;
     }
 
-    .certs-card {
+    .certs-splidecard {
         width: 0;
         height: 300px;
     }
@@ -125,7 +138,7 @@
         flex-wrap: nowrap;
     }
 
-    .certs-card {
+    .certs-splidecard {
         width: 0;
         height: 300px;
     }

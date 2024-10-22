@@ -48,7 +48,7 @@ const Trajectory = () => {
         selected: false,
         title: "Ecomsur",
         content: {
-          subtitle: "Desarrollador Frontend",
+          subtitle: "desarrollador frontend",
           yearRange: "2023-2024",
           subjects: [
             "Vtex.",

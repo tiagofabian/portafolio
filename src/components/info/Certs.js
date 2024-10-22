@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import "../../assets/styles/info/certs.css";
+import '@splidejs/react-splide/css';
 import Modal from "../../components/reuse/Modal";
+import { Splide, SplideSlide } from '@splidejs/react-splide';
+import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
+
 import javascriptCert from '../../assets/img/images/cert/certificacion-javascript.png';
 import reactCert from '../../assets/img/images/cert/certificacion-react.png';
 import nodeCert from '../../assets/img/images/cert/certificacion-node.png';
@@ -9,61 +13,126 @@ import aiepSoftwareQualityCert from '../../assets/img/images/cert/certificado_ca
 import aiepSoftwareBasicCert from '../../assets/img/images/cert/certificado_programacion_basica_de_software_aiep_bellavista.png';
 import aiepWebApplicationsCert from '../../assets/img/images/cert/certificado_programacion_y_aplicaciones_web_aiep_bellavista.png';
 import aiepHardwareSoftwareSupportCert from '../../assets/img/images/cert/certificado_soporte_hardware_y_software_aiep_bellavista.png';
+import sololearnHTML from '../../assets/img/images/cert/sololearn_cert_HTML.jpeg';
+import sololearnCSS from '../../assets/img/images/cert/sololearn_cert_CSS.jpeg';
+import sololearnJS from '../../assets/img/images/cert/sololearn_cert_JS.jpeg';
+import sololearnCSharp from '../../assets/img/images/cert/sololearn_cert_CSharp.jpg';
+import sololearnCSharpI from '../../assets/img/images/cert/sololearn_cert_CSharpI.jpg';
+import sololearnSQL from '../../assets/img/images/cert/sololearn_cert_SQL.jpeg';
+import sololearnJQuery from '../../assets/img/images/cert/sololearn_cert_JQuery.jpeg';
+import sololearnPHP from '../../assets/img/images/cert/sololearn_cert_PHP.jpeg';
 
 const Certs = () => {
     const [arrayCerts, setArrayCerts ] = useState([
         {
             name: "javascript",
-            url: javascriptCert,
+            urlIMG: javascriptCert,
             alt: "js",
             modalState: false
         },
         {
             name: "react",
-            url: reactCert,
+            urlIMG: reactCert,
             alt: "react",
             modalState: false
         },
         {
             name: "node",
-            url: nodeCert,
+            urlIMG: nodeCert,
             alt: "node",
             modalState: false
         },
         {
             name: "aiep-egress-cert",
-            url: aiepEgressCert,
+            urlIMG: aiepEgressCert,
             alt: "aiep",
             modalState: false
         },
         {
             name: "aiep-softwarequality-cert",
-            url: aiepSoftwareQualityCert,
+            urlIMG: aiepSoftwareQualityCert,
             alt: "aiep",
             modalState: false
         },
         {
             name: "aiep-softwarebasic-cert",
-            url: aiepSoftwareBasicCert,
+            urlIMG: aiepSoftwareBasicCert,
             alt: "aiep",
             modalState: false
         },
         {
             name: "aiep-webapplications-cert",
-            url: aiepWebApplicationsCert,
+            urlIMG: aiepWebApplicationsCert,
             alt: "aiep",
             modalState: false
         },
         {
             name: "aiep-hardwaresoftwaresupport-cert",
-            url: aiepHardwareSoftwareSupportCert,
+            urlIMG: aiepHardwareSoftwareSupportCert,
             alt: "aiep",
+            modalState: false
+        },
+        {
+            name: "sololearn-html",
+            urlIMG: sololearnHTML,
+            alt: "sololearn",
+            modalState: false
+        },
+        {
+            name: "sololearn-css",
+            urlIMG: sololearnCSS,
+            alt: "sololearn",
+            modalState: false
+        },
+        {
+            name: "sololearn-js",
+            urlIMG: sololearnJS,
+            alt: "sololearn",
+            modalState: false
+        },
+        {
+            name: "sololearn-php",
+            urlIMG: sololearnPHP,
+            alt: "sololearn",
+            modalState: false
+        },
+        {
+            name: "sololearn-c#",
+            urlIMG: sololearnCSharp,
+            alt: "sololearn",
+            modalState: false
+        },
+        {
+            name: "sololearn-c#i",
+            urlIMG: sololearnCSharpI,
+            alt: "sololearn",
+            modalState: false
+        },
+        {
+            name: "sololearn-sql",
+            urlIMG: sololearnSQL,
+            alt: "sololearn",
+            modalState: false
+        },
+        {
+            name: "sololearn-jquery",
+            urlIMG: sololearnJQuery,
+            alt: "sololearn",
             modalState: false
         },
     ]);
 
-    const openModal = (e) => setArrayCerts(arrayCerts => 
-        arrayCerts.map(cert => cert.name === e.target.id ? ({...cert, modalState: true}) : cert));
+    const openModal = (e) => {
+        const certName = e.currentTarget.getAttribute('data-cert-name');
+        setArrayCerts(arrayCerts => 
+            arrayCerts.map(cert => {
+                if(cert.name === certName) {
+                    return { ...cert, modalState: true };
+                }
+                return cert;
+            })
+        );
+    };
 
     const closeModal = (e) => setArrayCerts(arrayCerts =>
         arrayCerts.map(cert => {
@@ -75,23 +144,42 @@ const Certs = () => {
         })
     );
 
-    const certModalCotent = (props) => (
-        <img className="certs-modal-img" src={props.url} alt={props.alt}/>
-    );
-
     return (
         <div className='certs-container'>
-        <h2 className='certs-title'>Certificados</h2>
-        <section className='certs-section'>
-            {arrayCerts.map((cert, index) => (
-                <div className='certs-card' key={index}>
-                    <button onClick={(e) => openModal(e)}>
-                        <img id={cert.name} src={cert.url} alt={cert.alt}/>
-                    </button>
-                    <Modal isOpen={cert.modalState} onClose={closeModal} content={certModalCotent} props={cert} />
-                </div>
+            <h2 className='certs-title'>Certificados</h2>
+            <Splide
+                className='certs-splide'
+                options={{
+                    type: 'loop',
+                    drag: 'free',
+                    focus: 'center',
+                    gap: '1.5rem',
+                    arrows: false, 
+                    pagination: true,
+                    perPage: 3,
+                    speed: 5000,
+                    width: '100%',
+                    autoScroll: {
+                        speed: 0.6,   // Ajusta la velocidad de desplazamiento automático
+                    },
+                }}
+                extensions={{ AutoScroll }}   // Aquí agregas la extensión
+            >
+                {arrayCerts.map((cert, index) => (
+                    <SplideSlide className='certs-splidecard' key={index}>
+                        <button 
+                            onClick={(e) => openModal(e)}
+                            data-cert-name={cert.name}
+                            inert={cert.modalState ? 'true' : undefined}
+                        >
+                            <img id={cert.name} src={cert.urlIMG} alt={cert.alt}/>
+                        </button>
+                    </SplideSlide>
+                ))}
+            </Splide>
+            {arrayCerts.map((cert) => (
+                <Modal key={cert.name} isOpen={cert.modalState} onClose={closeModal} props={cert} />
             ))}
-        </section>
         </div>
     )
 }
