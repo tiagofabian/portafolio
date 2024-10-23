@@ -157,21 +157,29 @@ const Competencies = () => {
     const cardInner = document.querySelectorAll(".comps-flipcard-inner");
     if (!scrollCheckFlag) {
       setScrollCheckFlag(true);
-      cardInner.forEach(card => {
-        card.style.transition = "transform 1.8s";
+      console.log("asdasdas", cardInner);
+      cardInner.forEach((card, index) => {
+        if(index === 0) {
+          card.style.transition = "transform 1.8s";
+        }
       });
       setCompetencies(prevState => ({
         ...prevState,
-        skills: prevState.skills.map(skill => 
-          ({...skill, accDegree: skill.accDegree + 360})
+        skills: prevState.skills.map(skill => {
+          if (skill.name === "HTML") {
+            return {...skill, accDegree: skill.accDegree + 360}
+          } else {
+            return {...skill}
+          }
+        }
         ),
-        techs: prevState.techs.map(tech => 
-          ({...tech, accDegree: tech.accDegree + 360})
-        )
+        techs: prevState.techs.map(tech => ({...tech}))
       }));
-      cardInner.forEach(card => {
+      cardInner.forEach((card, index) => {
         card.addEventListener('transitionend', () => {
-          card.style.transition = "transform 0.5s";
+          if(index === 0) {
+            card.style.transition = "transform 0.5s";
+          }
         });
       });
     }
