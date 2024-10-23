@@ -57,7 +57,6 @@
 }
 
 .certs-splidecard:hover {
-    width: 10%;
     border: 1px solid #c7c7c777;
 }
 .certs-splidecard:hover > button > img {
@@ -67,7 +66,7 @@
 /*********** Splide - Dots ***********/
 .splide__pagination {
     bottom: 0!important;
-    z-index: 100!important;
+    z-index: 1000!important;
     transform: translateY(2.5vh);
 }
 .splide__pagination__page {
@@ -96,7 +95,16 @@
     .certs-splidecard {
         flex-basis: calc((100% - (3vw * (2 - 1))) / 2);
         max-width: calc((100% - (3vw * (2 - 1))) / 2);
-        height: 100px;
+        height: 150px;
+    }
+
+    /*********** Splide - Dots ***********/
+    .splide__pagination {
+        transform: translateY(calc(5px + 3vw));
+    }
+    .splide__pagination__page {
+        width: calc(0.5px + 1vw)!important;
+        height: calc(0.5px + 1vw)!important;
     }
 }
 
@@ -118,7 +126,15 @@
 
     .certs-splidecard {
         width: 0;
-        height: 300px;
+        max-height: 200px;
+    }
+    /*********** Splide - Dots ***********/
+    .splide__pagination {
+        transform: translateY(calc(5px + 2vw));
+    }
+    .splide__pagination__page {
+        width: calc(0.5px + 0.75vw)!important;
+        height: calc(0.5px + 0.75vw)!important;
     }
 }
 
@@ -140,6 +156,14 @@
 
     .certs-splidecard {
         width: 0;
-        height: 300px;
+        max-height: 300px;
+    }
+    /*********** Splide - Dots ***********/
+    .splide__pagination {
+        transform: translateY(calc(5px + 2vw));
+    }
+    .splide__pagination__page {
+        width: calc(0.5px + 0.5vw)!important;
+        height: calc(0.5px + 0.5vw)!important;
     }
 }
