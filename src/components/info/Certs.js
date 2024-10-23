@@ -4,6 +4,7 @@ import '@splidejs/react-splide/css';
 import Modal from "../../components/reuse/Modal";
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
+import useDevice from '../../customHooks/useDevice';
 
 import javascriptCert from '../../assets/img/images/cert/certificacion-javascript.png';
 import reactCert from '../../assets/img/images/cert/certificacion-react.png';
@@ -23,6 +24,7 @@ import sololearnJQuery from '../../assets/img/images/cert/sololearn_cert_JQuery.
 import sololearnPHP from '../../assets/img/images/cert/sololearn_cert_PHP.jpeg';
 
 const Certs = () => {
+    const { isMobile, isDesktop } = useDevice();
     const [arrayCerts, setArrayCerts ] = useState([
         {
             name: "javascript",
@@ -153,10 +155,10 @@ const Certs = () => {
                     type: 'loop',
                     drag: 'free',
                     focus: 'center',
-                    gap: '1.5rem',
+                    gap: isDesktop ? '1.5vw' : isMobile ? '4vw' : '3vw',
                     arrows: false, 
-                    pagination: true,
-                    perPage: 3,
+                    pagination: isDesktop ? true : isMobile ? false : true,
+                    perPage: isDesktop ? 4 : isMobile ? 2 : 3,
                     speed: 5000,
                     width: '100%',
                     autoScroll: {
