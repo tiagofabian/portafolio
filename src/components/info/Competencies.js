@@ -157,7 +157,6 @@ const Competencies = () => {
     const cardInner = document.querySelectorAll(".comps-flipcard-inner");
     if (!scrollCheckFlag) {
       setScrollCheckFlag(true);
-      console.log("asdasdas", cardInner);
       cardInner.forEach((card, index) => {
         if(index === 0) {
           card.style.transition = "transform 1.8s";

@@ -8,7 +8,7 @@ const Nav = () => {
     return (
         <nav>
             <div className='nav-presentation'>
-                <img src={perfilIMG} alt="perfil-img" className='nav-photo-img'/>
+                {/* <img src={perfilIMG} alt="perfil-img" className='nav-photo-img'/> */}
                 <div className='nav-presentation-title'>
                     <h1><span>TIAGO</span> <br /> <span id="cyan">ALCÁZAR</span></h1>
                     <h4>DESAROLLADOR DE SOFTWARE</h4>
