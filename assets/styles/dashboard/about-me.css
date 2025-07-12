@@ -1,0 +1,136 @@
+.aboutme-container {
+    display: flex;
+    justify-content: center;
+}
+
+.aboutme-photo-container {
+    display: inline-flex;
+    flex-direction: column;
+    border: 1px solid #cad0d2;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-radius: 5px;
+    background: #f2f2f2;
+    aspect-ratio: 1/1;
+    align-self: center;
+}
+
+.aboutme-photo-img {
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+.aboutme-photo-name {
+    font-weight: 700;
+    color: transparent;
+    color: #a9a9a9f6;
+}
+
+.aboutme-description-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    flex-grow: 1;
+    margin: auto;
+}
+
+.aboutme-description {
+    color: #a9a9a9;
+    padding: 2%;
+}
+
+@media screen and (max-width: 719.9px) {
+    .aboutme-container {
+        padding: 5% 5% 5% 5%;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .aboutme-photo-container {
+        height: 50%;
+        width: 82%;
+    }
+
+    .aboutme-photo-img {
+        padding: 8%;
+    }
+
+    .aboutme-photo-name {
+        font-size: calc(13px + 1vw);
+        transform: translateY(-50%);
+    }
+
+    .aboutme-description-container {
+        width: 100%;
+    }
+
+    .aboutme-description {
+        font-size: calc(12px + 1vw);
+        text-align: center;
+    }
+}
+
+@media screen and (min-width: 720px) and (max-width: 1024px) {
+    .aboutme-container {
+        padding: 2% 5% 2% 5%;
+        flex-direction: row;
+        gap: 2.5vw;
+    }
+
+    .aboutme-photo-container {
+        height: 50%;
+        width: 24%;
+    }
+
+    .aboutme-photo-img {
+        padding: 5%;
+    }
+
+    .aboutme-photo-name {
+        font-size: calc(8px + 0.5vw);
+        transform: translateY(-25%);
+    }
+
+    .aboutme-description-container {
+        width: 76%;
+    }
+
+    .aboutme-description {
+        font-size: calc(14px + 0.5vw);
+        text-align: left;
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    .aboutme-container {
+        padding: 2% 5% 2% 5%;
+        flex-direction: row;
+        gap: 2.5%;
+    }
+
+    .aboutme-photo-container {
+        height: 50%;
+        width: 16%;
+    }
+
+    .aboutme-photo-img {
+        padding: 5%;
+    }
+
+    .aboutme-photo-name {
+        font-size: calc(8px + 0.5vw);
+        transform: translateY(-25%);
+    }
+
+    .aboutme-description-container {
+        width: 81.5%;
+    }
+
+    .aboutme-description {
+        font-size: calc(15px + 0.5vw);
+        text-align: left;
+    }
+}

@@ -1,0 +1,168 @@
+.skill-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+/********************** Competencies ***********************/
+.skill-subcontainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+}
+.skill-title {
+  margin: 0;
+  padding: 0;
+  color: #606060;
+  position: relative;
+}
+.skill-main {
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.skill-flipcard-container {
+  display: inline-block;
+  background-color: transparent;
+  flex-grow: 1;
+  perspective: 1000px;
+}
+.skill-flipcard-inner {
+  display: inline-flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+}
+
+.skill-flipcard-front {
+  display: inline-flex;
+  flex-direction: column;
+  border: 1px solid #c0b9b9;
+  border-radius: 5px;
+  box-sizing: border-box;
+  position: relative;
+  cursor: pointer;
+  background: url("/bg/abstract-white-squares.jpg");
+  background-size: 120%;
+}
+.skill-progressbar-title {
+  max-width: 100%;
+  padding: 0;
+  margin: 0;
+  color: #404040;
+  font-weight: 700;
+}
+.skill-progressbar-container {
+  display: block;
+  border: 1px solid #000000;
+  background-color: #f1f1f1;
+  position: relative;
+  border-radius: 2px;
+  width: 100%;
+  height: auto;
+}
+.skill-count {
+  display: inline-block;
+  position: absolute;
+  font-size: 1.1em;
+  left: 44%;
+  line-height: 138%;
+  background-color: transparent;
+  overflow: hidden;
+  font-weight: 700;
+  color: #2c2c2c;
+  max-height: 100%;
+  z-index: 0;
+}
+.skill-bar {
+  display: block;
+  width: 0%;
+  border-right: 1px solid #000000;
+  z-index: -1;
+  background: linear-gradient(
+    135deg,
+    #64abd1 30%,
+    #6eb8d5 20%,
+    #6eb8d5 50%,
+    #64abd1 50%,
+    #64abd1 80%,
+    #6eb8d5 70%,
+    #6eb8d5 100%
+  );
+  background-size: 2.5em 2.5em;
+  animation: loading 12s infinite linear;
+}
+
+@keyframes loading {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 2.5em 2.5em; /* Debe coincidir con el tamaño del patrón */
+  }
+}
+.skill-flipcard-back {
+  background-color: #333;
+  color: white;
+  transform: rotateY(180deg);
+  display: inline-block;
+  border-radius: 5px;
+  border: 1px solid #9a9a9a;
+  line-height: 0;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  max-height: 100%;
+  cursor: pointer;
+}
+.skill-flipcard-back img {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  line-height: 0;
+  padding: 0;
+  margin: 0;
+  border-radius: 4px;
+  max-height: 100%;
+  box-sizing: border-box;
+}
+.skill-flipcard-front,
+.skill-flipcard-back {
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden; /* Safari */
+}
+
+@media screen and (max-width: 719.9px) {
+  .skill-flipcard-container {
+    flex-basis: calc((100% - (3vw * (2 - 1))) / 2);
+    max-width: calc((100% - (3vw * (2 - 1))) / 2);
+  }
+}
+
+@media screen and (min-width: 720px) and (max-width: 1024px) {
+  .skill-flipcard-container {
+    flex-basis: calc((100% - (1.5vw * (4 - 1))) / 4);
+    max-width: calc((100% - (1.5vw * (4 - 1))) / 4);
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .skill-flipcard-container {
+    flex-basis: calc((100% - (1.5vw * (5 - 1))) / 5);
+    max-width: calc((100% - (1.5vw * (5 - 1))) / 5);
+  }
+}

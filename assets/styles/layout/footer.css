@@ -1,0 +1,84 @@
+footer {
+  display: flex;
+  box-sizing: border-box;
+  max-height: 100vh;
+  height: auto;
+  width: 100vw;
+  max-width: 100%;
+  background: linear-gradient(135deg, 
+    #0077b5 0%, 
+    #1e668d 20%, 
+    #4da1c3 40%, 
+    #0077b5 60%, 
+    #1e668d 75%, 
+    #1e668d 85%,  
+    #0077b5 100%
+  );
+}
+
+.foot-element-container {
+  display: inline-flex;
+  align-items: center
+}
+
+.foot-contactinfo-container {
+  display: flex;
+  justify-content: flex-start;
+  width: auto;
+}
+
+.foot-contactinfo-list {
+  padding: 0;
+  margin: 0;
+  display: block;
+}
+
+.foot-contactinfo-item {
+  display: flex;
+  list-style: none;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: auto;
+  gap: 0.5rem;
+}
+
+.foot-contactinfo-item > span {
+  display: inline;
+  width: auto;
+  line-height: normal;
+  color: #dde1e3;
+}
+
+.foot-contactinfo-item > a {
+  display: inline;
+  width: auto;
+  line-height: normal;
+  text-decoration: none;
+  color: #c0dbea;
+}
+
+.foot-contactinfo-item > a:hover {
+  color: #dde1e3;
+}
+
+.foot-contactinfo-item > a:hover {
+  text-decoration: underline;
+}
+
+/*********************** date ************************/
+
+.foot-date-container {
+  display: inline-flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  max-width: 100%;
+  width: 100vw;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+}
+
+.foot-date-text {
+  color: #dde1e3
+}

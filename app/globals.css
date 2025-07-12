@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  width: 100%;
+  background: url("/pattern/svg/plus.svg");
+  background-repeat: repeat;
+  background-size: 0.5vw;
+}
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  justify-content: normal;
+  box-sizing: border-box;
+  width: 100vw;        
+  max-width: 100%;
+  height: 100%;
+  max-height: 100vh;
+  min-height: 100vh;
+}
+
+.dashboard > section {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 100vw;        
+  max-width: 100%;
+  height: auto;
+  flex-grow: 1;
+}
+
+.dashboard > section > .d-container {
+  background-color: #e6eaeb;
+  width: 100%;
+  height: 100%;
+}

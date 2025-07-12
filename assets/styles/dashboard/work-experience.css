@@ -1,0 +1,24 @@
+.we-container {
+  display: inline-flex;
+  flex-direction: column;
+}
+
+.we-subcontainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.we-title {
+  margin: 0;
+  padding: 0;
+  color: #606060;
+  position: relative;
+}
+
+.we-main {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  box-sizing: border-box;
+}

@@ -1,0 +1,126 @@
+/* Estilos base */
+.certs-container {
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+}
+
+.certs-title {
+  margin: 0;
+  padding: 0;
+  color: #606060;
+}
+
+/* Carrusel principal */
+.certs-splide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100% !important;
+  border: 1px solid #dfdfdf;
+  padding: 1vw;
+  background-color: #eef0f0;
+}
+
+/* Track y lista del carrusel */
+.splide__track {
+  position: relative;
+  width: 100%;
+  overflow: hidden; /* Importante para que pagination y efectos visuales no se recorten */
+}
+
+.splide__sr {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 1%;
+  right: 0;
+  font-size: 15px;
+  width: 100%;
+  height: 100%;
+  display: inline-block !important;
+}
+
+.splide__list {
+  display: flex !important;
+  flex-direction: row !important;
+  width: 100%;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Slide individual */
+.certs-splidecard {
+  flex: 0 0 auto;
+  transition: border-color 0.1s ease;
+  overflow: hidden;
+  border-radius: 8px;
+  margin: 0!important;
+  border: 1px solid #c4c4c4;
+}
+
+.certs-splidecard button {
+  all: unset;
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.certs-splidecard img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  filter: brightness(0.95);
+  transition: filter 0.3s ease;
+}
+
+/* Hover effects */
+.certs-splidecard:hover {
+  border-color: #b0b0b0;
+}
+
+.certs-splidecard:hover img {
+  filter: brightness(0.99);
+}
+
+/* Paginación */
+.splide__pagination {
+  z-index: 1000;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.splide__pagination__page {
+  background-color: #9e9e9e !important;
+  width: clamp(6px, 0.75vw, 10px);
+  height: clamp(6px, 0.75vw, 10px);
+  border-radius: 50%;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.splide__pagination__page.is-active {
+  transform: scale(1.05);
+  background-color: rgb(130, 126, 126) !important;
+}
+
+/* Responsive tweaks */
+@media (max-width: 719.99px) {
+  .splide__list {
+    gap: 1.5vw!important;
+  }
+}
+
+@media (min-width: 720px) and (max-width: 1024.99px) {
+  .splide__list {
+    gap: 1.2vw!important;
+  }
+}
+
+@media (min-width: 1025px) {
+  .splide__list {
+    gap: 1vw!important;
+  }
+
+}
