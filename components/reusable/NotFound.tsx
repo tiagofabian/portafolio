@@ -1,19 +1,11 @@
-import React, { useEffect } from 'react';
-import { useHistory } from "react-router-dom";
-import "../assets/styles/layout.css";
+import React from 'react'
 
 const NotFound = () => {
-  const history = useHistory();
-
-  useEffect(() => {
-    history.push("/not-found");
-  }, [history]);
-
   return (
-    <div className='layout-container'>
-      NotFound
+    <div>
+      Hello am not Found
     </div>
   )
 }
 
-export default NotFound;
+export default NotFound
