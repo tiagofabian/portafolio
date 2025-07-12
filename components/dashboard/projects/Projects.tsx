@@ -6,8 +6,7 @@ import { projects } from "@/lib/list/projects"
 import Image from "next/image";
 
 const Projects = () => {
-    const [ projectsState, setProjectsState ] = useState(projects)
-
+    const [ projectsState ] = useState(projects)
 
     return (
       <div className='projects-container d-container gap-4xl px-12xl py-6xl tb:px-8xl tb:py-4xl mb:gap-16xl mb:px-12xl mb:py-12xl'>
