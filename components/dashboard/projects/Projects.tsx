@@ -10,7 +10,7 @@ const Projects = () => {
 
     return (
       <div className='projects-container d-container gap-4xl px-12xl py-6xl tb:px-8xl tb:py-4xl mb:gap-16xl mb:px-12xl mb:py-12xl'>
-        <h2 className='projects-title text-xs font-medium mb:text-12xl'>Proyectos</h2>
+        <h2 className='projects-title text-xs font-medium mb:text-15xl'>Proyectos</h2>
         <div className='projects-subcontainer'>
         {projectsState && projectsState.map((project, idx) => (
           <div className='projects-card' key={idx}>

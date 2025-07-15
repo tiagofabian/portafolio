@@ -12,7 +12,7 @@ interface FooterProps {
 const Footer = ({ className }: FooterProps) => {
   return (
     <footer className={className} >
-      <div className='foot-element-container gap-3xl mb:gap-15xl mb:justify-between'>
+      <div className='foot-element-container gap-3xl mb:gap-3xl mb:justify-between'>
         <ContactInfo />
         <ContactForm />
       </div>

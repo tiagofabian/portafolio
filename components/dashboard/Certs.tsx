@@ -39,7 +39,7 @@ const Certs = () => {
 
   return (
     <div className='certs-container d-container gap-4xl px-12xl py-6xl tb:px-8xl tb:py-4xl mb:gap-16xl mb:px-12xl mb:py-12xl'>
-      <h2 className='certs-title text-xs font-medium mb:text-12xl'>Certificados</h2>
+      <h2 className='certs-title text-xs font-medium mb:text-15xl'>Certificados</h2>
       <Splide
         className='certs-splide gap-xs mb:gap-xl'
         options={{

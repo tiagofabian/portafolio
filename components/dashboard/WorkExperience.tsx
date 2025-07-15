@@ -46,7 +46,7 @@ const WorkExperience = () => {
   return (
     <div className='we-container d-container gap-4xl px-12xl py-6xl tb:px-8xl tb:py-4xl mb:gap-16xl mb:px-12xl mb:py-12xl'>
       <div className='we-subcontainer gap-2xl mb:gap-13xl'>
-        <h2 className='we-title text-xs font-medium mb:text-12xl'>Historial Académico</h2>
+        <h2 className='we-title text-xs font-medium mb:text-15xl'>Historial Académico</h2>
         <div className='we-main gap-4xl mb:flex-col mb:gap-7xl'>
           {backgroundsState.academics.map((academic, idx) => (
             <Accordion
@@ -57,7 +57,7 @@ const WorkExperience = () => {
               onToggle={updateDropdown}
             >
               <div className='flex flex-col gap-5xs'>
-                <span className='text-2xs mb:text-10xl'>
+                <span className='text-2xs mb:text-11xl'>
                   <strong>{academic.content.subtitle} </strong>
                   <i>{academic.content.yearRange}</i>
                 </span>
@@ -72,7 +72,7 @@ const WorkExperience = () => {
         </div>
       </div>
       <div className='we-subcontainer gap-2xl mb:gap-13xl'>
-        <h2 className='we-title text-xs font-medium mb:text-12xl'>Historial Laboral</h2>
+        <h2 className='we-title text-xs font-medium mb:text-15xl'>Historial Laboral</h2>
         <div className='we-main gap-4xl mb:flex-col mb:gap-7xl'>
           {backgroundsState.professionals.map((professional, idx) => (
             <Accordion
