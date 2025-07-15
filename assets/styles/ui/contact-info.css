@@ -1,0 +1,45 @@
+.foot-contactinfo-container {
+  display: flex;
+  justify-content: flex-start;
+  width: auto;
+}
+
+.foot-contactinfo-list {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+}
+
+.foot-contactinfo-item {
+  display: flex;
+  list-style: none;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: auto;
+  gap: 0.5rem;
+}
+
+.foot-contactinfo-item > span {
+  display: inline;
+  width: auto;
+  line-height: normal;
+  color: #dde1e3;
+}
+
+.foot-contactinfo-item > a {
+  display: inline;
+  width: auto;
+  line-height: normal;
+  text-decoration: none;
+  color: #c0dbea;
+}
+
+.foot-contactinfo-item > a:hover {
+  color: #dde1e3;
+}
+
+.foot-contactinfo-item > a:hover {
+  text-decoration: underline;
+}

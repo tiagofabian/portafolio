@@ -101,7 +101,7 @@ export const skills: Skills = {
     {
       name: "Mongo",
       progressBar: 0,
-      max: 45,
+      max: 71,
       card: mongoCard,
       accDegree: 0
     },
@@ -129,7 +129,7 @@ export const skills: Skills = {
     {
       name: "MySql",
       progressBar: 0,
-      max: 68,
+      max: 60,
       card: mysqlCard,
       accDegree: 0
     },

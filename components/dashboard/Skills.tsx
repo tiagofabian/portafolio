@@ -94,7 +94,7 @@ const Skills = () => {
 
   return (
     <div className='skill-container d-container gap-4xl px-12xl py-6xl tb:px-8xl tb:py-4xl mb:gap-16xl mb:px-12xl mb:py-12xl'>
-
+      
       <div className='skill-subcontainer gap-2xl mb:gap-13xl'>
         <h2 className='skill-title text-xs font-medium mb:text-12xl'>Lenguajes</h2>
         <div className='skill-main gap-sm mb:gap-3xl'>
@@ -117,7 +117,7 @@ const Skills = () => {
         </div>
       </div>
 
-      <div className='skill-subcontainer gap-2xl'>
+      <div className='skill-subcontainer gap-2xl mb:gap-13xl'>
         <h2 className='skill-title text-xs font-medium mb:text-12xl'>Tecnologías</h2>
         <div className='skill-main gap-sm mb:gap-3xl'>
           {skillsState.techs.map((tech, idx) => (

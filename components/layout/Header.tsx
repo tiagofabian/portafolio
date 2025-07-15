@@ -15,13 +15,13 @@ const Header = ({ className }: HeaderProps) => {
         {/* <img src={perfilIMG} alt="perfil-img" className='nav-photo-img'/> */}
         <div className="header-presentation-title gap-4xs tb:gap-5xs mb:gap-sm">
           <div className="header-title flex-col mb:text-center">
-            <h1 className="text-20xl font-bold leading-[1.10] tb:text-24xl mb:text-50xl">
+            <h1 className="text-20xl font-bold leading-[1.10] tb:text-16xl mb:text-50xl">
               TIAGO <br className="tb:hidden mb:hidden" /> <span className="text-sky">ALCÁZAR</span>
             </h1>
-            <h4 className="text-sm font-bold tb:text-6xl mb:text-20xl">DESAROLLADOR DE SOFTWARE</h4>
+            <h4 className="text-sm font-bold tb:text-2xl mb:text-20xl">DESAROLLADOR DE SOFTWARE</h4>
           </div>
           
-          <p className="text-3xs tb:text-xl mb:text-center mb:text-11xl">
+          <p className="text-3xs tb:text-md mb:text-center mb:text-9xl">
             Soy un desarrollador fullstack especializado en React con Node.
             Poseo experiencia diseñando aplicaciones web con multiples librerias
             y herramientas de optimización, prueba, documentación y despliegue.

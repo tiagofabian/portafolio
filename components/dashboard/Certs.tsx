@@ -50,7 +50,7 @@ const Certs = () => {
           gap: isDesktop ? '1.5vw' : isMobile ? '4vw' : '3vw',
           arrows: false, 
           pagination: isDesktop ? true : isMobile ? false : true,
-          perPage: isDesktop ? 4 : isMobile ? 2 : 3,
+          perPage: isDesktop ? 4 : isMobile ? 2 : 4,
           speed: 5000,
           autoScroll: {
             speed: 0.6,   // Ajusta la velocidad de desplazamiento automático

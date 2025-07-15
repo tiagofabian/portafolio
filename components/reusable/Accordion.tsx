@@ -25,7 +25,7 @@ const Accordion = ({
           <ChevronDown
             strokeWidth={2.5}
             className={`${selected ? "scale-y-100" : "scale-y-[-1]"} transition-transform duration-500 
-              text-[#334574] w-[2vw] mb:w-[4vw]
+              text-[#798cbc] w-[2vw] mb:w-[4vw]
             `}
           />
         </button>

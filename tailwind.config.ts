@@ -160,7 +160,19 @@ const config: Config = {
         '61xl': '14.0vw',
         '62xl': '14.2vw',
         '63xl': '14.4vw',
-        '64xl': '14.6vw'
+        '64xl': '14.6vw',
+        '65xl': '14.8vw',
+        '66xl': '15vw',
+        '67xl': '15.2vw',
+        '68xl': '15.4vw',
+        '69xl': '15.6vw',
+        '70xl': '15.8vw',
+        '71xl': '16vw',
+        '72xl': '16.2vw',
+        '73xl': '16.4vw',
+        '74xl': '16.6vw',
+        '75xl': '16.8vw',
+        '76xl': '17vw'
       },
       margin: {
         '6xs':  '0.2vw',
@@ -229,8 +241,9 @@ const config: Config = {
       },
       colors: {
         "white-1": "#F8F8F8",
-        "grey-1": "#616161",
-        "grey-2": "#E5E7EB",
+        "white-2": "#e8e8e8",
+        "grey-1": "#dddddd",
+        "grey-2": "#d4d4d4",
         "blue-1": "#005EBE",
         "blue-2": "#E9F5FE",
         "blue-3": "#F5F7F9",
@@ -251,6 +264,7 @@ const config: Config = {
         'blue-desk': 'url("/bg/svg/blue-desk.svg")',
       },
       gap: {
+        '7xs':  '0.1vw',
         '6xs':  '0.3vw',
         '5xs':  '0.5vw',
         '4xs':  '0.7vw',

@@ -34,6 +34,7 @@ export const backgrounds: Backgrounds = {
           "Curso de Node JS.",
           "Curso de Graphql.",
           "Curso de Nest JS.",
+          "Curso de Next JS.",
         ]
       }
     }
@@ -44,7 +45,7 @@ export const backgrounds: Backgrounds = {
       selected: false,
       title: "Ecomsur",
       content: {
-        subtitle: "desarrollador frontend",
+        subtitle: "frontend",
         yearRange: "2023-2024",
         subjects: [
           "Vtex.",
