@@ -1,6 +1,8 @@
 import jsEscalabCert from "@/assets/imgs/dashboard/cert/js_escalab-cert.png";
 import reactEscalabCert from "@/assets/imgs/dashboard/cert/react_escalab-cert.png";
 import nodeEscalabCert from "@/assets/imgs/dashboard/cert/node_escalab-cert.png";
+import nestEscalabCert from "@/assets/imgs/dashboard/cert/nest_escalab-cert.png";
+import nextEscalabCert from "@/assets/imgs/dashboard/cert/next_escalab-cert.png";
 import graduationAiepCert from "@/assets/imgs/dashboard/cert/graduation_aiep-cert.png";
 import softwareQualityCert from "@/assets/imgs/dashboard/cert/software_quality_aiep-cert.png";
 import basicProgrammingCert from "@/assets/imgs/dashboard/cert/basic_programming_aiep-cert.png";
@@ -40,90 +42,104 @@ export const certs: Cert[] = [
   },
   {
     id: "4",
+    name: "nest",
+    urlIMG: nestEscalabCert,
+    alt: "escalab",
+    modalState: false
+  },
+  {
+    id: "5",
+    name: "next",
+    urlIMG: nextEscalabCert,
+    alt: "escalab",
+    modalState: false
+  },
+  {
+    id: "6",
     name: "graduation",
     urlIMG: graduationAiepCert,
     alt: "aiep",
     modalState: false
   },
   {
-    id: "5",
+    id: "7",
     name: "software_quality",
     urlIMG: softwareQualityCert,
     alt: "aiep",
     modalState: false
   },
   {
-    id: "6",
+    id: "8",
     name: "basic_programming",
     urlIMG: basicProgrammingCert,
     alt: "aiep",
     modalState: false
   },
   {
-    id: "7",
+    id: "9",
     name: "web_application",
     urlIMG: webApplicationCert,
     alt: "aiep",
     modalState: false
   },
   {
-    id: "8",
+    id: "10",
     name: "hardware_software",
     urlIMG: hardwareSoftwareCert,
     alt: "aiep",
     modalState: false
   },
   {
-    id: "9",
+    id: "11",
     name: "html_sololearn",
     urlIMG: htmlSololearnCert,
     alt: "sololearn",
     modalState: false
   },
   {
-    id: "10",
+    id: "12",
     name: "css_sololearn",
     urlIMG: cssSololearnCert,
     alt: "sololearn",
     modalState: false
   },
   {
-    id: "11",
+    id: "13",
     name: "js_sololearn",
     urlIMG: jsSololearnCert,
     alt: "sololearn",
     modalState: false
   },
   {
-    id: "12",
+    id: "14",
     name: "php_sololearn",
     urlIMG: phpSololearnCert,
     alt: "sololearn",
     modalState: false
   },
   {
-    id: "13",
+    id: "15",
     name: "csharp_sololearn",
     urlIMG: csharpSololearnCert,
     alt: "sololearn",
     modalState: false
   },
   {
-    id: "14",
+    id: "16",
     name: "csharpi_sololearn",
     urlIMG: csharpISololearnCert,
     alt: "sololearn",
     modalState: false
   },
   {
-    id: "15",
+    id: "17",
     name: "sql_sololearn",
     urlIMG: sqlSololearnCert,
     alt: "sololearn",
     modalState: false
   },
   {
-    id: "16",
+    id: "18",
     name: "jquery_sololearn",
     urlIMG: jquerySololearnCert,
     alt: "sololearn",
