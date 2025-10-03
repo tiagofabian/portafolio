@@ -22,12 +22,15 @@ const Header = ({ className }: HeaderProps) => {
           </div>
           
           <p className="text-3xs tb:text-md mb:text-center mb:text-11xl">
-            Soy un desarrollador fullstack especializado en React con Node.
-            Poseo experiencia diseñando aplicaciones web con multiples librerias
-            y herramientas de optimización, prueba, documentación y despliegue.
-            A lo largo de mi carrera, he estudiado diferentes lenguajes y tecnologías. 
-            Me mantengo al día con las últimas tendencias y siempre estoy listo para 
-            afrontar nuevos desafíos.
+            Desarrollador Fullstack especializado en Javascript, 
+            con experiencia en el desarrollo de aplicaciones web, 
+            estructuración de APIs y administración de datos. A lo 
+            largo de mi carrera, he trabajado con diversas librerias 
+            y frameworks, entre ellos React, Next.js, Nest.js, Express, 
+            los cuales se han convertido en mis mayores fortalezas para 
+            el desarrollo de aplicaciones de alto rendimiento. Mi pasión 
+            por la tecnología me motiva a estar al día con las ultimas 
+            tendencias y emprender nuevos desafíos.
           </p>
         </div>
       </div>

@@ -50,10 +50,16 @@ type Backgrounds = {
   professionals: Background[];
 }
 
+type Badge = {
+  name: string;
+  icon: React.FC<React.SVGProps<SVGSVGElement>>;
+}
+
 type Project = {
   id: string
   title: string
   preview: StaticImageData
   url: string
   description: string
+  badges: Badge[]
 }
