@@ -41,10 +41,10 @@ const Certs = () => {
   return (
     <div className='certs-container d-container gap-4xl px-12xl py-6xl tb:px-8xl tb:py-4xl mb:gap-16xl mb:px-12xl mb:py-12xl'>
       <h2 className='certs-title text-xs font-medium mb:text-15xl'>Certificados</h2>
-      <EmblaCarousel autoScroll gap={isMobile ? '4.5vw' : isTablet ? '3vw' : '1.5vw'} className='embla-carousel p-xs'>
+      <EmblaCarousel autoScroll gap={isMobile ? '4.5vw' : isTablet ? '3.5vw' : '2.5vw'} className='embla-carousel p-xs tb:p-sm mb:p-0'>
         <EmblaCarouselContent className='embla-carousel-content'>
           {certsState.map((cert) => (
-            <EmblaCarouselItem basis={isMobile ? "40%" : isTablet ? "25%": "20%"} key={cert.id} className='embla-carousel-item mx-4xs tb:mx-3xs mb:mx-2xs'>
+            <EmblaCarouselItem basis={isMobile ? "50%" : isTablet ? "25%": "20%"} key={cert.id} className='embla-carousel-item mx-4xs tb:mx-3xs mb:mx-2xs'>
               <button 
                 onClick={(e) => openModal(e)}
                 data-id={cert.id}
@@ -58,7 +58,11 @@ const Certs = () => {
             </EmblaCarouselItem>
           ))}
         </EmblaCarouselContent>
-        <EmblaCarouselDots dotSize={isMobile ? "1.5vw" : isTablet ? "0.9vw" : "0.6vw"} className='embla-carousel-dots'/>
+        <EmblaCarouselDots 
+          dotSize={isMobile ? "1.5vw" : isTablet ? "0.9vw" : "0.6vw"} 
+          hidden={isMobile ? true : false}
+          className='embla-carousel-dots gap-5xs tb:gap-3xs mb:gap-xs'
+        />
       </EmblaCarousel>
       {isOpen &&
         certsState.map((cert) =>

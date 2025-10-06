@@ -116,17 +116,19 @@ const EmblaCarouselItem = ({
 
 const EmblaCarouselDots = ({
   className,
-  dotSize = "0.6vw"
+  dotSize = "0.6vw",
+  hidden = false
 }: { 
   className?: string
   dotSize?: string
+  hidden?: boolean
 }) => {
   const { emblaApi, scrollSnaps, selectedIndex } = useEmbla()
 
   if (!emblaApi) return null
 
   return (
-    <ul className={cn("flex justify-center items-center gap-2", className)}>
+    <ul className={cn("justify-center items-center", className, hidden ? "hidden" : "flex")} hidden={hidden}>
       {scrollSnaps.map((_, i) => (
         <li key={i} className="flex justify-center items-center">
           <button
