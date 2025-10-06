@@ -1,5 +1,6 @@
 import ecommerceAdminPreview from "@/assets/imgs/dashboard/projects/ecommerce-admin.png"
 import ecommerceStorePreview from "@/assets/imgs/dashboard/projects/ecommerce-store.png"
+import teachingPlannerPreview from "@/assets/imgs/dashboard/projects/teaching-planner_preview.png"
 import restCountryPreview from "@/assets/imgs/dashboard/projects/restcountry-preview.png"
 import rickAndMortyPreview from "@/assets/imgs/dashboard/projects/rickandmorty-preview.png"
 import superHeroPreview from "@/assets/imgs/dashboard/projects/superhero-preview.png"
@@ -16,7 +17,7 @@ import TailwindIcon from '@/assets/icons/svg/tailwind.svg';
 import ReactIcon from '@/assets/icons/svg/react.svg';
 // import ReduxIcon from '@/assets/icons/svg/redux.svg';
 import NextIcon from '@/assets/icons/svg/next.svg';
-// import NestIcon from '@/assets/icons/svg/nest.svg';
+import NestIcon from '@/assets/icons/svg/nest.svg';
 
 import { Project } from "../types";
 
@@ -60,6 +61,27 @@ const projects: Project[] = [
       {
         name: "Next",
         icon: NextIcon
+      },
+    ],
+  },
+  {
+    id: "teachingplanner",
+    title: "Teaching Planner",
+    preview: teachingPlannerPreview,
+    url: "https://github.com/tiagofabian/nest-teaching-planner",
+    description: "Plataforma de planificación docente que optimiza la utilización de espacios académicos",
+    badges: [
+      {
+        name: "Typescript",
+        icon: TypescriptIcon
+      },
+      {
+        name: "Javascript",
+        icon: JavascriptIcon
+      },
+      {
+        name: "Nest",
+        icon: NestIcon
       },
     ],
   },

@@ -2,18 +2,19 @@
 
 import React, { useState } from 'react'
 import { Modal } from "@/components/reusable/Modal";
-import { Splide, SplideSlide } from '@splidejs/react-splide';
-import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
-import { useDevice } from '@/lib/hooks/useDevice';
+import { EmblaCarousel, EmblaCarouselContent, EmblaCarouselItem, EmblaCarouselDots } from "@/components/reusable/EmblaCarousel"
+// import { useDevice } from '@/lib/hooks/useDevice';
 import { certs } from "@/lib/list/certs";
 import Image from "next/image";
 import "@/assets/styles/dashboard/certs.css"
+import { useDevice } from '@/lib/hooks/useDevice';
 
 
 
 const Certs = () => {
-  const { isMobile, isDesktop } = useDevice();
+  // const { isMobile, isDesktop } = useDevice();
   const [isOpen, setIsOpen] = useState(false);
+  const { isMobile, isTablet } = useDevice()
   const [ certsState, setCertsState ] = useState(
     certs.map(cert => ({ ...cert, modalState: false }))
   );
@@ -40,39 +41,25 @@ const Certs = () => {
   return (
     <div className='certs-container d-container gap-4xl px-12xl py-6xl tb:px-8xl tb:py-4xl mb:gap-16xl mb:px-12xl mb:py-12xl'>
       <h2 className='certs-title text-xs font-medium mb:text-15xl'>Certificados</h2>
-      <Splide
-        className='certs-splide gap-xs mb:gap-xl'
-        options={{
-          direction: 'ltr',
-          type: 'loop',
-          drag: 'free',
-          focus: 0,
-          gap: isDesktop ? '1.5vw' : isMobile ? '4vw' : '3vw',
-          arrows: false, 
-          pagination: isDesktop ? true : isMobile ? false : true,
-          perPage: isDesktop ? 4 : isMobile ? 2 : 4,
-          speed: 5000,
-          autoScroll: {
-            speed: 0.6,   // Ajusta la velocidad de desplazamiento automático
-          },
-        }}
-        extensions={{ AutoScroll }}
-      >
-        {certsState.map((cert) => (
-          <SplideSlide className='certs-splidecard max-h-[12vw] mb:max-h-[25vw]' key={cert.id}>
-            <button 
-              onClick={(e) => openModal(e)}
-              data-id={cert.id}
-              tabIndex={cert.modalState ? -1 : 0}
-            >
-              <Image 
-                src={cert.urlIMG} 
-                alt={cert.alt}
-              />
-            </button>
-          </SplideSlide>
-        ))}
-      </Splide>
+      <EmblaCarousel autoScroll gap={isMobile ? '4.5vw' : isTablet ? '3vw' : '1.5vw'} className='embla-carousel p-xs'>
+        <EmblaCarouselContent className='embla-carousel-content'>
+          {certsState.map((cert) => (
+            <EmblaCarouselItem basis={isMobile ? "40%" : isTablet ? "25%": "20%"} key={cert.id} className='embla-carousel-item mx-4xs tb:mx-3xs mb:mx-2xs'>
+              <button 
+                onClick={(e) => openModal(e)}
+                data-id={cert.id}
+                tabIndex={cert.modalState ? -1 : 0}
+              >
+                <Image 
+                  src={cert.urlIMG} 
+                  alt={cert.alt}
+                />
+              </button>
+            </EmblaCarouselItem>
+          ))}
+        </EmblaCarouselContent>
+        <EmblaCarouselDots dotSize={isMobile ? "1.5vw" : isTablet ? "0.9vw" : "0.6vw"} className='embla-carousel-dots'/>
+      </EmblaCarousel>
       {isOpen &&
         certsState.map((cert) =>
           cert.modalState ? (
