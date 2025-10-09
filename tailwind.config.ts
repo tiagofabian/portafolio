@@ -88,6 +88,7 @@ const config: Config = {
     },
     extend: {
       padding: {
+        '7xs':  '0.1vw',
         '6xs':  '0.2vw',
         '5xs':  '0.4vw',
         '4xs':  '0.6vw',
@@ -372,6 +373,23 @@ const config: Config = {
         '72': '4.5rem',    
         '80': '5rem',      
         '96': '6rem',      
+      },
+      keyframes: {
+        "accordion-down": {
+          "0%": { height: "0", opacity: "0" },
+          "80%": { height: "var(--radix-accordion-content-height)", opacity: "0.9" },
+          "100%": { height: "var(--radix-accordion-content-height)", opacity: "1" },
+        },
+        "accordion-up": {
+          "0%": { height: "var(--radix-accordion-content-height)", opacity: "1" },
+          "20%": { height: "var(--radix-accordion-content-height)", opacity: "0.9" },
+          "100%": { height: "0", opacity: "0" },
+        },
+      },
+      animation: {
+        // curva springy con rebote sutil
+        "accordion-down": "accordion-down 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)",
+        "accordion-up": "accordion-up 0.3s cubic-bezier(0.36, 0, 0.66, -0.56)",
       },
     },
   },

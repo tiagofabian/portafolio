@@ -27,7 +27,7 @@ export const backgrounds: Backgrounds = {
       title: "Escalab Academy",
       content: {
         subtitle: "cursos de tecnología moderna",
-        yearRange: "2022-2024",
+        yearRange: "2022-2025",
         subjects: [
           "Curso de Javascript.",
           "Curso de React JS.",
@@ -53,7 +53,7 @@ export const backgrounds: Backgrounds = {
           "Typescript",
           "Graphql",
           "Node",
-          "GTM",
+          "GCP",
           "GitLab",
           "Azure",
           "Mysql",
