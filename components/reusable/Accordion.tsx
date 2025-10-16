@@ -21,7 +21,7 @@ const AccordionItem = ({
   return (
     <AccordionPrimitive.Item
       data-slot="accordion-item"
-      className={cn("h-auto border-b last:border-b-0", className)}
+      className={cn("h-auto", className)}
       {...props}
     />
   );

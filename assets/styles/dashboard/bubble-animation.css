@@ -1,0 +1,30 @@
+svg.bubble {
+  width: 100vw;
+  height: 100vh;
+  min-height: 100%;
+  display: block;
+}
+
+circle {
+  fill: url(#gradiente-burbuja);
+  opacity: 0.8;
+  transform-origin: center;
+  animation: caer linear infinite;
+}
+
+@keyframes caer {
+  0% {
+    transform: translate(var(--start-x), -15vh) scale(var(--scale));
+    opacity: 0;
+  }
+  5% {
+    opacity: 0.9;
+  }
+  95% {
+    opacity: 0.9; /* Mantener visible casi hasta el final */
+  }
+  100% {
+    transform: translate(var(--end-x), 100%) scale(var(--scale));
+    opacity: 0.4; /* Desaparece al salir del contenedor */
+  }
+}
