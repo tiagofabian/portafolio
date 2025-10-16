@@ -68,7 +68,7 @@ const Certs = () => {
         certsState.map((cert) =>
           cert.modalState ? (
             <Modal key={cert.id} isOpen={isOpen} onClose={closeModal} idToClose={cert.id}>
-              <Image src={cert.urlIMG} alt={cert.alt} className='rounded-md outline outline-1 outline-[#c8cdd1]' /> 
+              <Image src={cert.urlIMG} alt={cert.alt} className='rounded-md' /> 
             </Modal>
           ) : null
         )

@@ -1,11 +1,10 @@
 svg.bubble {
-  width: 100vw;
-  height: 100vh;
   min-height: 100%;
+  max-width: 100%;
   display: block;
 }
 
-circle {
+svg.bubble > circle {
   fill: url(#gradiente-burbuja);
   opacity: 0.8;
   transform-origin: center;
@@ -25,6 +24,6 @@ circle {
   }
   100% {
     transform: translate(var(--end-x), 100%) scale(var(--scale));
-    opacity: 0.4; /* Desaparece al salir del contenedor */
+    opacity: 0.9; /* Desaparece al salir del contenedor */
   }
 }

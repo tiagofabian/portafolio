@@ -11,7 +11,7 @@ const BubbleAnimation = ({className}: { className?: string} ) => {
     const svg = svgRef.current;
     if (!svg) return;
 
-    const TOTAL_BURBUJAS = 100;
+    const TOTAL_BURBUJAS = 120;
 
     for (let i = 0; i < TOTAL_BURBUJAS; i++) {
       const circle = document.createElementNS(
@@ -22,7 +22,7 @@ const BubbleAnimation = ({className}: { className?: string} ) => {
       const cx = Math.random() * 140 - 20;
       const r = Math.random() * 1.8 + 0.5;
       const dur = Math.random() * 10 + 35;
-      const delay = Math.random() * 8;
+      const delay = Math.random() * 10;
       const scale = Math.random() * 0.5 + 0.8;
       const startX = Math.random() * 40 - 20 + "vw";
       const endX = parseFloat(startX) + (Math.random() * 40 - 20) + "vw";
@@ -43,7 +43,10 @@ const BubbleAnimation = ({className}: { className?: string} ) => {
   }, []);
 
   return (
-    <svg ref={svgRef} className={cn("bubble absolute z-0", className)}>
+    <svg 
+      ref={svgRef} 
+      className={cn("bubble absolute left-0 right-0 z-0", className)}
+    >
       <defs>
         <radialGradient id="gradiente-burbuja" cx="50%" cy="50%" r="50%">
           <stop offset="0%" stopColor="#ffffff" />
