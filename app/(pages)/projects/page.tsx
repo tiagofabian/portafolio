@@ -1,5 +1,5 @@
 import React from 'react'
-import { Projects } from "@/components/dashboard/repo/Projects"
+import { Projects } from "@/components/Projects"
 
 const page = () => {
   return (

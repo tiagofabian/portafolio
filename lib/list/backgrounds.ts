@@ -3,46 +3,62 @@ import { Backgrounds } from "../types";
 export const backgrounds: Backgrounds = {
   academics: [
     {
-      name: "aiep",
-      selected: false,
-      title: "Instituto Profesional Aiep",
+      name: "generation",
+      selected: true,
+      title: "Generation Chile",
       content: {
-        subtitle: "analista y programador de sistemas",
-        yearRange: "2018-2021",
+        subtitle: "bootcamp Java",
+        yearRange: "(oct 2025 - feb 2026)",
         subjects: [
-          "Programación Orientada a Objetos.",
-          "Base de Datos Relacionales",
-          "Arquitectura MVC",
-          "Lenguajes de Modelado (Bizagi, Uml).",
-          "Calidad de Software.",
-          "Documentación y Toma de Requerimientos(ERS).",
-          "Manejo de Redes Básico.",
-          "Armado y Desarmado de Computadoras."
+          "Arquitectura RESTful",
+          "Maven",
+          "Spring Boot",
+          "Java",
+          "Swagger",
+          "Vite",
+          "PostgresSQL",
+          "Tailwind",
         ]
       }
     },
     {
       name: "escalab",
-      selected: false,
+      selected: true,
       title: "Escalab Academy",
       content: {
         subtitle: "cursos de tecnología moderna",
-        yearRange: "2022-2025",
+        yearRange: "(ene 2021 - jul 2024)",
         subjects: [
-          "Curso de Javascript.",
-          "Curso de React JS.",
-          "Curso de Node JS.",
-          "Curso de Graphql.",
-          "Curso de Nest JS.",
-          "Curso de Next JS.",
+          "Curso de Next JS",
+          "Curso de Nest JS",
+          "Bootcamp Fullstack (React, Javascript, Node)",
         ]
       }
-    }
+    },
+    {
+      name: "aiep",
+      selected: true,
+      title: "Instituto Profesional Aiep",
+      content: {
+        subtitle: "analista y programador de sistemas",
+        yearRange: "(mar 2018 - nov 2021)",
+        subjects: [
+          "Programación Orientada a Objetos",
+          "Base de Datos Relacionales",
+          "Arquitectura MVC",
+          "Lenguajes de Modelado (Bizagi, Uml)",
+          "Calidad de Software",
+          "Documentación y Toma de Requerimientos(ERS)",
+          "Manejo de Redes Básico",
+          "Armado y Desarmado de Computadoras"
+        ]
+      }
+    },
   ],
   professionals: [
     {
       name: "ecomsur",
-      selected: false,
+      selected: true,
       title: "Ecomsur",
       content: {
         subtitle: "frontend",

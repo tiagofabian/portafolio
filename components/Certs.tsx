@@ -1,8 +1,8 @@
 "use client"
 
 import React, { useState } from 'react'
-import { Modal } from "@/components/reusable/Modal";
-import { EmblaCarousel, EmblaCarouselContent, EmblaCarouselItem, EmblaCarouselDots } from "@/components/reusable/EmblaCarousel"
+import { Modal } from "@/components/reuse/Modal";
+import { EmblaCarousel, EmblaCarouselContent, EmblaCarouselItem, EmblaCarouselDots } from "@/components/reuse/EmblaCarousel"
 // import { useDevice } from '@/lib/hooks/useDevice';
 import { certs } from "@/lib/list/certs";
 import Image from "next/image";

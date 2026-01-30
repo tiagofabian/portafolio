@@ -5,6 +5,7 @@ import restCountryPreview from "@/assets/imgs/dashboard/projects/restcountry-pre
 import rickAndMortyPreview from "@/assets/imgs/dashboard/projects/rickandmorty-preview.png"
 import superHeroPreview from "@/assets/imgs/dashboard/projects/superhero-preview.png"
 import nutricionalAppPreview from "@/assets/imgs/dashboard/projects/nutricionalapp-preview.png"
+import hosekiPreview from "@/assets/imgs/dashboard/projects/hoseki-preview.png"
 
 // icons 
 // import HTMLIcon from '@/assets/icons/svg/html.svg';
@@ -18,10 +19,36 @@ import ReactIcon from '@/assets/icons/svg/react.svg';
 // import ReduxIcon from '@/assets/icons/svg/redux.svg';
 import NextIcon from '@/assets/icons/svg/next.svg';
 import NestIcon from '@/assets/icons/svg/nest.svg';
+import ViteIcon from '@/assets/icons/svg/vite.svg';
 
 import { Project } from "../types";
 
 const projects: Project[] = [
+  {
+    id: "hoseki",
+    title: "Joyeria Hoseki",
+    preview: hosekiPreview,
+    url: "https://github.com/Elsilla/SA-HA1",
+    description: "Joyeria Hoseki, una tienda de joyería fina que ofrece materiales de alta calidad con diseños personalizados",
+    badges: [
+      {
+        name: "Javascript",
+        icon: JavascriptIcon
+      },
+      {
+        name: "Tailwind",
+        icon: TailwindIcon
+      },
+      {
+        name: "React",
+        icon: ReactIcon
+      },
+      {
+        name: "Vite",
+        icon: ViteIcon
+      },
+    ],
+  },
   {
     id: "techcomstore",
     title: "Techcom Store",

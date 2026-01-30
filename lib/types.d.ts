@@ -16,7 +16,7 @@ type Cert = {
   modalState: boolean
 }
 
-type HeaderTab = {
+type NavbarTab = {
   title: string
   href: string
 }

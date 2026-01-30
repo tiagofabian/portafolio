@@ -1,6 +1,6 @@
-import { HeaderTab } from "../types";
+import { NavbarTab } from "../types";
 
-export const headerTabs: HeaderTab[] = [
+export const navbarTabs: NavbarTab[] = [
   {
     title: "Inicio",
     href: "/"

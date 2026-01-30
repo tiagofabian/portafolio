@@ -1,14 +1,14 @@
 import Link from "next/link";
 import "@/assets/styles/layout/header.css";
-import { headerTabs } from "@/lib/list/headerTabs";
+import { navbarTabs } from "@/lib/list/navbarTabs";
 import { ReactNode } from "react";
 
-interface HeaderProps {
+interface NavbarProps {
   className?: string;
   children?: ReactNode;
 }
 
-const Header = ({ className }: HeaderProps) => {
+const Navbar = ({ className }: NavbarProps) => {
   return (
     <header className={className}>
       <div className="header-presentation flex-row justify-start">
@@ -36,10 +36,10 @@ const Header = ({ className }: HeaderProps) => {
       </div>
       <div className="header-btn-section flex-row mb:justify-center">
         <ul className="header-list flex-col justify-center gap-xl tb:gap-sm mb:flex-row mb:justify-evenly mb:gap-12xl ">
-          {headerTabs.length !== 0 && headerTabs.map((headerTab, idx) => (
+          {navbarTabs.length !== 0 && navbarTabs.map((navbarTab, idx) => (
             <li className="header-item rounded-lg aspect-[2/1] min-w-[6.5vw] tb:min-w-[10vw] tb:rounded-md mb:rounded-md mb:min-w-[17vw] mb:aspect-[5/2]" key={idx}>
-              <Link className="header-link text-sm tb:text-5xl mb:text-16xl" href={headerTab.href}>
-                {headerTab.title}
+              <Link className="header-link text-sm tb:text-5xl mb:text-16xl" href={navbarTab.href}>
+                {navbarTab.title}
               </Link>
             </li>
           ))}
@@ -49,4 +49,4 @@ const Header = ({ className }: HeaderProps) => {
   );
 };
 
-export { Header };
+export { Navbar };

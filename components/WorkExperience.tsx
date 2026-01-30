@@ -7,7 +7,7 @@ import {
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/reusable/Accordion"
+} from "@/components/reuse/Accordion"
 import { useDevice } from '@/lib/hooks/useDevice';
 import { backgrounds } from '@/lib/list/backgrounds';
 
@@ -20,7 +20,7 @@ const WorkExperience = () => {
         <h2 className='we-title text-xs font-medium mb:text-15xl'>Historial Académico</h2>
         <Accordion 
           type="multiple" 
-          className='flex justify-between items-start w-full gap-4xl mb:flex-col mb:gap-7xl'
+          className='flex flex-row flex-wrap justify-start items-start w-full gap-x-[4%] gap-y-[1rem] mb:flex-col mb:gap-7xl'
         >
           {backgrounds.academics.map((academic, idx) => (
             <AccordionItem 
@@ -64,7 +64,7 @@ const WorkExperience = () => {
             >
               <AccordionTrigger 
                 className='flex items-center whitespace-nowrap w-full font-bold text-[aliceblue] text-2xs px-4xs py-7xs tb:text-xs mb:text-11xl mb:px-xs mb:py-4xs'
-                style={{ background: "linear-gradient(150deg, #253164 0%, #0070ef80 85%, #c3cdd8 92%, #0070ef80 100%)"}}
+                style={{ background: "linear-gradient( 150deg, #0f2f2a 0%, #00b3a480 85%, #c2e6e1 92%, #00b3a480 100% )"}}
                 iconSize={isMobile ? "4vw" : isTablet ? "2.2vw" : "1.8vw"}
               >
                 {professional.title}

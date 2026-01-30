@@ -3,8 +3,8 @@
 import React, { useState } from 'react';
 import '@/assets/styles/dashboard/repo/projects.css'
 import { projects } from "@/lib/list/projects"
-import { Badge } from "@/components/reusable/Badge"
-import { IconSVG } from '@/components/reusable/IconSVG';
+import { Badge } from "@/components/reuse/Badge"
+import { IconSVG } from '@/components/reuse/IconSVG';
 import { useDevice } from '@/lib/hooks/useDevice';
 import Image from "next/image";
 
@@ -22,6 +22,7 @@ const Projects = () => {
     CSS: "bg-[#416AD1] text-white border border-[#cccccc]",
     React: "bg-[#2a2a43] text-white border border-[#cccccc]",
     SASS: "bg-[#DEA0BA] text-white border border-[#cccccc]",
+    Vite: "bg-[#4279ff] text-white border border-[#cccccc]",
   };
 
   return (

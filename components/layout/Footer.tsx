@@ -2,7 +2,7 @@ import "@/assets/styles/layout/footer.css";
 import { ContactInfo } from "../ui/ContactInfo"
 import { ContactForm } from "../ui/ContactForm";
 import { ReactNode } from "react";
-import { Separator } from "@/components/ui/Separator";
+import { Separator } from "@/components/reuse/Separator";
 
 interface FooterProps {
   className?: string
