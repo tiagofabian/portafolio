@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 
-interface IconSVGProps {
+interface IconSVGProps extends React.SVGProps<SVGSVGElement> {
   icon: React.FC<React.SVGProps<SVGSVGElement>>;
   className?: string;
   size?: string;
@@ -15,7 +15,7 @@ const IconSVG = ({
   return (
     <Icon 
       className={cn(
-        "w-full",
+        "w-auto",
         className
       )}
       width={size}

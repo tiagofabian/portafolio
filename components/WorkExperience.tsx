@@ -1,6 +1,6 @@
 "use client"
 
-import React from 'react';
+import React, { useState } from 'react';
 import "@/assets/styles/dashboard/work-experience.css";
 import {
   Accordion,
@@ -13,6 +13,18 @@ import { backgrounds } from '@/lib/list/backgrounds';
 
 const WorkExperience = () => {
   const { isMobile, isTablet } = useDevice();
+  const [openAcademics, setOpenAcademics] = useState<string[]>(
+    backgrounds.academics
+      .map((a, i) => (a.selected ? `academic-${i}` : null))
+      .filter(Boolean) as string[]
+  );
+
+  const [openProfessionals, setOpenProfessionals] = useState<string[]>(
+    backgrounds.professionals
+      .map((p, i) => (p.selected ? `professional-${i}` : null))
+      .filter(Boolean) as string[]
+  );
+
 
   return (
     <div className='we-container d-container gap-4xl px-12xl py-6xl tb:px-8xl tb:py-4xl mb:gap-16xl mb:px-12xl mb:py-12xl'>
@@ -20,12 +32,14 @@ const WorkExperience = () => {
         <h2 className='we-title text-xs font-medium mb:text-15xl'>Historial Académico</h2>
         <Accordion 
           type="multiple" 
-          className='flex flex-row flex-wrap justify-start items-start w-full gap-x-[4%] gap-y-[1rem] mb:flex-col mb:gap-7xl'
+          value={openAcademics}
+          onValueChange={setOpenAcademics}
+          className='flex flex-row flex-wrap justify-start items-start w-full gap-x-[4%] gap-y-[2rem] mb:flex-col mb:gap-7xl'
         >
           {backgrounds.academics.map((academic, idx) => (
             <AccordionItem 
-              key={idx} 
-              value={`item-[${idx}]`}
+              key={academic.name}
+              value={`academic-${idx}`}
               className='flex flex-col flex-[0_0_48%] gap-xs mb:flex-[1_1_100%] mb:w-full'
             >
               <AccordionTrigger
@@ -52,14 +66,16 @@ const WorkExperience = () => {
       </div>
       <div className='we-subcontainer gap-2xl mb:gap-13xl'>
         <h2 className='we-title text-xs font-medium mb:text-15xl'>Historial Laboral</h2>
-        <Accordion 
+        <Accordion
           type="multiple" 
+          value={openProfessionals}
+          onValueChange={setOpenProfessionals}
           className='flex justify-between items-start w-full gap-4xl mb:flex-col mb:gap-7xl'
         >
           {backgrounds.professionals.map((professional, idx) => (
             <AccordionItem 
-              key={idx} 
-              value={`item-[${idx}]`}
+              key={professional.name}
+              value={`professional-${idx}`}
               className='flex flex-col flex-[0_0_48%] gap-xs mb:flex-[1_1_100%] mb:w-full'
             >
               <AccordionTrigger 

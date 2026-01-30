@@ -28,7 +28,8 @@ const projects: Project[] = [
     id: "hoseki",
     title: "Joyeria Hoseki",
     preview: hosekiPreview,
-    url: "https://github.com/Elsilla/SA-HA1",
+    urlGit: "https://github.com/Elsilla/SA-HA1",
+    urlProd: "https://hoseki.vercel.app/",
     description: "Joyeria Hoseki, una tienda de joyería fina que ofrece materiales de alta calidad con diseños personalizados",
     badges: [
       {
@@ -53,7 +54,8 @@ const projects: Project[] = [
     id: "techcomstore",
     title: "Techcom Store",
     preview: ecommerceStorePreview,
-    url: "https://github.com/tiagofabian/next-main-ecommerce-store",
+    urlGit: "https://github.com/tiagofabian/next-main-ecommerce-store",
+    urlProd: "#",
     description: "Tienda de ropa e-commerce. Posee login, catálogo, carrito de compras y pasarela de pago.",
     badges: [
       {
@@ -74,7 +76,8 @@ const projects: Project[] = [
     id: "techcomadmin",
     title: "Techcom Admin",
     preview: ecommerceAdminPreview,
-    url: "https://github.com/tiagofabian/next-main-ecommerce-admin",
+    urlGit: "https://github.com/tiagofabian/next-main-ecommerce-admin",
+    urlProd: "#",
     description: "Administrador de tienda para toda la gestion de colecciones, productos y ordenes finalizadas.",
     badges: [
       {
@@ -95,7 +98,8 @@ const projects: Project[] = [
     id: "teachingplanner",
     title: "Teaching Planner",
     preview: teachingPlannerPreview,
-    url: "https://github.com/tiagofabian/nest-teaching-planner",
+    urlGit: "https://github.com/tiagofabian/nest-teaching-planner",
+    urlProd: "#",
     description: "Plataforma de planificación docente que optimiza la utilización de espacios académicos",
     badges: [
       {
@@ -116,7 +120,8 @@ const projects: Project[] = [
     id: "restcountry",
     title: "Rest Countries",
     preview: restCountryPreview,
-    url: "https://github.com/tiagofabian/restcountries",
+    urlGit: "https://github.com/tiagofabian/restcountries",
+    urlProd: "#",
     description: "Esta APP entrega información detallada sobre cada uno de los paises del mundo",
     badges: [
       {
@@ -137,7 +142,8 @@ const projects: Project[] = [
     id: "rickandmorty",
     title: "Rick and Morty",
     preview: rickAndMortyPreview,
-    url: "https://github.com/tiagofabian/rick-and-morty",
+    urlGit: "https://github.com/tiagofabian/rick-and-morty",
+    urlProd: "#",
     description: "Tarjetas coleccionables de los personajes de la serie animada Rick and Morty que puedes añadir a tu lista de favoritos.",
     badges: [
       {
@@ -158,7 +164,8 @@ const projects: Project[] = [
     id: "superhero",
     title: "Marvel",
     preview: superHeroPreview,
-    url: "https://github.com/tiagofabian/super-hero",
+    urlGit: "https://github.com/tiagofabian/super-hero",
+    urlProd: "#",
     description: "API de superheroes donde encontraras información acerca de los personajes de Marvel y su participacion en la historia.",
     badges: [
       {
@@ -179,7 +186,8 @@ const projects: Project[] = [
     id: "nutricionalapp",
     title: "Nutricional App",
     preview: nutricionalAppPreview,
-    url: "https://github.com/tiagofabian/nutricional-app",
+    urlGit: "https://github.com/tiagofabian/nutricional-app",
+    urlProd: "#",
     description: "Ofrece amplia información sobre alimentos saludables que puedes incorporar fácilmente a tu dieta.",
     badges: [
       {

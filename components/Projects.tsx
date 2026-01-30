@@ -7,6 +7,7 @@ import { Badge } from "@/components/reuse/Badge"
 import { IconSVG } from '@/components/reuse/IconSVG';
 import { useDevice } from '@/lib/hooks/useDevice';
 import Image from "next/image";
+import github from "@/assets/icons/svg/github.svg"
 
 const Projects = () => {
   const [ projectsState ] = useState(projects)
@@ -22,7 +23,7 @@ const Projects = () => {
     CSS: "bg-[#416AD1] text-white border border-[#cccccc]",
     React: "bg-[#2a2a43] text-white border border-[#cccccc]",
     SASS: "bg-[#DEA0BA] text-white border border-[#cccccc]",
-    Vite: "bg-[#4279ff] text-white border border-[#cccccc]",
+    Vite: "bg-[#8878ff] text-white border border-[#cccccc]",
   };
 
   return (
@@ -32,7 +33,7 @@ const Projects = () => {
       {projectsState && projectsState.map((project, idx) => (
         <div className='projects-card' key={idx}>
           <div className="projects-image-container">
-            <a href={project.url} target="_blank" rel="noreferrer">
+            <a href={project.urlProd} target="_blank" rel="noreferrer">
               <Image src={project.preview} alt="alt" />
             </a>
           </div>
@@ -54,13 +55,17 @@ const Projects = () => {
                 ))}
               </div>
             </div>
-            <a 
-              href={project.url} 
-              target="_blank" 
-              rel="noreferrer"
-              className='text-5xs tb:text-xs mb:text-4xl'
-            >
-              {project.url}
+            <a className="flex items-center gap-[0.2vw] leading-none cursor-pointer text-5xs tb:text-xs mb:text-4xl">
+              <IconSVG
+                icon={github}
+                size={isMobile ? "0.95vw" : isTablet ? "0.65vw" : "0.55vw"}
+                fill="#006a86"
+                className="shrink-0"
+              />
+
+              <span className="truncate">
+                {project.urlGit}
+              </span>
             </a>
           </div>
         </div>

@@ -59,7 +59,8 @@ type Project = {
   id: string
   title: string
   preview: StaticImageData
-  url: string
+  urlGit: string
+  urlProd: string
   description: string
   badges: Badge[]
 }
