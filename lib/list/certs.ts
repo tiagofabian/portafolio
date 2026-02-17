@@ -1,21 +1,22 @@
-import jsEscalabCert from "@/assets/imgs/dashboard/cert/js_escalab-cert.png";
-import reactEscalabCert from "@/assets/imgs/dashboard/cert/react_escalab-cert.png";
-import nodeEscalabCert from "@/assets/imgs/dashboard/cert/node_escalab-cert.png";
-import nestEscalabCert from "@/assets/imgs/dashboard/cert/nest_escalab-cert.png";
-import nextEscalabCert from "@/assets/imgs/dashboard/cert/next_escalab-cert.png";
-import graduationAiepCert from "@/assets/imgs/dashboard/cert/graduation_aiep-cert.png";
-import softwareQualityCert from "@/assets/imgs/dashboard/cert/software_quality_aiep-cert.png";
-import basicProgrammingCert from "@/assets/imgs/dashboard/cert/basic_programming_aiep-cert.png";
-import webApplicationCert from "@/assets/imgs/dashboard/cert/web_applications_aiep-cert.png";
-import hardwareSoftwareCert from "@/assets/imgs/dashboard/cert/hardware_&_sofware_aiep-cert.png";
-import htmlSololearnCert from "@/assets/imgs/dashboard/cert/html_sololearn-cert.jpeg";
-import cssSololearnCert from "@/assets/imgs/dashboard/cert/css_sololearn-cert.jpeg";
-import jsSololearnCert from "@/assets/imgs/dashboard/cert/js-sololearn-cert.jpeg";
-import phpSololearnCert from "@/assets/imgs/dashboard/cert/html_sololearn-cert.jpeg";
-import csharpSololearnCert from "@/assets/imgs/dashboard/cert/html_sololearn-cert.jpeg";
-import csharpISololearnCert from "@/assets/imgs/dashboard/cert/html_sololearn-cert.jpeg";
-import sqlSololearnCert from "@/assets/imgs/dashboard/cert/sql_sololearn-cert.jpeg";
-import jquerySololearnCert from "@/assets/imgs/dashboard/cert/jquery_sololearn-cert.jpeg";
+import jsEscalabCert from "@/assets/imgs/cert/js_escalab-cert.png";
+import reactEscalabCert from "@/assets/imgs/cert/react_escalab-cert.png";
+import nodeEscalabCert from "@/assets/imgs/cert/node_escalab-cert.png";
+import nestEscalabCert from "@/assets/imgs/cert/nest_escalab-cert.png";
+import nextEscalabCert from "@/assets/imgs/cert/next_escalab-cert.png";
+import graduationAiepCert from "@/assets/imgs/cert/graduation_aiep-cert.png";
+import softwareQualityCert from "@/assets/imgs/cert/software_quality_aiep-cert.png";
+import basicProgrammingCert from "@/assets/imgs/cert/basic_programming_aiep-cert.png";
+import webApplicationCert from "@/assets/imgs/cert/web_applications_aiep-cert.png";
+import hardwareSoftwareCert from "@/assets/imgs/cert/hardware_&_sofware_aiep-cert.png";
+import htmlSololearnCert from "@/assets/imgs/cert/html_sololearn-cert.jpeg";
+import cssSololearnCert from "@/assets/imgs/cert/css_sololearn-cert.jpeg";
+import jsSololearnCert from "@/assets/imgs/cert/js-sololearn-cert.jpeg";
+import phpSololearnCert from "@/assets/imgs/cert/html_sololearn-cert.jpeg";
+import csharpSololearnCert from "@/assets/imgs/cert/html_sololearn-cert.jpeg";
+import csharpISololearnCert from "@/assets/imgs/cert/html_sololearn-cert.jpeg";
+import sqlSololearnCert from "@/assets/imgs/cert/sql_sololearn-cert.jpeg";
+import jquerySololearnCert from "@/assets/imgs/cert/jquery_sololearn-cert.jpeg";
+import generationsChileCert from "@/assets/imgs/cert/certificado_generations.png";
 import { Cert } from "../types";
 
 export const certs: Cert[] = [
@@ -143,6 +144,13 @@ export const certs: Cert[] = [
     name: "jquery_sololearn",
     urlIMG: jquerySololearnCert,
     alt: "sololearn",
+    modalState: false
+  },
+  {
+    id: "19",
+    name: "generations_chile",
+    urlIMG: generationsChileCert,
+    alt: "generations",
     modalState: false
   },
 ];
