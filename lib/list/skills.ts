@@ -1,20 +1,20 @@
-import htmlCard from "@/assets/imgs/dashboard/card/html5-card.jpg";
-import cssCard from "@/assets/imgs/dashboard/card/css3-card.png";
-import jsCard from "@/assets/imgs/dashboard/card/js-card.png";
-import tsCard from "@/assets/imgs/dashboard/card/ts.png";
-import csharpCard from "@/assets/imgs/dashboard/card/csharp-card.png";
-import javaCard from "@/assets/imgs/dashboard/card/java-card.png";
-import phpCard from "@/assets/imgs/dashboard/card/php-card.webp";
+import htmlCard from "@/assets/imgs/card/html5-card.jpg";
+import cssCard from "@/assets/imgs/card/css3-card.png";
+import jsCard from "@/assets/imgs/card/js-card.png";
+import tsCard from "@/assets/imgs/card/ts.png";
+import csharpCard from "@/assets/imgs/card/csharp-card.png";
+import javaCard from "@/assets/imgs/card/java-card.png";
+import phpCard from "@/assets/imgs/card/php-card.webp";
 
-import reactCard from "@/assets/imgs/dashboard/card/react-card.jpg";
-import expressCard from "@/assets/imgs/dashboard/card/express-card.png";
-import graphqlCard from "@/assets/imgs/dashboard/card/graphql-card.png";
-import firebaseCard from "@/assets/imgs/dashboard/card/firebase-card.png";
-import mongoCard from "@/assets/imgs/dashboard/card/mongo-card.png";
-import nestCard from "@/assets/imgs/dashboard/card/nest-card.png";
-import nextCard from "@/assets/imgs/dashboard/card/next-card.jpg";
-import sqlCard from "@/assets/imgs/dashboard/card/sql-card.png";
-import mysqlCard from "@/assets/imgs/dashboard/card/mysql-card.jpeg";
+import reactCard from "@/assets/imgs/card/react-card.jpg";
+import expressCard from "@/assets/imgs/card/express-card.png";
+import graphqlCard from "@/assets/imgs/card/graphql-card.png";
+import firebaseCard from "@/assets/imgs/card/firebase-card.png";
+import mongoCard from "@/assets/imgs/card/mongo-card.png";
+import nestCard from "@/assets/imgs/card/nest-card.png";
+import nextCard from "@/assets/imgs/card/next-card.jpg";
+import sqlCard from "@/assets/imgs/card/sql-card.png";
+import mysqlCard from "@/assets/imgs/card/mysql-card.jpeg";
 import { Skills } from "../types";
 
 export const skills: Skills = {

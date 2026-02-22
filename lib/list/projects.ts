@@ -1,11 +1,11 @@
-import ecommerceAdminPreview from "@/assets/imgs/dashboard/projects/ecommerce-admin.png"
-import ecommerceStorePreview from "@/assets/imgs/dashboard/projects/ecommerce-store.png"
-import teachingPlannerPreview from "@/assets/imgs/dashboard/projects/teaching-planner_preview.png"
-import restCountryPreview from "@/assets/imgs/dashboard/projects/restcountry-preview.png"
-import rickAndMortyPreview from "@/assets/imgs/dashboard/projects/rickandmorty-preview.png"
-import superHeroPreview from "@/assets/imgs/dashboard/projects/superhero-preview.png"
-import nutricionalAppPreview from "@/assets/imgs/dashboard/projects/nutricionalapp-preview.png"
-import hosekiPreview from "@/assets/imgs/dashboard/projects/hoseki-preview.png"
+import ecommerceAdminPreview from "@/assets/imgs/projects/ecommerce-admin.png"
+import ecommerceStorePreview from "@/assets/imgs/projects/ecommerce-store.png"
+import teachingPlannerPreview from "@/assets/imgs/projects/teaching-planner_preview.png"
+import restCountryPreview from "@/assets/imgs/projects/restcountry-preview.png"
+import rickAndMortyPreview from "@/assets/imgs/projects/rickandmorty-preview.png"
+import superHeroPreview from "@/assets/imgs/projects/superhero-preview.png"
+import nutricionalAppPreview from "@/assets/imgs/projects/nutricionalapp-preview.png"
+import hosekiPreview from "@/assets/imgs/projects/hoseki-preview.png"
 
 // icons 
 // import HTMLIcon from '@/assets/icons/svg/html.svg';
