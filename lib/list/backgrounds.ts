@@ -62,7 +62,7 @@ export const backgrounds: Backgrounds = {
       title: "Ecomsur",
       content: {
         subtitle: "frontend",
-        yearRange: "2023-2024",
+        yearRange: "(ene 2022 - abr 2023)",
         subjects: [
           "Vtex.",
           "React",
