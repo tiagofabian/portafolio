@@ -4,7 +4,7 @@ import { WorkExperience } from "@/components/WorkExperience";
 import { Certs } from "@/components/Certs";
 
 const page = () => (
-  <div className='dashboard'>
+  <div className='dashboard flex flex-col gap-7'>
     <Skills />
     <WorkExperience/>
     <Certs/>

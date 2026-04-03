@@ -2,7 +2,7 @@ import "@/assets/styles/layout/footer.css";
 import { ContactInfo } from "../ui/ContactInfo"
 import { ContactForm } from "../ui/ContactForm";
 import { ReactNode } from "react";
-import { Separator } from "@/components/reuse/Separator";
+import { Separator } from "@/components/shared/Separator";
 
 interface FooterProps {
   className?: string
@@ -17,7 +17,7 @@ const Footer = ({ className }: FooterProps) => {
         <ContactForm />
       </div>
       <div className='foot-date-container'>
-        <Separator orientation="horizontal" className="block bg-[#97b6df] scale-x-[0.98] origin-center z-0" />
+        <Separator orientation="horizontal" className="block bg-[#848484] scale-x-[0.98] origin-center z-0" />
         <span className='foot-date-text text-5xs tb:text-xs mb:text-3xl'>©{new Date().getFullYear()} - nextjs v15</span>
       </div>
     </footer>

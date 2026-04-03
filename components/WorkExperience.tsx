@@ -1,13 +1,13 @@
 "use client"
 
 import React, { useState } from 'react';
-import "@/assets/styles/dashboard/work-experience.css";
+import styles from "@/assets/styles/dashboard/work-experience.module.css";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/reuse/Accordion"
+} from "@/components/shared/Accordion"
 import { useDevice } from '@/lib/hooks/useDevice';
 import { backgrounds } from '@/lib/list/backgrounds';
 
@@ -25,11 +25,11 @@ const WorkExperience = () => {
       .filter(Boolean) as string[]
   );
 
-
   return (
-    <div className='we-container d-container gap-4xl px-12xl py-6xl tb:px-8xl tb:py-4xl mb:gap-16xl mb:px-12xl mb:py-12xl'>
-      <div className='we-subcontainer gap-2xl mb:gap-13xl'>
-        <h2 className='we-title text-xs font-medium mb:text-15xl'>Historial Académico</h2>
+    <div className={`${styles['we-container']} g-container glass gap-4xl px-12xl py-6xl tb:px-8xl tb:py-4xl mb:gap-16xl mb:px-12xl mb:py-12xl`}>
+      
+      <div className={`${styles['we-subcontainer']} gap-2xl mb:gap-13xl`}>
+        <h2 className={`${styles['we-title']} g-title text-xs font-medium mb:text-15xl`}>Historial Académico</h2>
         <Accordion 
           type="multiple" 
           value={openAcademics}
@@ -64,8 +64,9 @@ const WorkExperience = () => {
           ))}
         </Accordion>
       </div>
-      <div className='we-subcontainer gap-2xl mb:gap-13xl'>
-        <h2 className='we-title text-xs font-medium mb:text-15xl'>Historial Laboral</h2>
+
+      <div className={`${styles['we-subcontainer']} gap-2xl mb:gap-13xl`}>
+        <h2 className={`${styles['we-title']} g-title text-xs font-medium mb:text-15xl`}>Historial Laboral</h2>
         <Accordion
           type="multiple" 
           value={openProfessionals}
@@ -100,6 +101,7 @@ const WorkExperience = () => {
           ))}
         </Accordion>
       </div>
+      
     </div>
   );
 };

@@ -15,8 +15,6 @@
 .skill-title {
   margin: 0;
   padding: 0;
-  color: #606060;
-  position: relative;
 }
 .skill-main {
   display: inline-flex;
@@ -38,18 +36,23 @@
   height: 100%;
   transition: transform 0.5s;
   transform-style: preserve-3d;
+  will-change: transform;
 }
 
 .skill-flipcard-front {
   display: inline-flex;
   flex-direction: column;
-  border: 1px solid #c0b9b9;
+  border: 1px solid #cecccc;
   border-radius: 5px;
   box-sizing: border-box;
   position: relative;
   cursor: pointer;
-  background: url("/bg/abstract-white-squares.jpg");
-  background-size: 120%;
+
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.029), rgba(0, 0, 0, 0.029)),
+    url("/bg/abstract-white-squares.jpg");
+
+  background-size: cover;
 }
 .skill-progressbar-title {
   max-width: 100%;

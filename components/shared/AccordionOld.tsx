@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 import { ChevronDown } from "lucide-react";
-import "@/assets/styles/reusable/accordion.css"
+import "@/assets/styles/shared/accordion.css"
 
 interface AccordionProps {
   title: string;

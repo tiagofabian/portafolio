@@ -16,8 +16,8 @@ input:-webkit-autofill::first-line {
 .contactform-container {
   display: flex;
   flex-direction: column;
-  border: 1px solid #84a9cc59;
-  background-color: #00000041;
+  border: 1px solid #697a8b59;
+  background-color: #39618741;
   min-width: 15vw;
 }
 

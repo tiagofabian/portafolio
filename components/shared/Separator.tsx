@@ -17,7 +17,7 @@ const Separator = React.forwardRef< // especificacion de la referencia en el htm
       decorative={decorative}
       className={cn(
         "bg-border",
-        orientation === "horizontal" ? "h-[1px] w-full" : "h-full w-[1px]",
+        orientation === "horizontal" ? "h-[0.1px] w-full" : "h-full w-[1px]",
         className
       )}
       {...props}

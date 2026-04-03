@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from "next/image";
 import CloseIco from '@/assets/icons/close.png';
-import "@/assets/styles/reusable/modal.css"
+import "@/assets/styles/shared/modal.css"
 
 interface ModalProps {
   isOpen: boolean;
