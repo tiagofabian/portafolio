@@ -8,11 +8,9 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/shared/Accordion"
-import { useDevice } from '@/lib/hooks/useDevice';
 import { backgrounds } from '@/lib/list/backgrounds';
 
 const WorkExperience = () => {
-  const { isMobile, isTablet } = useDevice();
   const [openAcademics, setOpenAcademics] = useState<string[]>(
     backgrounds.academics
       .map((a, i) => (a.selected ? `academic-${i}` : null))
@@ -26,35 +24,62 @@ const WorkExperience = () => {
   );
 
   return (
-    <div className={`${styles['we-container']} g-container glass gap-4xl px-12xl py-6xl tb:px-8xl tb:py-4xl mb:gap-16xl mb:px-12xl mb:py-12xl`}>
+    <div className={`
+      ${styles['we-container']} 
+      g-container glass 
+
+      gap-16xl px-12xl py-12xl
+      sm:gap-4xl sm:px-8xl sm:py-4xl
+      lg:gap-4xl lg:px-12xl lg:py-6xl
+    `}>
       
-      <div className={`${styles['we-subcontainer']} gap-2xl mb:gap-13xl`}>
-        <h2 className={`${styles['we-title']} g-title text-xs font-medium mb:text-15xl`}>Historial Académico</h2>
+      {/* ================= ACADEMIC ================= */}
+      <div className={`${styles['we-subcontainer']} gap-13xl sm:gap-2xl`}>
+        
+        <h2 className={`${styles['we-title']} g-title font-medium text-15xl sm:text-xl lg:text-xs`}>
+          Historial Académico
+        </h2>
+
         <Accordion 
           type="multiple" 
           value={openAcademics}
           onValueChange={setOpenAcademics}
-          className='flex flex-row flex-wrap justify-start items-start w-full gap-x-[4%] gap-y-[2rem] mb:flex-col mb:gap-7xl'
+          className='
+            flex flex-col gap-7xl
+            sm:flex-row sm:flex-wrap sm:justify-start sm:items-start sm:gap-x-[4%] sm:gap-y-8
+            lg:flex-row lg:flex-wrap lg:justify-start lg:items-start lg:gap-x-[4%] lg:gap-y-8
+          '
         >
           {backgrounds.academics.map((academic, idx) => (
             <AccordionItem 
               key={academic.name}
               value={`academic-${idx}`}
-              className='flex flex-col flex-[0_0_48%] gap-xs mb:flex-[1_1_100%] mb:w-full'
+              className='
+                flex flex-col gap-3xl w-full
+                sm:flex-[0_0_48%] sm:gap-xs
+                lg:flex-[0_0_48%] lg:gap-xs
+              '
             >
               <AccordionTrigger
-                className='flex items-center whitespace-nowrap w-full font-bold text-[aliceblue] text-2xs px-4xs py-7xs tb:text-xs mb:text-11xl mb:px-xs mb:py-4xs'
-                style={{ background: "linear-gradient(150deg, #253164 0%, #0070ef80 85%, #c3cdd8 92%, #0070ef80 100%)"}}
-                iconSize={isMobile ? "4vw" : isTablet ? "2.2vw" : "1.8vw"}
+                className="
+                  flex items-center w-full font-bold text-[aliceblue]
+                  text-11xl sm:text-xs lg:text-2xs
+                  px-xs py-4xs sm:px-4xs sm:py-7xs lg:px-4xs lg:py-7xs
+                  [&>svg]:w-[4vw] sm:[&>svg]:w-[2.2vw] lg:[&>svg]:w-[1.8vw]
+                  [&>svg]:h-[4vw] sm:[&>svg]:h-[2.2vw] lg:[&>svg]:h-[1.8vw]
+                  bg-[linear-gradient(150deg,_#253164_0%,_#0070ef80_85%,_#c3cdd8_92%,_#0070ef80_100%)]
+                "
               >
                 {academic.title}
               </AccordionTrigger>
-              <AccordionContent className='flex flex-col gap-5xs ml-3xs mb:ml-3xl'>
-                <span className='text-2xs mb:text-11xl'>
+
+              <AccordionContent className='flex flex-col gap-5xs ml-3xl sm:ml-3xs lg:ml-3xs'>
+                <span className='text-11xl sm:text-2xs lg:text-2xs'>
                   <strong>{academic.content.subtitle} </strong>
                   <i>{academic.content.yearRange}</i>
                 </span>
-                <ul className='text-[0.85vw] ml-2xs mb:text-[2.25vw] mb:ml-md'>
+
+                <ul className='text-[2.25vw] ml-md sm:text-[0.85vw] sm:ml-2xs lg:text-[0.85vw] lg:ml-2xs'>
                   {academic.content.subjects.map((subject, idx) => (
                     <li key={idx}>{subject}</li>
                   ))}
@@ -65,33 +90,53 @@ const WorkExperience = () => {
         </Accordion>
       </div>
 
-      <div className={`${styles['we-subcontainer']} gap-2xl mb:gap-13xl`}>
-        <h2 className={`${styles['we-title']} g-title text-xs font-medium mb:text-15xl`}>Historial Laboral</h2>
+      {/* ================= PROFESSIONAL ================= */}
+      <div className={`${styles['we-subcontainer']} gap-13xl sm:gap-2xl`}>
+        
+        <h2 className={`${styles['we-title']} g-title font-medium text-15xl sm:text-xl lg:text-xs`}>
+          Historial Laboral
+        </h2>
+
         <Accordion
           type="multiple" 
           value={openProfessionals}
           onValueChange={setOpenProfessionals}
-          className='flex justify-between items-start w-full gap-4xl mb:flex-col mb:gap-7xl'
+          className='
+            flex flex-col gap-7xl
+            sm:flex-row sm:flex-wrap sm:justify-between sm:items-start sm:gap-4xl
+            lg:flex-row lg:flex-wrap lg:justify-between lg:items-start lg:gap-4xl
+          '
         >
           {backgrounds.professionals.map((professional, idx) => (
             <AccordionItem 
               key={professional.name}
               value={`professional-${idx}`}
-              className='flex flex-col flex-[0_0_48%] gap-xs mb:flex-[1_1_100%] mb:w-full'
+              className='
+                flex flex-col gap-3xl w-full
+                sm:flex-[0_0_48%] sm:gap-xs
+                lg:flex-[0_0_48%] lg:gap-xs
+              '
             >
-              <AccordionTrigger 
-                className='flex items-center whitespace-nowrap w-full font-bold text-[aliceblue] text-2xs px-4xs py-7xs tb:text-xs mb:text-11xl mb:px-xs mb:py-4xs'
-                style={{ background: "linear-gradient( 150deg, #0f2f2a 0%, #00b3a480 85%, #c2e6e1 92%, #00b3a480 100% )"}}
-                iconSize={isMobile ? "4vw" : isTablet ? "2.2vw" : "1.8vw"}
+              <AccordionTrigger
+                className="
+                  flex items-center w-full font-bold text-[aliceblue]
+                  text-11xl sm:text-xs lg:text-2xs
+                  px-xs py-4xs sm:px-4xs sm:py-7xs lg:px-4xs lg:py-7xs
+                  [&>svg]:w-[4vw] sm:[&>svg]:w-[2.2vw] lg:[&>svg]:w-[1.8vw]
+                  [&>svg]:h-[4vw] sm:[&>svg]:h-[2.2vw] lg:[&>svg]:h-[1.8vw]
+                  bg-[linear-gradient(150deg,_#0f2f2a_0%,_#00b3a480_85%,_#c2e6e1_92%,_#00b3a480_100%)]
+                "
               >
                 {professional.title}
               </AccordionTrigger>
-              <AccordionContent className='flex flex-col gap-5xs ml-3xs mb:ml-3xl'>
-                <span className='text-2xs mb:text-11xl'>
+
+              <AccordionContent className='flex flex-col gap-5xs ml-3xl sm:ml-3xs lg:ml-3xs'>
+                <span className='text-11xl sm:text-2xs lg:text-2xs'>
                   <strong>{professional.content.subtitle} </strong>
                   <i>{professional.content.yearRange}</i>
                 </span>
-                <ul className='text-[0.85vw] ml-2xs mb:text-[2.25vw] mb:ml-md'>
+
+                <ul className='text-[2.25vw] ml-md sm:text-[0.85vw] sm:ml-2xs lg:text-[0.85vw] lg:ml-2xs'>
                   {professional.content.subjects.map((subject, idx) => (
                     <li key={idx}>{subject}</li>
                   ))}

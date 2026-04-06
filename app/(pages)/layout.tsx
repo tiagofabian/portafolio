@@ -13,12 +13,72 @@ const RootLayout = ({
   children: React.ReactNode;
 }>) => {
   return (
-    <div className='main relative w-full h-full overflow-hidden px-6xs py-0 mb:px-0 mb:py-0'>
-      <Navbar className="relative flex-row border border-t-0 border-[#1b1b1b] gap-20xl pt-3xl pb-2xs px-5xl rounded-md rounded-t-none aspect-[3.34/1] bg-cover bg-blue-desk shadow-box-1 tb:px-10xl tb:pt-8xl tb:pb-sm mb:flex-col mb:justify-normal mb:border-none mb:gap-10xl mb:px-8xl mb:pt-64xl mb:pb-5xl tb:rounded-s mb:rounded-none mb:shadow-box-2 mb:aspect-[4/3] mb:bg-blue-mob"/>
-      <section className="relative flex-col py-sm px-5xl tb:px-10xl tb:py-md mb:px-2xl mb:py-2xl min-h-screen">
+    <div className="
+      main relative w-full h-full overflow-hidden min-h-screen
+      px-0 py-0
+      sm:px-6xs sm:py-0
+      lg:px-6xs
+    ">
+      
+      <Navbar
+        className="
+          relative
+          flex flex-col
+          justify-normal
+          gap-10xl
+          px-8xl pt-64xl pb-5xl
+          border-0
+          border-[#808080]
+          rounded-none
+          shadow-box-2
+          aspect-[4/3]
+
+          sm:flex-row
+          sm:px-10xl sm:pt-8xl sm:pb-sm sm:gap-12xl
+          sm:border sm:border-t-0
+          sm:rounded-md sm:rounded-t-none sm:shadow-box-1
+          sm:aspect-[3.34/1]
+
+          lg:flex-row lg:gap-20xl
+          lg:px-5xl lg:pt-3xl lg:pb-2xs
+          lg:border lg:border-t-0
+          lg:rounded-md lg:rounded-t-none lg:shadow-box-1
+          lg:aspect-[3.34/1]
+
+          bg-blue-mob bg-cover 
+          sm:bg-blue-desk
+          lg:bg-blue-desk
+        "
+      />
+
+      <section className="
+        relative flex flex-col
+        px-2xl py-2xl
+        sm:px-6xl sm:py-md
+        lg:px-5xl lg:py-sm
+      ">
         {children}
       </section>
-      <Footer className="relative flex-col pt-2xs pb-6xs px-md gap-4xs border border-b-0 border-[#1b1b1b] rounded-md rounded-b-none shadow-box-1 tb:px-4xl tb:pt-sm tb:pb-5xs mb:px-5xl mb:pt-5xl mb:pb-4xs tb:rounded-s mb:rounded-none mb:shadow-box-2 mb:gap-md" />
+
+      <Footer
+        className="
+          relative flex flex-col
+          gap-3xl
+          px-8xl pt-8xl pb-4xs
+          border-none
+          rounded-none
+          shadow-box-2
+
+          sm:flex-row sm:flex-wrap
+          sm:px-4xl sm:pt-sm sm:pb-5xs sm:gap-sm
+          sm:rounded-md sm:rounded-b-none sm:shadow-box-1 sm:border-none
+
+          lg:flex-col
+          lg:px-md lg:pt-2xs lg:pb-6xs lg:gap-4xs
+          lg:border lg:border-b-0 lg:border-[#1b1b1b]
+          lg:rounded-md lg:rounded-b-none
+        "
+      />
     </div>
   );
 };

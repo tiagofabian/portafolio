@@ -17,7 +17,6 @@
   padding: 0;
 }
 .skill-main {
-  display: inline-flex;
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
@@ -116,7 +115,7 @@
   transform: rotateY(180deg);
   display: inline-block;
   border-radius: 5px;
-  border: 1px solid #9a9a9a;
+  border: 1px solid #cecccc;
   line-height: 0;
   padding: 0;
   margin: 0;
@@ -149,14 +148,14 @@
   -webkit-backface-visibility: hidden; /* Safari */
 }
 
-@media screen and (max-width: 719.9px) {
+/* @media screen and (max-width: 639px) {
   .skill-flipcard-container {
     flex-basis: calc((100% - (3vw * (2 - 1))) / 2);
     max-width: calc((100% - (3vw * (2 - 1))) / 2);
   }
 }
 
-@media screen and (min-width: 720px) and (max-width: 1024px) {
+@media screen and (min-width: 640px) and (max-width: 1024px) {
   .skill-flipcard-container {
     flex-basis: calc((100% - (1.5vw * (4 - 1))) / 4);
     max-width: calc((100% - (1.5vw * (4 - 1))) / 4);
@@ -168,4 +167,4 @@
     flex-basis: calc((100% - (1.5vw * (5 - 1))) / 5);
     max-width: calc((100% - (1.5vw * (5 - 1))) / 5);
   }
-}
+} */

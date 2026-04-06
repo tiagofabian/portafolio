@@ -3,7 +3,6 @@ import useEmblaCarousel from "embla-carousel-react"
 import { EmblaOptionsType, EmblaCarouselType } from "embla-carousel"
 import AutoScroll from "embla-carousel-auto-scroll"
 import { cn } from "@/lib/utils"
-// import Autoplay from "embla-carousel-autoplay"
 
 type EmblaContextType = {
   emblaApi: EmblaCarouselType | undefined
@@ -25,19 +24,16 @@ const EmblaCarousel = ({
   children,
   options,
   autoScroll = true,
-  gap,
-  className
+  className,
 }: {
   children: React.ReactNode
   options?: EmblaOptionsType
   autoScroll?: boolean
-  gap?: string
   className?: string
 }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
       loop: true,
-      // containScroll: "trimSnaps",
       align: "start",
       dragFree: true,
       ...options,
@@ -66,7 +62,6 @@ const EmblaCarousel = ({
       <div className={cn("block", className)}>
         <div
           className="flex flex-col overflow-hidden"
-          style={{ gap: gap }}
           ref={emblaRef}
         >
           {children}
@@ -78,17 +73,14 @@ const EmblaCarousel = ({
 
 const EmblaCarouselContent = ({
   children,
-  gap,
   className,
 }: {
   children: React.ReactNode
-  gap?: string
   className?: string
 }) => {
   return (
-    <ul 
-      className={cn("flex", className)} 
-      style={{ gap: gap }}
+    <ul
+      className={cn("flex", className)}
     >
       {children}
     </ul>
@@ -97,18 +89,13 @@ const EmblaCarouselContent = ({
 
 const EmblaCarouselItem = ({
   children,
-  basis = "25%", // equivale a perPage=4
   className,
 }: {
   children: React.ReactNode
-  basis?: string
   className?: string
 }) => {
   return (
-    <li
-      className={cn("flex-[0_0_auto]", className)}
-      style={{ flexBasis: basis }}
-    >
+    <li className={cn("flex-[0_0_auto]", className)}>
       {children}
     </li>
   )
@@ -116,30 +103,26 @@ const EmblaCarouselItem = ({
 
 const EmblaCarouselDots = ({
   className,
-  dotSize = "0.6vw",
-  hidden = false
-}: { 
+}: {
   className?: string
-  dotSize?: string
-  hidden?: boolean
 }) => {
   const { emblaApi, scrollSnaps, selectedIndex } = useEmbla()
 
   if (!emblaApi) return null
 
   return (
-    <ul className={cn("justify-center items-center", className, hidden ? "hidden" : "flex")} hidden={hidden}>
+    <ul className={cn("flex justify-center items-center", className)}>
       {scrollSnaps.map((_, i) => (
-        <li key={i} className="flex justify-center items-center">
+        <li key={i} className="flex justify-center items-center w-[0.75vw] h-[0.75vw]">
           <button
             onClick={() => emblaApi.scrollTo(i)}
-            style={{ 
-              width: i === selectedIndex ? `${parseFloat(dotSize) + 0.15}vw` : dotSize,
-              height: i === selectedIndex ? `${parseFloat(dotSize) + 0.15}vw` : dotSize
-            }}
-            className={`rounded-full ${
-              i === selectedIndex ? "bg-[#2c90be]" : "bg-gray-400"
-            }`}
+            className={cn(
+              "rounded-full transition-all duration-300",
+              "w-[0.6vw] h-[0.6vw]",
+              i === selectedIndex
+                ? "bg-[#2c90be] scale-125"
+                : "bg-gray-400 scale-100"
+            )}
           />
         </li>
       ))}
@@ -148,4 +131,3 @@ const EmblaCarouselDots = ({
 }
 
 export { EmblaCarousel, EmblaCarouselContent, EmblaCarouselItem, EmblaCarouselDots, useEmbla }
-

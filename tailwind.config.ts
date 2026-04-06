@@ -251,11 +251,6 @@ const config: Config = {
         "red-1": "#FF0000",
         'sky': '#3eb9e2',
       },
-      screens: {
-        'tb': {'min': '720px', 'max': '1024px'}, // solo tablet
-        'mb': {'max': '719.99px'}, // solo móvil
-        // desktop es el default (≥1025px)
-      },
       boxShadow: {
         'box-1': '3px 3px 8px #00000080',
         'box-2': '2px 2px 7px #00000080',
@@ -374,23 +369,8 @@ const config: Config = {
         '80': '5rem',      
         '96': '6rem',      
       },
-      keyframes: {
-        "accordion-down": {
-          "0%": { height: "0", opacity: "0" },
-          "80%": { height: "var(--radix-accordion-content-height)", opacity: "0.9" },
-          "100%": { height: "var(--radix-accordion-content-height)", opacity: "1" },
-        },
-        "accordion-up": {
-          "0%": { height: "var(--radix-accordion-content-height)", opacity: "1" },
-          "20%": { height: "var(--radix-accordion-content-height)", opacity: "0.9" },
-          "100%": { height: "0", opacity: "0" },
-        },
-      },
-      animation: {
-        // curva springy con rebote sutil
-        "accordion-down": "accordion-down 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)",
-        "accordion-up": "accordion-up 0.3s cubic-bezier(0.36, 0, 0.66, -0.56)",
-      },
+      //keyframes
+      // animation
     },
   },
   plugins: [],

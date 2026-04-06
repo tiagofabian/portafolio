@@ -1,5 +1,5 @@
 import Link from "next/link";
-import "@/assets/styles/layout/header.css";
+import "@/assets/styles/layout/navbar.css";
 import { navbarTabs } from "@/lib/list/navbarTabs";
 import { ReactNode } from "react";
 
@@ -11,17 +11,52 @@ interface NavbarProps {
 const Navbar = ({ className }: NavbarProps) => {
   return (
     <header className={className}>
-      <div className="header-presentation flex-row justify-start">
-        {/* <img src={perfilIMG} alt="perfil-img" className='nav-photo-img'/> */}
-        <div className="header-presentation-title gap-4xs tb:gap-5xs mb:gap-3xl">
-          <div className="header-title flex-col mb:text-center">
-            <h1 className="text-20xl font-bold leading-[1.10] tb:text-16xl mb:text-50xl">
-              TIAGO <br className="tb:hidden mb:hidden" /> <span className="text-sky">ALCÁZAR</span>
+
+      {/* ===== PRESENTATION ===== */}
+      <div className="header-presentation flex flex-col sm:flex-row lg:flex-row justify-start">
+        
+        <div className="
+          header-presentation-title
+          gap-3xl
+          sm:gap-md
+          lg:gap-4xs
+        ">
+          
+          <div className="
+            header-title 
+            flex flex-col
+            text-center
+            sm:text-left
+            lg:text-left
+          ">
+            <h1 className="
+              font-bold leading-[1.10]
+              flex flex-row items-center justify-center gap-[0.25em]
+              text-50xl
+              sm:flex-row sm:items-baseline sm:justify-start sm:text-18xl
+              lg:flex-col lg:items-baseline lg:justify-start lg:gap-0 lg:text-20xl
+            ">
+              <span>TIAGO</span>
+              <span className="text-sky">ALCÁZAR</span>
             </h1>
-            <h4 className="text-sm font-bold tb:text-2xl mb:text-20xl">DESAROLLADOR DE SOFTWARE</h4>
+
+            <h4 className="
+              font-bold
+              text-19xl
+              sm:text-4xl
+              lg:text-sm
+            ">
+              DESAROLLADOR DE SOFTWARE
+            </h4>
           </div>
           
-          <p className="text-3xs tb:text-md mb:text-center mb:text-11xl">
+          <p className="
+            text-center
+            sm:text-left lg:text-left
+            text-11xl
+            sm:text-xs
+            lg:text-3xs
+          ">
             Desarrollador Fullstack especializado en Javascript, 
             con experiencia en el desarrollo de aplicaciones web, 
             estructuración de APIs y administración de datos. A lo 
@@ -34,17 +69,49 @@ const Navbar = ({ className }: NavbarProps) => {
           </p>
         </div>
       </div>
-      <div className="header-btn-section flex-row mb:justify-center">
-        <ul className="header-list flex-col justify-center gap-xl tb:gap-sm mb:flex-row mb:justify-evenly mb:gap-12xl ">
+
+      {/* ===== BUTTONS ===== */}
+      <div className="
+        header-btn-section 
+        flex
+        justify-center
+        sm:justify-start
+        lg:justify-start
+      ">
+        <ul className="
+          header-list 
+          flex flex-row justify-evenly
+          gap-12xl
+          sm:flex-col sm:justify-center sm:gap-sm
+          lg:flex-col lg:justify-center lg:gap-sm
+        ">
           {navbarTabs.length !== 0 && navbarTabs.map((navbarTab, idx) => (
-            <li className="header-item rounded-lg aspect-[2/1] min-w-[6.5vw] tb:min-w-[10vw] tb:rounded-md mb:rounded-md mb:min-w-[17vw] mb:aspect-[5/2]" key={idx}>
-              <Link className="header-link text-sm tb:text-5xl mb:text-16xl" href={navbarTab.href}>
+            <li 
+              className="
+                header-item 
+                rounded-md
+                min-w-[17vw] aspect-[5/2]
+                sm:min-w-[7vw] sm:aspect-[2/1] sm:rounded-lg
+                lg:min-w-[6.5vw] lg:aspect-[2/1] lg:rounded-lg
+              " 
+              key={idx}
+            >
+              <Link 
+                className="
+                  header-link 
+                  text-16xl
+                  sm:text-md
+                  lg:text-sm
+                " 
+                href={navbarTab.href}
+              >
                 {navbarTab.title}
               </Link>
             </li>
           ))}
         </ul>
       </div>
+
     </header>
   );
 };

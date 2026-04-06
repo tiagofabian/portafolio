@@ -1,12 +1,10 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
-import { animate } from "motion"
-// import { motion, AnimatePresence } from "framer-motion"
+import { animate } from "motion";
 import * as AccordionPrimitive from "@radix-ui/react-accordion";
 import { ChevronDownIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { useDevice } from "@/lib/hooks/useDevice";
 
 const Accordion = ({
   ...props
@@ -21,7 +19,7 @@ const AccordionItem = ({
   return (
     <AccordionPrimitive.Item
       data-slot="accordion-item"
-      className={cn("h-auto", className)}
+      className={cn(className)}
       {...props}
     />
   );
@@ -30,23 +28,36 @@ const AccordionItem = ({
 const AccordionTrigger = ({
   className,
   children,
-  iconSize,
   ...props
-}: React.ComponentProps<typeof AccordionPrimitive.Trigger> & { iconSize?: string }) => {
+}: React.ComponentProps<typeof AccordionPrimitive.Trigger>) => {
   return (
     <AccordionPrimitive.Header className="flex">
       <AccordionPrimitive.Trigger
         data-slot="accordion-trigger"
         className={cn(
-          "rounded-sm focus-visible:border-ring focus-visible:ring-ring/50 flex flex-1 items-start justify-between text-left text-sm font-medium transition-all outline-none focus-visible:ring-[3px] disabled:pointer-events-none disabled:opacity-50 [&[data-state=open]>svg]:rotate-180",
+          `
+          flex flex-1 items-center justify-between
+          text-left font-medium
+          transition-all outline-none
+          rounded-sm
+          focus-visible:ring-[3px]
+          focus-visible:border-ring
+          focus-visible:ring-ring/50
+          disabled:pointer-events-none disabled:opacity-50
+          [&[data-state=open]>svg]:rotate-180
+          `,
           className
         )}
         {...props}
       >
         {children}
-        <ChevronDownIcon 
-          className="text-muted-foreground pointer-events-none size-4 shrink-0 transition-transform duration-300" 
-          style={{ width: iconSize, height: iconSize }}
+        <ChevronDownIcon
+          className="
+            text-muted-foreground
+            pointer-events-none shrink-0
+            transition-transform duration-300
+            size-4 sm:size-5
+          "
         />
       </AccordionPrimitive.Trigger>
     </AccordionPrimitive.Header>
@@ -59,59 +70,68 @@ const AccordionContent = ({
   ...props
 }: React.ComponentProps<typeof AccordionPrimitive.Content>) => {
   const ref = useRef<HTMLDivElement>(null);
-  const { isMobile, isTablet, isDesktop } = useDevice();
 
   useEffect(() => {
     const content = ref.current;
     if (!content) return;
+
+    const inner = content.firstElementChild as HTMLElement;
+    if (!inner) return;
+
+    let isAnimating = false;
 
     const runAnimation = () => {
       const state = content.getAttribute("data-state");
       const height = state === "open" ? content.scrollHeight : "0";
       const opacity = state === "open" ? 1 : 0;
 
+      isAnimating = true;
       animate(
         content,
         { height, opacity },
-        { type: "spring", stiffness: 120, damping: 24, duration: 0.4 }
+        {
+          type: "spring",
+          stiffness: 120,
+          damping: 24,
+          duration: 0.4,
+          onComplete: () => { isAnimating = false; }
+        }
       );
     };
 
-    // Animación inicial
     runAnimation();
 
-    // Observador de cambios en data-state
-    const observer = new MutationObserver(runAnimation);
-    observer.observe(content, { attributes: true, attributeFilter: ["data-state"] });
-
-    return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => {
-    const content = ref.current;
-    if (!content) return; // 🔹 solo después de primera interacción
-
-    const state = content.getAttribute("data-state");
-    if (state !== "open") return;
-
-    const height = "auto";
-
-    animate(content, { height }, {
-      type: "spring",
-      stiffness: 120,
-      damping: 24,
-      duration: 0.4
+    const mutationObserver = new MutationObserver(runAnimation);
+    mutationObserver.observe(content, {
+      attributes: true,
+      attributeFilter: ["data-state"],
     });
-  }, [isMobile, isTablet, isDesktop]);
+
+    const resizeObserver = new ResizeObserver(() => {
+      if (isAnimating) return;
+      if (content.getAttribute("data-state") === "open") {
+        animate(content, { height: inner.scrollHeight }, { duration: 0 });
+      }
+    });
+    resizeObserver.observe(inner);
+
+    return () => {
+      mutationObserver.disconnect();
+      resizeObserver.disconnect();
+    };
+  }, []);
 
   return (
     <AccordionPrimitive.Content
       {...props}
       forceMount
       ref={ref}
-      className={cn("overflow-hidden h-auto", className)}
+      className={cn("overflow-hidden", className)}
+      style={{ height: 0, opacity: 0 }}
     >
-      {children}
+      <div className="flex flex-col">
+        {children}
+      </div>
     </AccordionPrimitive.Content>
   );
 };

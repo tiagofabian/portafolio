@@ -11,15 +11,35 @@ interface FooterProps {
 
 const Footer = ({ className }: FooterProps) => {
   return (
-    <footer className={className} >
-      <div className='foot-element-container gap-3xl mb:gap-3xl mb:justify-between'>
+    <footer className={className}>
+      
+      <div className="
+        foot-element-container
+        flex flex-row items-stretch
+        gap-3xl
+        sm:flex-row sm:items-center sm:justify-start sm:gap-2xl
+        lg:flex-row lg:items-center lg:justify-start lg:gap-3xl
+      ">
         <ContactInfo />
         <ContactForm />
       </div>
-      <div className='foot-date-container'>
-        <Separator orientation="horizontal" className="block bg-[#848484] scale-x-[0.98] origin-center z-0" />
-        <span className='foot-date-text text-5xs tb:text-xs mb:text-3xl'>©{new Date().getFullYear()} - nextjs v15</span>
+
+      <div className="foot-date-container flex flex-col items-center gap-sm">
+        <Separator 
+          orientation="horizontal" 
+          className="block bg-[#848484] scale-x-[0.98] origin-center z-0" 
+        />
+
+        <span className="
+          foot-date-text
+          text-3xl
+          sm:text-4xs
+          lg:text-5xs
+        ">
+          ©{new Date().getFullYear()} - nextjs v15
+        </span>
       </div>
+
     </footer>
   )
 }
