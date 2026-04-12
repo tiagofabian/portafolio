@@ -7,26 +7,48 @@ import { Progress } from "@/components/shared/Progress"
 import { skills } from '@/lib/list/skills'
 
 const Skills = () => {
-  const [skillsState, setSkillsState] = useState(skills);
+  const [skillsState, setSkillsState] = useState(() => ({
+    langs: skills.langs.map(lang => ({
+      ...lang,
+      loaded: false
+    })),
+    techs: skills.techs.map(tech => ({
+      ...tech,
+      loaded: false
+    }))
+  }))
 
-  const flipCard = (e: React.MouseEvent<HTMLButtonElement>) => {
-    const cardName = e.currentTarget.getAttribute('data-name');
-    setSkillsState(skills => ({
-      ...skills,
-      langs: skills.langs.map((lang) => 
-        lang.name === cardName
-          ? { ...lang, accDegree: lang.accDegree + 180 }
-          : lang
-      ),
-      techs: skills.techs.map((tech) => 
-        tech.name === cardName
-          ? { ...tech, accDegree: tech.accDegree + 180 }
-          : tech
-      )
-    }));
-  };
+  const updateSkills = <T extends { name: string }>(
+    items: T[],
+    name: string,
+    updater: (item: T) => Partial<T>
+  ): T[] => {
+    return items.map(item =>
+      item.name === name
+        ? { ...item, ...updater(item) }
+        : item
+    )
+  }
 
-  const rotateCard = () => {
+  const handleLoad = (name: string) => {
+    setSkillsState(prev => ({
+      langs: updateSkills(prev.langs, name, () => ({ loaded: true })),
+      techs: updateSkills(prev.techs, name, () => ({ loaded: true }))
+    }))
+  }
+
+  const flipCard = (name: string) => {
+    setSkillsState(prev => ({
+      langs: updateSkills(prev.langs, name, item => ({
+        accDegree: item.accDegree + 180
+      })),
+      techs: updateSkills(prev.techs, name, item => ({
+        accDegree: item.accDegree + 180
+      }))
+    }))
+  }
+
+  const progressbarCard = () => {
     const interval = setInterval(() => {
       setSkillsState((skills) => {
         const updatedLangs = skills.langs.map(lang => ({
@@ -54,7 +76,7 @@ const Skills = () => {
   }
 
   useEffect(() => {
-    rotateCard()
+    progressbarCard()
   }, []);
 
   return (
@@ -83,12 +105,16 @@ const Skills = () => {
                 <button 
                   className={`
                     ${styles['skill-flipcard-front']} 
-                    p-10xl gap-md
+
+                    p-10xl gap-3xs
                     sm:p-lg sm:gap-sm
                     lg:p-md lg:gap-5xs
                   `}
-                  data-name={lang.name} 
-                  onClick={flipCard}
+                  onMouseEnter={() => handleLoad(lang.name)}
+                  onClick={() => {
+                    handleLoad(lang.name)
+                    flipCard(lang.name)
+                  }}
                 >
                   <h4 className={`
                     ${styles['skill-progressbar-title']}
@@ -108,10 +134,11 @@ const Skills = () => {
 
                 <button 
                   className={styles['skill-flipcard-back']} 
-                  data-name={lang.name} 
-                  onClick={flipCard}
+                  onClick={() => flipCard(lang.name)}
                 >
-                  <Image src={lang.card} alt="flip" />
+                  {lang.loaded && (
+                    <Image src={lang.card} alt="flip" />
+                  )}
                 </button>
               </div>
             </div>
@@ -140,8 +167,11 @@ const Skills = () => {
                     sm:p-lg sm:gap-sm
                     lg:p-md lg:gap-5xs
                   `}
-                  data-name={tech.name} 
-                  onClick={flipCard}
+                  onMouseEnter={() => handleLoad(tech.name)}
+                  onClick={() => {
+                    handleLoad(tech.name)
+                    flipCard(tech.name)
+                  }}
                 >
                   <h4 className={`
                     ${styles['skill-progressbar-title']}
@@ -161,10 +191,11 @@ const Skills = () => {
 
                 <button 
                   className={styles['skill-flipcard-back']} 
-                  data-name={tech.name} 
-                  onClick={flipCard}
+                  onClick={() => flipCard(tech.name)}
                 >
-                  <Image src={tech.card} alt="flip" />
+                  {tech.loaded && (
+                    <Image src={tech.card} alt="flip" />
+                  )}
                 </button>
               </div>
             </div>

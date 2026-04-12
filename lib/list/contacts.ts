@@ -26,14 +26,14 @@ export const contacts: Contact[] = [
     title: "",
     icon: githubIcon,
     alt: "github",
-    url: "https://github.com/tiagofabian",
+    url: "https://www.github.com/tiagofabian",
     sizes
   },
   {
     title: "",
     icon: linkedinIcon,
     alt: "linkedin",
-    url: "https://www.linkedin.com/in/tiago-fabian/",
+    url: "https://www.linkedin.com/in/tiago-fabian",
     sizes
   },
   {

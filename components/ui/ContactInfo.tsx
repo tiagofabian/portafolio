@@ -28,7 +28,7 @@ const ContactInfo = () => (
           />
           {contact.title !== ""
             ? <span>{contact.title}</span>
-            : <a href={contact.url} target="_blank" rel="noreferrer">{contact.url}</a>
+            : <a href={contact.url} target="_blank" rel="noreferrer">{contact.url.replace(/^https?:\/\/(www\.)?/, '')}</a>
           }
         </li>
       ))}

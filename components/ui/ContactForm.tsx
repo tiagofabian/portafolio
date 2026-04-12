@@ -53,7 +53,7 @@ const ContactForm = () => {
   return (
     <div className="
       contactform-container
-      gap-6xs px-4xs py-5xs rounded-sm
+      gap-2xs px-sm py-5xs rounded-sm
       flex-grow
       sm:flex-grow-0 sm:px-4xs sm:py-6xs sm:basis-[18vw]
       lg:flex-grow-0 lg:px-3xs lg:py-5xs lg:basis-[18vw]
@@ -71,7 +71,7 @@ const ContactForm = () => {
         onSubmit={handleSubmit(onSubmit)}
         className="
           contactform-form
-          gap-5xs
+          gap-3xs
           sm:gap-5xs
           lg:gap-5xs
         "

@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import { ToasterProvider } from "@/lib/providers/ToasterProvider";
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import { BackToTop } from '@/components/shared/BackToTop';
 
 const inter = Inter({ 
   subsets: ["latin"],
@@ -34,6 +35,7 @@ export default function RootLayout({
       <body className={inter.className}>
         {children}
         <ToasterProvider />
+        <BackToTop />
         <Analytics />
         <SpeedInsights />
       </body>

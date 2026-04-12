@@ -40,7 +40,7 @@
   );
 
   transform: translateX(-120%);
-  animation: sheen 9s linear infinite;
+  animation: sheen 6s linear infinite;
 }
 
 /* 👉 recorrido corto + pausa larga */
@@ -49,7 +49,7 @@
     transform: translateX(-120%);
   }
 
-  20% {
+  22% {
     transform: translateX(120%);
   }
 

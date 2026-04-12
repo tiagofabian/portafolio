@@ -1,20 +1,21 @@
-import htmlCard from "@/assets/imgs/card/html5-card.jpg";
+import htmlCard from "@/assets/imgs/card/html5-card.png";
 import cssCard from "@/assets/imgs/card/css3-card.png";
 import jsCard from "@/assets/imgs/card/js-card.png";
-import tsCard from "@/assets/imgs/card/ts.png";
+import tsCard from "@/assets/imgs/card/ts-card.png";
 import csharpCard from "@/assets/imgs/card/csharp-card.png";
 import javaCard from "@/assets/imgs/card/java-card.png";
-import phpCard from "@/assets/imgs/card/php-card.webp";
+import phpCard from "@/assets/imgs/card/php-card.png";
 
-import reactCard from "@/assets/imgs/card/react-card.jpg";
+import reactCard from "@/assets/imgs/card/react-card.png";
 import expressCard from "@/assets/imgs/card/express-card.png";
 import graphqlCard from "@/assets/imgs/card/graphql-card.png";
 import firebaseCard from "@/assets/imgs/card/firebase-card.png";
 import mongoCard from "@/assets/imgs/card/mongo-card.png";
 import nestCard from "@/assets/imgs/card/nest-card.png";
-import nextCard from "@/assets/imgs/card/next-card.jpg";
+import nextCard from "@/assets/imgs/card/next-card.png";
+import springCard from "@/assets/imgs/card/spring-card.png";
 import sqlCard from "@/assets/imgs/card/sql-card.png";
-import mysqlCard from "@/assets/imgs/card/mysql-card.jpeg";
+import mysqlCard from "@/assets/imgs/card/mysql-card.png";
 import { Skills } from "../types";
 
 export const skills: Skills = {
@@ -117,6 +118,13 @@ export const skills: Skills = {
       progressBar: 0,
       max: 82,
       card: nextCard,
+      accDegree: 0
+    },
+    {
+      name: "Spring",
+      progressBar: 0,
+      max: 52,
+      card: springCard,
       accDegree: 0
     },
     {
