@@ -80,34 +80,62 @@ const Skills = () => {
   }, []);
 
   return (
-    <div className={`
-      ${styles['skill-container']} 
-      g-container glass 
+    <div
+      className={`
+        ${styles['skill-container']}
+        g-container glass
 
-      gap-16xl px-12xl py-12xl
-      sm:gap-8xl sm:px-8xl sm:py-6xl
-      lg:gap-4xl lg:px-12xl lg:py-6xl
-    `}>
-      
+        gap-16xl px-12xl py-12xl
+        sm:gap-8xl sm:px-8xl sm:py-6xl
+        lg:gap-4xl lg:px-12xl lg:py-6xl
+      `}
+    >
       {/* Lenguajes */}
-      <div className={`${styles['skill-subcontainer']} gap-13xl sm:gap-6xl lg:gap-2xl`}>
-        <h2 className={`${styles['skill-title']} g-title text-15xl sm:text-xl lg:text-xs font-medium`}>
+      <div
+        className={`
+          ${styles['skill-subcontainer']}
+          gap-13xl
+          sm:gap-6xl
+          lg:gap-2xl
+        `}
+      >
+        <h2
+          className={`
+            ${styles['skill-title']}
+            g-title font-medium
+
+            text-15xl
+            sm:text-xl
+            lg:text-xs
+          `}
+        >
           Lenguajes
         </h2>
 
-        <div className={`${styles['skill-main']} grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 gap-3xl sm:gap-md lg:gap-sm`}>
+        <div
+          className={`
+            ${styles['skill-main']}
+            grid grid-cols-2 gap-3xl
+
+            sm:grid-cols-5 sm:gap-md
+            lg:grid-cols-5 lg:gap-sm
+          `}
+        >
           {skillsState.langs.map((lang, idx) => (
-            <div className={styles['skill-flipcard-container']} key={idx}>
-              <div 
-                className={styles['skill-flipcard-inner']} 
+            <div
+              className={styles['skill-flipcard-container']}
+              key={idx}
+            >
+              <div
+                className={styles['skill-flipcard-inner']}
                 style={{ transform: `rotateY(${lang.accDegree}deg)` }}
               >
-                <button 
+                <button
                   className={`
-                    ${styles['skill-flipcard-front']} 
+                    ${styles['skill-flipcard-front']}
 
-                    p-10xl gap-3xs
-                    sm:p-lg sm:gap-sm
+                    p-10xl gap-md
+                    sm:p-lg sm:gap-5xs
                     lg:p-md lg:gap-5xs
                   `}
                   onMouseEnter={() => handleLoad(lang.name)}
@@ -116,10 +144,14 @@ const Skills = () => {
                     flipCard(lang.name)
                   }}
                 >
-                  <h4 className={`
-                    ${styles['skill-progressbar-title']}
-                    text-9xl sm:text-sm lg:text-[0.8vw]
-                  `}>
+                  <h4
+                    className={`
+                      ${styles['skill-progressbar-title']}
+
+                      text-9xl
+                      sm:text-[0.8vw]
+                    `}
+                  >
                     {lang.name}
                   </h4>
 
@@ -127,18 +159,19 @@ const Skills = () => {
                     value={lang.progressBar}
                     className={`
                       ${styles['skill-progressbar-container']}
-                      min-h-[2vw] sm:min-h-[1.2vw] lg:min-h-[0.8vw]
+
+                      min-h-[2vw]
+                      sm:min-h-[1vw]
+                      lg:min-h-[0.8vw]
                     `}
                   />
                 </button>
 
-                <button 
-                  className={styles['skill-flipcard-back']} 
+                <button
+                  className={styles['skill-flipcard-back']}
                   onClick={() => flipCard(lang.name)}
                 >
-                  {lang.loaded && (
-                    <Image src={lang.card} alt="flip" />
-                  )}
+                  {lang.loaded && <Image src={lang.card} alt="flip" />}
                 </button>
               </div>
             </div>
@@ -147,24 +180,55 @@ const Skills = () => {
       </div>
 
       {/* Tecnologías */}
-      <div className={`${styles['skill-subcontainer']} gap-13xl sm:gap-6xl lg:gap-2xl`}>
-        <h2 className={`${styles['skill-title']} g-title text-15xl sm:text-xl lg:text-xs font-medium`}>
+      <div
+        className={`
+          ${styles['skill-subcontainer']}
+          gap-13xl
+          sm:gap-6xl
+          lg:gap-2xl
+        `}
+      >
+        <h2
+          className={`
+            ${styles['skill-title']}
+            g-title font-medium
+
+            text-15xl
+            sm:text-xl
+            lg:text-xs
+          `}
+        >
           Tecnologías
         </h2>
 
-        <div className={`${styles['skill-main']} grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 gap-3xl sm:gap-md lg:gap-sm`}>
+        <div
+          className={`
+            ${styles['skill-main']}
+            grid grid-cols-2
+
+            sm:grid-cols-5
+            lg:grid-cols-5
+
+            gap-3xl
+            sm:gap-md
+            lg:gap-sm
+          `}
+        >
           {skillsState.techs.map((tech, idx) => (
-            <div className={styles['skill-flipcard-container']} key={idx}>
-              <div 
-                className={styles['skill-flipcard-inner']} 
+            <div
+              className={styles['skill-flipcard-container']}
+              key={idx}
+            >
+              <div
+                className={styles['skill-flipcard-inner']}
                 style={{ transform: `rotateY(${tech.accDegree}deg)` }}
               >
-                <button 
+                <button
                   className={`
-                    ${styles['skill-flipcard-front']} 
+                    ${styles['skill-flipcard-front']}
 
-                    p-10xl gap-3xs
-                    sm:p-lg sm:gap-sm
+                    p-10xl gap-md
+                    sm:p-lg sm:gap-5xs
                     lg:p-md lg:gap-5xs
                   `}
                   onMouseEnter={() => handleLoad(tech.name)}
@@ -173,10 +237,14 @@ const Skills = () => {
                     flipCard(tech.name)
                   }}
                 >
-                  <h4 className={`
-                    ${styles['skill-progressbar-title']}
-                    text-9xl sm:text-sm lg:text-[0.8vw]
-                  `}>
+                  <h4
+                    className={`
+                      ${styles['skill-progressbar-title']}
+
+                      text-9xl
+                      sm:text-[0.8vw]
+                    `}
+                  >
                     {tech.name}
                   </h4>
 
@@ -184,25 +252,25 @@ const Skills = () => {
                     value={tech.progressBar}
                     className={`
                       ${styles['skill-progressbar-container']}
-                      min-h-[2vw] sm:min-h-[1.2vw] lg:min-h-[0.8vw]
+
+                      min-h-[2vw]
+                      sm:min-h-[1vw]
+                      lg:min-h-[0.8vw]
                     `}
                   />
                 </button>
 
-                <button 
-                  className={styles['skill-flipcard-back']} 
+                <button
+                  className={styles['skill-flipcard-back']}
                   onClick={() => flipCard(tech.name)}
                 >
-                  {tech.loaded && (
-                    <Image src={tech.card} alt="flip" />
-                  )}
+                  {tech.loaded && <Image src={tech.card} alt="flip" />}
                 </button>
               </div>
             </div>
           ))}
         </div>
       </div>
-
     </div>
   )
 }

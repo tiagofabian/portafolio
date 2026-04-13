@@ -16,7 +16,6 @@ const RootLayout = ({
     <div className="
       main relative w-full h-full overflow-hidden min-h-screen
       px-0 py-0
-      sm:px-6xs sm:py-0
       lg:px-6xs
     ">
       
@@ -32,29 +31,23 @@ const RootLayout = ({
           rounded-none
           shadow-box-2
           aspect-[4/3]
+          bg-blue-mob bg-cover 
 
           sm:flex-row
           sm:px-10xl sm:pt-8xl sm:pb-sm sm:gap-12xl
           sm:border sm:border-t-0
-          sm:rounded-md sm:rounded-t-none sm:shadow-box-1
+          sm:rounded-none sm:shadow-box-1
           sm:aspect-[3.34/1]
-
-          lg:flex-row lg:gap-20xl
-          lg:px-5xl lg:pt-3xl lg:pb-2xs
-          lg:border lg:border-t-0
-          lg:rounded-md lg:rounded-t-none lg:shadow-box-1
-          lg:aspect-[3.34/1]
-
-          bg-blue-mob bg-cover 
           sm:bg-blue-desk
-          lg:bg-blue-desk
+
+          lg:px-5xl lg:pt-3xl lg:pb-2xs lg:gap-20xl
         "
       />
 
       <section className="
-        relative flex flex-col
-        px-2xl py-2xl
-        sm:px-6xl sm:py-md
+        relative
+        px-0 py-26xl
+        sm:px-xl sm:py-sm
         lg:px-5xl lg:py-sm
       ">
         {children}
@@ -71,7 +64,7 @@ const RootLayout = ({
 
           sm:flex-row sm:flex-wrap
           sm:px-4xl sm:pt-sm sm:pb-5xs sm:gap-sm
-          sm:rounded-md sm:rounded-b-none sm:shadow-box-1 sm:border-none
+          sm:rounded-none sm:shadow-box-1 sm:border-none
 
           lg:flex-col
           lg:px-md lg:pt-2xs lg:pb-6xs lg:gap-4xs

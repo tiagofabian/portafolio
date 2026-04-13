@@ -20,7 +20,7 @@ function Progress({
       {...props}
     >
       <ProgressPrimitive.Indicator
-        className="bar"
+        className="progressbar"
         style={{
           transform: `translateX(-${100 - safeValue}%)`,
         }}

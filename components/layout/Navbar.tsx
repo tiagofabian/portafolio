@@ -1,7 +1,11 @@
-import Link from "next/link";
-import "@/assets/styles/layout/navbar.css";
-import { navbarTabs } from "@/lib/list/navbarTabs";
+"use client"
+
 import { ReactNode } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation"
+import { navbarTabs } from "@/lib/list/navbarTabs";
+import "@/assets/styles/layout/navbar.css";
+
 
 interface NavbarProps {
   className?: string;
@@ -9,6 +13,8 @@ interface NavbarProps {
 }
 
 const Navbar = ({ className }: NavbarProps) => {
+  const pathname = usePathname()
+
   return (
     <header className={className}>
 
@@ -85,30 +91,45 @@ const Navbar = ({ className }: NavbarProps) => {
           sm:flex-col sm:justify-center sm:gap-sm
           lg:flex-col lg:justify-center lg:gap-sm
         ">
-          {navbarTabs.length !== 0 && navbarTabs.map((navbarTab, idx) => (
-            <li 
-              className="
-                header-item 
-                rounded-md
-                min-w-[17vw] aspect-[5/2]
-                sm:min-w-[7vw] sm:aspect-[2/1] sm:rounded-lg
-                lg:min-w-[6.5vw] lg:aspect-[2/1] lg:rounded-lg
-              " 
-              key={idx}
-            >
-              <Link 
-                className="
-                  header-link 
-                  text-16xl
-                  sm:text-md
-                  lg:text-sm
-                " 
-                href={navbarTab.href}
+          {navbarTabs.length !== 0 && navbarTabs.map((navbarTab, idx) => {
+            const isActive = pathname === navbarTab.href
+
+            return (
+              <li
+                className={`
+                  header-item
+                  rounded-md
+                  min-w-[17vw] aspect-[2/1]
+                  transition-[border,transform] duration-200 ease-in-out
+                  border-[#51515199]
+                  sm:min-w-[7vw] sm:aspect-[2/1] sm:rounded-lg
+                  lg:min-w-[6.5vw]
+                  ${isActive 
+                    ? "header-item-active bg-gradient-to-br from-[#4c4c4c] to-[#3c3c3c]" 
+                    : "bg-gradient-to-br from-[#484848] to-[#383838]"
+                  }
+                `}
+                key={idx}
               >
-                {navbarTab.title}
-              </Link>
-            </li>
-          ))}
+                <Link
+                  className={`
+                    header-link
+                    text-16xl sm:text-md lg:text-sm
+                    text-[#4ab1d3]
+                    focus:outline-none
+                    transition-[color,transform] duration-200 ease-in-out
+                    ${isActive 
+                      ? "text-[#4ec0de]" 
+                      : "text-[#4ab1d3]"
+                    }
+                  `}
+                  href={navbarTab.href}
+                >
+                  {navbarTab.title}
+                </Link>
+              </li>
+            )
+          })}
         </ul>
       </div>
 
