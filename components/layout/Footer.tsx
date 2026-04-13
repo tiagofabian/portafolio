@@ -32,7 +32,7 @@ const Footer = ({ className }: FooterProps) => {
 
         <span className="
           foot-date-text
-          text-3xl
+          text-5xl
           sm:text-4xs
           lg:text-5xs
         ">

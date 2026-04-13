@@ -14,7 +14,7 @@
   overflow: hidden;
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.2s, transform 0.2s, width 0.25s ease, height 0.25s ease, background 0.2s, border-color 0.2s;
+  transition: opacity 0.2s, transform 0.2s, width 0.25s ease, background 0.2s, border-color 0.2s;
 }
 
 .back-to-top.visible {
@@ -22,22 +22,12 @@
   pointer-events: auto;
 }
 
-.back-to-top:hover {
-  opacity: 1;
-  background: rgba(255, 255, 255, 0.75);
-  border-color: #9ca3af7e;
-}
-
-@media (max-width: 639px) {
-  .back-to-top:hover {
-    width: 9vw;
-    height: 9vw;
-  }
-}
-
 @media (min-width: 640px) {
   .back-to-top:hover {
-    width: 7vw;
+    opacity: 1;
+    width: 6vw;
+    background: rgba(255, 255, 255, 0.75);
+    border-color: #9ca3af7e;
   }
 }
 

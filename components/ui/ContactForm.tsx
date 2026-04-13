@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useRef, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -11,12 +12,27 @@ const formSchema = z.object({
     .string()
     .min(1, "El email es requerido")
     .regex(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/i, "Email inválido"),
-  message: z.string().min(15, "(mín. 15 caracteres)"),
+  message: z.string().min(15, "mín. 15 caracteres"),
 });
 
 type FormData = z.infer<typeof formSchema>;
 
 const ContactForm = () => {
+  const [showError, setShowError] = useState<string | null>(null);
+  const errorRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (errorRef.current && !errorRef.current.contains(e.target as Node)) {
+        setShowError(null);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  // Destructure
   const {
     register,
     handleSubmit,
@@ -53,9 +69,9 @@ const ContactForm = () => {
   return (
     <div className="
       contactform-container
-      gap-2xs px-sm py-5xs rounded-sm
+      gap-sm px-sm py-xs rounded-sm
       flex-grow
-      sm:flex-grow-0 sm:px-4xs sm:py-6xs sm:basis-[18vw]
+      sm:flex-grow-0 sm:px-4xs sm:py-6xs sm:basis-[18vw] sm:gap-5xs
       lg:flex-grow-0 lg:px-3xs lg:py-5xs lg:basis-[18vw]
     ">
       <strong className="
@@ -71,7 +87,7 @@ const ContactForm = () => {
         onSubmit={handleSubmit(onSubmit)}
         className="
           contactform-form
-          gap-3xs
+          gap-2xs
           sm:gap-5xs
           lg:gap-5xs
         "
@@ -135,7 +151,7 @@ const ContactForm = () => {
           <textarea
             {...register("message")}
             placeholder="Mensaje"
-            rows={2}
+            rows={3}
             className="
               text-8xl rounded-sm px-6xs py-6xs bg-background
               placeholder:text-muted-foreground
@@ -146,37 +162,50 @@ const ContactForm = () => {
 
           {errors.message && (
             <div className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center">
-              <div className="relative group">
-                <svg
-                  className="
-                    text-[#cd5f5f]
-                    w-[3vw]
-                    sm:w-[1.3vw]
-                    lg:w-[1.3vw]
-                  "
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
-                    clipRule="evenodd"
-                  />
-                </svg>
+              <div className="relative group flex items-center" ref={errorRef}>
 
-                <div className="
-                  absolute z-10 hidden group-hover:block
+                <button
+                  type="button"
+                  onClick={() => setShowError(prev => prev === 'message' ? null : 'message')}
+                  className="flex items-center justify-center bg-transparent border-none p-0 sm:pointer-events-none
+                    transition-transform duration-100 ease-in-out active:scale-75
+                  "
+                  aria-label="Ver error"
+                >
+                  <svg
+                    className="text-[#cd5f5f] w-[3.5vw] h-[3.5vw] sm:w-[1.3vw] sm:h-[1.3vw] lg:w-[1.3vw] lg:h-[1.3vw] block"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </button>
+
+                <div className={`
+                  absolute z-10
                   bg-[#cd5f5f] text-white
-                  rounded px-6xs py-[0.1vw]
+                  rounded px-4xs py-7xs
                   whitespace-nowrap
                   right-full mr-1 top-1/2 -translate-y-1/2
-                  text-5xl
-                  sm:text-4xs
-                  lg:text-4xs
-                ">
+                  text-5xl sm:text-4xs lg:text-4xs
+
+                  transition-all duration-200 ease-in-out
+
+                  sm:px-6xs sm:py-[0.1vw]
+                  sm:opacity-0 sm:invisible sm:group-hover:opacity-100 sm:group-hover:visible
+                  ${showError === 'message'
+                    ? 'max-sm:opacity-100 max-sm:visible'
+                    : 'max-sm:opacity-0 max-sm:invisible'
+                  }
+                `}>
                   {errors.message.message}
                   <div className="absolute right-0 top-1/2 w-2 h-2 bg-[#cd5f5f] translate-x-1/2 -translate-y-1/2 rotate-45" />
                 </div>
+
               </div>
             </div>
           )}

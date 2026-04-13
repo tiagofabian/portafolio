@@ -160,7 +160,7 @@ const Skills = () => {
                     className={`
                       ${styles['skill-progressbar-container']}
 
-                      min-h-[2vw]
+                      min-h-[2.2vw]
                       sm:min-h-[1vw]
                       lg:min-h-[0.8vw]
                     `}
@@ -253,7 +253,7 @@ const Skills = () => {
                     className={`
                       ${styles['skill-progressbar-container']}
 
-                      min-h-[2vw]
+                      min-h-[2.2vw]
                       sm:min-h-[1vw]
                       lg:min-h-[0.8vw]
                     `}

@@ -62,12 +62,16 @@ const WorkExperience = () => {
             >
               <AccordionTrigger
                 className="
-                  flex items-center w-full font-bold text-[aliceblue]
-                  text-11xl sm:text-xs lg:text-2xs
-                  px-xs py-4xs sm:px-4xs sm:py-7xs lg:px-4xs lg:py-7xs
-                  [&>svg]:w-[4vw] sm:[&>svg]:w-[2.2vw] lg:[&>svg]:w-[1.8vw]
-                  [&>svg]:h-[4vw] sm:[&>svg]:h-[2.2vw] lg:[&>svg]:h-[1.8vw]
+                  flex items-center w-full 
+                  text-11xl px-xl py-sm font-bold text-[aliceblue]
                   bg-[linear-gradient(150deg,_#253164_0%,_#0070ef80_85%,_#c3cdd8_92%,_#0070ef80_100%)]
+                  [&>svg]:w-[4vw] [&>svg]:h-[4vw] [&>svg]:stroke-[3]
+
+                  sm:text-xs sm:px-4xs sm:py-7xs
+                  sm:[&>svg]:w-[2.2vw] sm:[&>svg]:h-[2.2vw] 
+                   
+                  lg:text-2xs lg:px-4xs lg:py-7xs
+                  lg:[&>svg]:w-[1.8vw] lg:[&>svg]:h-[1.8vw]
                 "
               >
                 {academic.title}
@@ -119,12 +123,16 @@ const WorkExperience = () => {
             >
               <AccordionTrigger
                 className="
-                  flex items-center w-full font-bold text-[aliceblue]
-                  text-11xl sm:text-xs lg:text-2xs
-                  px-xs py-4xs sm:px-4xs sm:py-7xs lg:px-4xs lg:py-7xs
-                  [&>svg]:w-[4vw] sm:[&>svg]:w-[2.2vw] lg:[&>svg]:w-[1.8vw]
-                  [&>svg]:h-[4vw] sm:[&>svg]:h-[2.2vw] lg:[&>svg]:h-[1.8vw]
+                  flex items-center w-full 
+                  text-11xl px-xl py-sm font-bold text-[aliceblue]
                   bg-[linear-gradient(150deg,_#0f2f2a_0%,_#00b3a480_85%,_#c2e6e1_92%,_#00b3a480_100%)]
+                  [&>svg]:w-[4vw] [&>svg]:h-[4vw] [&>svg]:stroke-[3]
+
+                  sm:text-xs sm:px-4xs sm:py-7xs
+                  sm:[&>svg]:w-[2.2vw] sm:[&>svg]:h-[2.2vw] 
+                   
+                  lg:text-2xs lg:px-4xs lg:py-7xs
+                  lg:[&>svg]:w-[1.8vw] lg:[&>svg]:h-[1.8vw]
                 "
               >
                 {professional.title}

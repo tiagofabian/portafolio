@@ -48,8 +48,8 @@
   cursor: pointer;
 
   background:
-    linear-gradient(rgba(0, 0, 0, 0.029), rgba(0, 0, 0, 0.029)),
-    url("/bg/abstract-white-squares.jpg");
+    linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)),
+    url("/bg/card/6.jpg");
 
   background-size: cover;
 }

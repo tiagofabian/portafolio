@@ -4,8 +4,10 @@ import { useState, useEffect } from 'react'
 import * as Tooltip from '@radix-ui/react-tooltip'
 import "@/assets/styles/shared/back-to-top.css"
 
-export function BackToTop() {
+const BackToTop = () => {
   const [visible, setVisible] = useState(false)
+  const [tooltipOpen, setTooltipOpen] = useState(false);
+  const [scrolling, setScrolling] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setVisible(window.scrollY > 300)
@@ -13,12 +15,26 @@ export function BackToTop() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  const scrollUp = () =>
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+  const scrollUp = () => {
+    setScrolling(true);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    const handleScrollEnd = () => {
+      setScrolling(false);
+      window.removeEventListener('scrollend', handleScrollEnd);
+    };
+
+    window.addEventListener('scrollend', handleScrollEnd);
+  };
 
   return (
-    <Tooltip.Provider delayDuration={200} disableHoverableContent>
-      <Tooltip.Root>
+    <Tooltip.Provider delayDuration={1000} disableHoverableContent>
+      <Tooltip.Root
+        open={tooltipOpen}
+        onOpenChange={(open) => {
+          if (window.innerWidth >= 640) setTooltipOpen(open);
+        }}
+      >
         <Tooltip.Trigger asChild>
           <button
             onClick={scrollUp}
@@ -27,7 +43,10 @@ export function BackToTop() {
               fixed bottom-2 left-1/2 -translate-x-1/2
               w-[8vw] h-[8vw]
               sm:w-[2.5vw] sm:h-[2.5vw] sm:bottom-4
+              transition-transform duration-100 ease-in-out
               ${visible ? 'visible translate-y-0' : 'translate-y-2'}
+              ${scrolling ? '!opacity-100 scale-95' : 'scale-100'}
+              sm:scale-100 sm:active:scale-95
             `}
           >
             <svg 
@@ -55,3 +74,5 @@ export function BackToTop() {
     </Tooltip.Provider>
   )
 }
+
+export { BackToTop }
