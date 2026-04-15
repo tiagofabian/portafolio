@@ -8,8 +8,7 @@ import { BackToTop } from '@/components/shared/BackToTop';
 
 const inter = Inter({ 
   subsets: ["latin"],
-  display: 'swap',
-  preload: false
+  display: 'swap'
 });
 
 export const metadata: Metadata = {
