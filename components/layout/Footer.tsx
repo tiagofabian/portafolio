@@ -36,7 +36,7 @@ const Footer = ({ className }: FooterProps) => {
           sm:text-4xs
           lg:text-5xs
         ">
-          ©{new Date().getFullYear()} - nextjs v15
+          ©{new Date().getFullYear()} - nextjs v16
         </span>
       </div>
 

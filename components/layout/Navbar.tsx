@@ -46,14 +46,14 @@ const Navbar = ({ className }: NavbarProps) => {
               <span className="text-sky">ALCÁZAR</span>
             </h1>
 
-            <h4 className="
-              font-bold
+            <p className="
+              font-bold m-0
               text-19xl
               sm:text-4xl
               lg:text-sm
             ">
               DESAROLLADOR DE SOFTWARE
-            </h4>
+            </p>
           </div>
           
           <p className="

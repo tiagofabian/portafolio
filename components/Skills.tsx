@@ -138,13 +138,14 @@ const Skills = () => {
                     sm:p-lg sm:gap-5xs
                     lg:p-md lg:gap-5xs
                   `}
+                  aria-label={`${lang.name} ${lang.progressBar}%. Voltear cara`}
                   onMouseEnter={() => handleLoad(lang.name)}
                   onClick={() => {
                     handleLoad(lang.name)
                     flipCard(lang.name)
                   }}
                 >
-                  <h4
+                  <span
                     className={`
                       ${styles['skill-progressbar-title']}
 
@@ -153,7 +154,7 @@ const Skills = () => {
                     `}
                   >
                     {lang.name}
-                  </h4>
+                  </span>
 
                   <Progress
                     value={lang.progressBar}
@@ -164,11 +165,13 @@ const Skills = () => {
                       sm:min-h-[1vw]
                       lg:min-h-[0.8vw]
                     `}
+                    aria-label={`${lang.name} ${lang.progressBar}`}
                   />
                 </button>
 
                 <button
                   className={styles['skill-flipcard-back']}
+                  aria-label='Voltear revés'
                   onClick={() => flipCard(lang.name)}
                 >
                   {lang.loaded && <Image src={lang.card} alt="flip" />}
@@ -231,13 +234,14 @@ const Skills = () => {
                     sm:p-lg sm:gap-5xs
                     lg:p-md lg:gap-5xs
                   `}
+                  aria-label={`${tech.name} ${tech.progressBar}%. Voltear cara`}
                   onMouseEnter={() => handleLoad(tech.name)}
                   onClick={() => {
                     handleLoad(tech.name)
                     flipCard(tech.name)
                   }}
                 >
-                  <h4
+                  <span
                     className={`
                       ${styles['skill-progressbar-title']}
 
@@ -246,10 +250,11 @@ const Skills = () => {
                     `}
                   >
                     {tech.name}
-                  </h4>
+                  </span>
 
                   <Progress
                     value={tech.progressBar}
+                    aria-hidden="true"
                     className={`
                       ${styles['skill-progressbar-container']}
 
@@ -262,6 +267,7 @@ const Skills = () => {
 
                 <button
                   className={styles['skill-flipcard-back']}
+                  aria-label='Voltear revés'
                   onClick={() => flipCard(tech.name)}
                 >
                   {tech.loaded && <Image src={tech.card} alt="flip" />}

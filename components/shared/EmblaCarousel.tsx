@@ -116,6 +116,8 @@ const EmblaCarouselDots = ({
         <li key={i} className="flex justify-center items-center w-[0.75vw] h-[0.75vw]">
           <button
             onClick={() => emblaApi.scrollTo(i)}
+            aria-label={`slide${i + 1}`}
+            aria-selected={i === selectedIndex}
             className={cn(
               "rounded-full transition-all duration-300",
               "w-[0.6vw] h-[0.6vw]",

@@ -6,11 +6,11 @@ import { cn } from "@/lib/utils"
 
 import "@/assets/styles/shared/progress.css"
 
-function Progress({
+const Progress = ({
   className,
   value,
   ...props
-}: React.ComponentProps<typeof ProgressPrimitive.Root>) {
+}: React.ComponentProps<typeof ProgressPrimitive.Root>) => {
   const safeValue = value ?? 0
 
   return (
