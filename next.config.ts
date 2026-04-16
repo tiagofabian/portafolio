@@ -9,13 +9,19 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   experimental: {
     optimizeCss: true, 
+    optimizePackageImports: ['@radix-ui/react-tooltip', '@radix-ui/react-icons'],
   },
-  webpack(config) {
+  webpack(config, { dev }) {
     config.module.rules.push({
       test: /\.svg$/,
       use: ['@svgr/webpack'],
     });
-    config.optimization.moduleIds = 'named'
+    
+    // facilita debugging en desarrollo
+    if (dev) {
+      config.optimization.moduleIds = 'named'
+    }
+    
     return config;
   },
   turbopack: {

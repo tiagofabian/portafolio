@@ -60,55 +60,7 @@
   color: #555555;
   font-weight: 700;
 }
-.skill-progressbar-container {
-  display: block;
-  border: 1px solid #000000;
-  background-color: #f1f1f1;
-  position: relative;
-  border-radius: 2px;
-  width: 100%;
-  height: auto;
-}
-.skill-count {
-  display: inline-block;
-  position: absolute;
-  font-size: 1.1em;
-  left: 44%;
-  line-height: 138%;
-  background-color: transparent;
-  overflow: hidden;
-  font-weight: 700;
-  color: #2c2c2c;
-  max-height: 100%;
-  z-index: 0;
-}
-.skill-bar {
-  display: block;
-  width: 0%;
-  border-right: 1px solid #000000;
-  z-index: -1;
-  background: linear-gradient(
-    135deg,
-    #64abd1 30%,
-    #6eb8d5 20%,
-    #6eb8d5 50%,
-    #64abd1 50%,
-    #64abd1 80%,
-    #6eb8d5 70%,
-    #6eb8d5 100%
-  );
-  background-size: 2.5em 2.5em;
-  animation: loading 12s infinite linear;
-}
 
-@keyframes loading {
-  from {
-    background-position: 0 0;
-  }
-  to {
-    background-position: 2.5em 2.5em; /* Debe coincidir con el tamaño del patrón */
-  }
-}
 .skill-flipcard-back {
   background-color: #333;
   color: white;
@@ -147,24 +99,3 @@
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden; /* Safari */
 }
-
-/* @media screen and (max-width: 639px) {
-  .skill-flipcard-container {
-    flex-basis: calc((100% - (3vw * (2 - 1))) / 2);
-    max-width: calc((100% - (3vw * (2 - 1))) / 2);
-  }
-}
-
-@media screen and (min-width: 640px) and (max-width: 1024px) {
-  .skill-flipcard-container {
-    flex-basis: calc((100% - (1.5vw * (4 - 1))) / 4);
-    max-width: calc((100% - (1.5vw * (4 - 1))) / 4);
-  }
-}
-
-@media screen and (min-width: 1025px) {
-  .skill-flipcard-container {
-    flex-basis: calc((100% - (1.5vw * (5 - 1))) / 5);
-    max-width: calc((100% - (1.5vw * (5 - 1))) / 5);
-  }
-} */

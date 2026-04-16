@@ -3,7 +3,7 @@ import { contacts } from "@/lib/list/contacts";
 import Image from 'next/image';
 
 const ContactInfo = () => (
-  <div className={styles['foot-contactinfo-container']}>
+  <div className={`${styles['foot-contactinfo-container']} mt-[3vw] sm:mt-[1vw]`}>
     <ul className={`${styles['foot-contactinfo-list']} gap-[0.2vw] w-max`}>
       {contacts.length > 0 && contacts.map((contact, idx) => (
         <li

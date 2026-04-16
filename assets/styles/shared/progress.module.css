@@ -1,59 +1,53 @@
-/* CONTENEDOR (Progress.Root) */
 .progressbar-container {
   position: relative;
   width: 100%;
-  border-radius: 4px;
   overflow: hidden;
   background: #eef1f4;
   border: 1px solid #d6dbe1;
+  will-change: transform;
 }
 
-/* INDICADOR (Progress.Indicator) */
 .progressbar {
   height: 100%;
   border-right: 1px solid rgba(0, 0, 0, 0.15);
-
-  /* 👇 base limpia (sin franjas) */
   background: linear-gradient(
     135deg,
     #7fb3d5 0%,
     #9ac8e3 50%,
     #7fb3d5 100%
   );
-
   overflow: hidden;
-
-  transition: transform 0.4s ease;
 }
 
-/* 👇 capa de brillo */
+/* Transición de entrada — se activa una vez */
+.progressbar-container.is-animated .progressbar {
+  will-change: transform;
+  transition: transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .progressbar::after {
   content: "";
   position: absolute;
   inset: 0;
-
   background: linear-gradient(
     110deg,
     transparent 20%,
     rgba(255, 255, 255, 0.24) 50%,
     transparent 80%
   );
-
   transform: translateX(-120%);
   animation: sheen 4s linear infinite;
+  animation-play-state: paused;
 }
 
-/* 👉 recorrido corto + pausa larga */
+/* Sheen — solo corre cuando está en el viewport */
+.progressbar-container.is-animating .progressbar::after {
+  animation-play-state: running;
+  will-change: transform;
+}
+
 @keyframes sheen {
-  0% {
-    transform: translateX(-120%);
-  }
-
-  40% {
-    transform: translateX(120%);
-  }
-
-  100% {
-    transform: translateX(120%);
-  }
+  0%   { transform: translateX(-120%); }
+  40%  { transform: translateX(120%);  }
+  100% { transform: translateX(120%);  }
 }

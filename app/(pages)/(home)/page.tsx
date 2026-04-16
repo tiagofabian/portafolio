@@ -1,25 +1,17 @@
-"use client"
+import { Skills } from "@/components/Skills"
+import { Certs } from "@/components/Certs"
+import { WorkExperience } from "@/components/WorkExperience"
 
-import React from 'react'
-import dynamic from 'next/dynamic'
-import { Skills } from "@/components/Skills";
-import { Certs } from "@/components/Certs";
-
-const WorkExperience = dynamic(() => 
-  import("@/components/WorkExperience").then(mod => mod.WorkExperience),
-  { ssr: false }
-)
-
-const page = () => (
+const Page = () => (
   <div className='
     dashboard flex flex-col 
     gap-lg
     sm:gap-md
   '>
     <Skills />
-    <WorkExperience/>
-    <Certs/>
+    <WorkExperience />
+    <Certs />
   </div>
 )
 
-export default page
+export default Page

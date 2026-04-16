@@ -68,8 +68,7 @@ const Certs = () => {
               className={`
                 ${styles['embla-carousel-item']}
                 basis-1/2
-                sm:basis-1/4
-                lg:basis-[20%]
+                sm:basis-1/5
                 mx-2xs
                 sm:mx-3xs
                 lg:mx-4xs

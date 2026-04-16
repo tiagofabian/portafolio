@@ -15,10 +15,10 @@ const Footer = ({ className }: FooterProps) => {
       
       <div className={`
         ${styles['foot-element-container']}
-        flex flex-row items-stretch
+        flex flex-row items-start
         gap-10xl
-        sm:flex-row sm:items-center sm:justify-start sm:gap-2xl
-        lg:flex-row lg:items-center lg:justify-start lg:gap-3xl
+        sm:gap-2xl
+        lg:gap-3xl
       `}>
         <ContactInfo />
         <ContactForm />

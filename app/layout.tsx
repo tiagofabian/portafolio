@@ -36,6 +36,14 @@ export default function RootLayout({
         {/* Preconectar a Google Fonts para reducir latencia de red */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="preload"
+          as="image"
+          href="/bg/svg/blue-desk.svg"
+          imageSrcSet="/bg/svg/blue-mob.svg 640w, /bg/svg/blue-desk.svg 1920w"
+          imageSizes="100vw"
+          fetchPriority="high"
+        />
       </head>
       {/* variable CSS de Inter disponible en toda la app */}
       <body className={`${inter.variable} font-sans`}>

@@ -1,82 +1,166 @@
 "use client"
 
-import React, { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import styles from '@/assets/styles/dashboard/skills.module.css'
-import Image from "next/image"
+import Image, { type StaticImageData } from 'next/image'
 import { Progress } from "@/components/shared/Progress"
 import { skills } from '@/lib/list/skills'
 
+type SkillItem = {
+  name: string
+  card: StaticImageData
+  max: number
+  progressBar: number
+  accDegree: number
+  loaded: boolean
+  animated: boolean   // ← si ya corrió la transición de entrada (nunca vuelve a false)
+  animating: boolean  // ← si el sheen está corriendo (sube y baja con el viewport)
+}
+
 const Skills = () => {
   const containerRef = useRef<HTMLDivElement>(null)
-  
-  const [skillsState, setSkillsState] = useState(() => ({
-    langs: skills.langs.map(lang => ({ ...lang, loaded: false })),
-    techs: skills.techs.map(tech => ({ ...tech, loaded: false }))
-  }))
 
-  const updateSkills = <T extends { name: string }>(
+  const [skillsState, setSkillsState] = useState<{
+    langs: SkillItem[]
+    techs: SkillItem[]
+  }>(() => {
+    const toSkillItem = (item: typeof skills.langs[number]): SkillItem => ({
+      ...item,
+      loaded: false,
+      animated: false,
+      animating: false,
+    })
+
+    return {
+      langs: skills.langs.map(toSkillItem),
+      techs: skills.techs.map(toSkillItem),
+    }
+  })
+
+  const updateByName = <T extends { name: string }>(
     items: T[],
     name: string,
     updater: (item: T) => Partial<T>
-  ): T[] => {
-    return items.map(item =>
-      item.name === name ? { ...item, ...updater(item) } : item
-    )
-  }
+  ): T[] =>
+    items.map(item => item.name === name ? { ...item, ...updater(item) } : item)
 
   const handleLoad = (name: string) => {
     setSkillsState(prev => ({
-      langs: updateSkills(prev.langs, name, () => ({ loaded: true })),
-      techs: updateSkills(prev.techs, name, () => ({ loaded: true }))
+      langs: updateByName(prev.langs, name, () => ({ loaded: true })),
+      techs: updateByName(prev.techs, name, () => ({ loaded: true }))
     }))
   }
 
   const flipCard = (name: string) => {
     setSkillsState(prev => ({
-      langs: updateSkills(prev.langs, name, item => ({ accDegree: item.accDegree + 180 })),
-      techs: updateSkills(prev.techs, name, item => ({ accDegree: item.accDegree + 180 }))
+      langs: updateByName(prev.langs, name, item => ({ accDegree: item.accDegree + 180 })),
+      techs: updateByName(prev.techs, name, item => ({ accDegree: item.accDegree + 180 }))
     }))
   }
 
+  // Observer 1: dispara la transición de entrada, una sola vez
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (!entry.isIntersecting) return
-
-        // Ya es visible, arrancamos el intervalo y dejamos de observar
         observer.disconnect()
 
-        const interval = setInterval(() => {
-          setSkillsState((prev) => {
-            const updatedLangs = prev.langs.map(lang => ({
-              ...lang,
-              progressBar: Math.min(lang.progressBar + 1, lang.max)
-            }))
-            const updatedTechs = prev.techs.map(tech => ({
-              ...tech,
-              progressBar: Math.min(tech.progressBar + 1, tech.max)
-            }))
-
-            if (
-              updatedLangs.every(l => l.progressBar >= l.max) &&
-              updatedTechs.every(t => t.progressBar >= t.max)
-            ) {
-              clearInterval(interval)
-            }
-
-            return { langs: updatedLangs, techs: updatedTechs }
-          })
-        }, 30)
-
-        return () => clearInterval(interval)
+        setSkillsState(prev => ({
+          langs: prev.langs.map(lang => ({ ...lang, progressBar: lang.max, animated: true, animating: true })),
+          techs: prev.techs.map(tech => ({ ...tech, progressBar: tech.max, animated: true, animating: true }))
+        }))
       },
       { threshold: 0.1 }
     )
 
     if (containerRef.current) observer.observe(containerRef.current)
-
     return () => observer.disconnect()
   }, [])
+
+  // Observer 2: pausa/reanuda el sheen según visibilidad
+  useEffect(() => {
+    const sheenObserver = new IntersectionObserver(
+      ([entry]) => {
+        setSkillsState(prev => {
+          // Solo tocar animating si ya se animó antes
+          if (!prev.langs.some(l => l.animated)) return prev
+          return {
+            langs: prev.langs.map(lang => ({ ...lang, animating: entry.isIntersecting })),
+            techs: prev.techs.map(tech => ({ ...tech, animating: entry.isIntersecting }))
+          }
+        })
+      },
+      { threshold: 0.1 }
+    )
+
+    if (containerRef.current) sheenObserver.observe(containerRef.current)
+    return () => sheenObserver.disconnect()
+  }, [])
+
+  const renderCards = (items: SkillItem[]) =>
+    items.map((item, idx) => (
+      <div className={styles['skill-flipcard-container']} key={idx}>
+        <div
+          className={styles['skill-flipcard-inner']}
+          style={{ transform: `rotateY(${item.accDegree}deg)` }}
+        >
+          <button
+            className={`
+              ${styles['skill-flipcard-front']}
+              p-10xl gap-md
+              sm:p-md sm:gap-5xs
+              lg:p-md lg:gap-5xs
+            `}
+            aria-label={`${item.name} ${item.progressBar}%. Voltear cara`}
+            onMouseEnter={() => handleLoad(item.name)}
+            onClick={() => {
+              handleLoad(item.name)
+              flipCard(item.name)
+            }}
+          >
+            <span
+              className={`
+                ${styles['skill-progressbar-title']}
+                text-9xl sm:text-[0.8vw]
+              `}
+            >
+              {item.name}
+            </span>
+
+            <Progress
+              value={item.progressBar}
+              aria-hidden="true"
+              animated={item.animated}
+              animating={item.animating}
+              className={`
+                ${styles['skill-progressbar-container']}
+                min-h-[2.2vw] rounded-sm
+                sm:min-h-[1vw] sm:rounded-sm
+                lg:min-h-[0.8vw] lg:rounded-sm
+              `}
+              aria-label={`${item.name} ${item.progressBar}`}
+            />
+          </button>
+
+          <button
+            className={styles['skill-flipcard-back']}
+            aria-label="Voltear revés"
+            onClick={() => flipCard(item.name)}
+          >
+            {item.loaded && (
+              <Image
+                src={item.card}
+                alt={`${item.name} card`}
+                width={1000}
+                height={400}
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 80vw"
+                loading={idx === 0 ? "eager" : "lazy"}
+              />
+            )}
+          </button>
+        </div>
+      </div>
+    ))
 
   return (
     <div
@@ -84,205 +168,62 @@ const Skills = () => {
       className={`
         ${styles['skill-container']}
         g-container glass
-
         gap-16xl px-12xl py-12xl
         sm:gap-8xl sm:px-8xl sm:py-6xl
         lg:gap-4xl lg:px-12xl lg:py-6xl
       `}
     >
-      {/* Lenguajes */}
       <div
         className={`
           ${styles['skill-subcontainer']}
-          gap-13xl
-          sm:gap-6xl
-          lg:gap-2xl
+          gap-13xl sm:gap-6xl lg:gap-2xl
         `}
       >
         <h2
           className={`
             ${styles['skill-title']}
             g-title font-medium
-
-            text-15xl
-            sm:text-xl
-            lg:text-xs
+            text-15xl sm:text-xl lg:text-xs
           `}
         >
           Lenguajes
         </h2>
-
         <div
           className={`
             ${styles['skill-main']}
             grid grid-cols-2 gap-3xl
-
             sm:grid-cols-5 sm:gap-md
             lg:grid-cols-5 lg:gap-sm
           `}
         >
-          {skillsState.langs.map((lang, idx) => (
-            <div
-              className={styles['skill-flipcard-container']}
-              key={idx}
-            >
-              <div
-                className={styles['skill-flipcard-inner']}
-                style={{ transform: `rotateY(${lang.accDegree}deg)` }}
-              >
-                <button
-                  className={`
-                    ${styles['skill-flipcard-front']}
-
-                    p-10xl gap-md
-                    sm:p-lg sm:gap-5xs
-                    lg:p-md lg:gap-5xs
-                  `}
-                  aria-label={`${lang.name} ${lang.progressBar}%. Voltear cara`}
-                  onMouseEnter={() => handleLoad(lang.name)}
-                  onClick={() => {
-                    handleLoad(lang.name)
-                    flipCard(lang.name)
-                  }}
-                >
-                  <span
-                    className={`
-                      ${styles['skill-progressbar-title']}
-
-                      text-9xl
-                      sm:text-[0.8vw]
-                    `}
-                  >
-                    {lang.name}
-                  </span>
-
-                  <Progress
-                    value={lang.progressBar}
-                    className={`
-                      ${styles['skill-progressbar-container']}
-
-                      min-h-[2.2vw]
-                      sm:min-h-[1vw]
-                      lg:min-h-[0.8vw]
-                    `}
-                    aria-label={`${lang.name} ${lang.progressBar}`}
-                  />
-                </button>
-
-                <button
-                  className={styles['skill-flipcard-back']}
-                  aria-label='Voltear revés'
-                  onClick={() => flipCard(lang.name)}
-                >
-                  {lang.loaded && (
-                    <Image 
-                      src={lang.card} 
-                      alt="flip card" 
-                      width={1000}
-                      height={400}
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 80vw"
-                    />
-                  )}
-                </button>
-              </div>
-            </div>
-          ))}
+          {renderCards(skillsState.langs)}
         </div>
       </div>
 
-      {/* Tecnologías */}
       <div
         className={`
           ${styles['skill-subcontainer']}
-          gap-13xl
-          sm:gap-6xl
-          lg:gap-2xl
+          gap-13xl sm:gap-6xl lg:gap-2xl
         `}
       >
         <h2
           className={`
             ${styles['skill-title']}
             g-title font-medium
-
-            text-15xl
-            sm:text-xl
-            lg:text-xs
+            text-15xl sm:text-xl lg:text-xs
           `}
         >
           Tecnologías
         </h2>
-
         <div
           className={`
             ${styles['skill-main']}
-            grid grid-cols-2
-
-            sm:grid-cols-5
-            lg:grid-cols-5
-
-            gap-3xl
-            sm:gap-md
-            lg:gap-sm
+            grid grid-cols-2 gap-3xl
+            sm:grid-cols-5 sm:gap-md
+            lg:grid-cols-5 lg:gap-sm
           `}
         >
-          {skillsState.techs.map((tech, idx) => (
-            <div
-              className={styles['skill-flipcard-container']}
-              key={idx}
-            >
-              <div
-                className={styles['skill-flipcard-inner']}
-                style={{ transform: `rotateY(${tech.accDegree}deg)` }}
-              >
-                <button
-                  className={`
-                    ${styles['skill-flipcard-front']}
-
-                    p-10xl gap-md
-                    sm:p-lg sm:gap-5xs
-                    lg:p-md lg:gap-5xs
-                  `}
-                  aria-label={`${tech.name} ${tech.progressBar}%. Voltear cara`}
-                  onMouseEnter={() => handleLoad(tech.name)}
-                  onClick={() => {
-                    handleLoad(tech.name)
-                    flipCard(tech.name)
-                  }}
-                >
-                  <span
-                    className={`
-                      ${styles['skill-progressbar-title']}
-
-                      text-9xl
-                      sm:text-[0.8vw]
-                    `}
-                  >
-                    {tech.name}
-                  </span>
-
-                  <Progress
-                    value={tech.progressBar}
-                    aria-hidden="true"
-                    className={`
-                      ${styles['skill-progressbar-container']}
-
-                      min-h-[2.2vw]
-                      sm:min-h-[1vw]
-                      lg:min-h-[0.8vw]
-                    `}
-                  />
-                </button>
-
-                <button
-                  className={styles['skill-flipcard-back']}
-                  aria-label='Voltear revés'
-                  onClick={() => flipCard(tech.name)}
-                >
-                  {tech.loaded && <Image src={tech.card} alt="flip" />}
-                </button>
-              </div>
-            </div>
-          ))}
+          {renderCards(skillsState.techs)}
         </div>
       </div>
     </div>

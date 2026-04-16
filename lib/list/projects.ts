@@ -30,7 +30,7 @@ const projects: Project[] = [
     preview: hosekiPreview,
     urlGit: "https://github.com/Elsilla/SA-HA1",
     urlProd: "https://hoseki.vercel.app/",
-    description: "Joyeria Hoseki, una tienda de joyería fina que ofrece materiales de alta calidad con diseños personalizados",
+    description: "Joyería fina que ofrece materiales de alta calidad con diseños personalizados",
     badges: [
       {
         name: "Javascript",
