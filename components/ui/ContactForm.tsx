@@ -147,6 +147,7 @@ const ContactForm = () => {
         <div className={`${styles['contactform-textarea-container']} relative gap-7xs`}>
           <textarea
             {...register("message", {
+              required: "El mensaje es requerido", 
               minLength: {
                 value: 15,
                 message: "mín. 15 caracteres",
