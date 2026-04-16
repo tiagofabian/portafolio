@@ -31,14 +31,12 @@ const RootLayout = ({
           rounded-none
           shadow-box-2
           aspect-[4/3]
-          bg-blue-mob bg-cover 
 
           sm:flex-row
           sm:px-10xl sm:pt-8xl sm:pb-sm sm:gap-12xl
           sm:border sm:border-t-0
           sm:rounded-none sm:shadow-box-1
           sm:aspect-[3.34/1]
-          sm:bg-blue-desk
 
           lg:px-5xl lg:pt-3xl lg:pb-2xs lg:gap-20xl
         "

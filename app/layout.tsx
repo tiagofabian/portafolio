@@ -2,13 +2,14 @@ import "@/app/global.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { ToasterProvider } from "@/lib/providers/ToasterProvider";
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import { BackToTop } from '@/components/shared/BackToTop';
 
 const inter = Inter({ 
   subsets: ["latin"],
-  display: 'swap'
+  display: 'swap',
+  variable: '--font-inter', // expuesto como variable CSS
 });
 
 export const metadata: Metadata = {
@@ -32,8 +33,12 @@ export default function RootLayout({
       <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        {/* Preconectar a Google Fonts para reducir latencia de red */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
-      <body className={inter.className}>
+      {/* variable CSS de Inter disponible en toda la app */}
+      <body className={`${inter.variable} font-sans`}>
         {children}
         <ToasterProvider />
         <BackToTop />

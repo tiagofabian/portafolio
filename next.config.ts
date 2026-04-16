@@ -1,15 +1,23 @@
 import type { NextConfig } from "next";
+// import bundleAnalyzer from '@next/bundle-analyzer';
+
+/* Bundle Analyzer */
+// const withBundleAnalyzer = bundleAnalyzer({
+//   enabled: process.env.ANALYZE === 'true',
+// });
 
 const nextConfig: NextConfig = {
-  // Mantén webpack para el build de producción
+  experimental: {
+    optimizeCss: true, 
+  },
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
       use: ['@svgr/webpack'],
     });
+    config.optimization.moduleIds = 'named'
     return config;
   },
-  // Agrega turbopack para dev
   turbopack: {
     rules: {
       '*.svg': {
@@ -18,6 +26,10 @@ const nextConfig: NextConfig = {
       },
     },
   },
+  images: {
+    qualities: [75, 85]
+  },
 };
 
-export default nextConfig;
+// export default withBundleAnalyzer(nextConfig);
+export default nextConfig

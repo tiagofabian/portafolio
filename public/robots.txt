@@ -1,0 +1,6 @@
+# public/robots.txt
+User-agent: *
+Allow: /
+
+# Opcional: Si tienes un sitemap generado
+# Sitemap: https://tudominio.com/sitemap.xml

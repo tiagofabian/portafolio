@@ -2,9 +2,10 @@
 
 import { ReactNode } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation"
 import { navbarTabs } from "@/lib/list/navbarTabs";
-import "@/assets/styles/layout/navbar.css";
+import styles from "@/assets/styles/layout/navbar.module.css";
 
 
 interface NavbarProps {
@@ -16,20 +17,33 @@ const Navbar = ({ className }: NavbarProps) => {
   const pathname = usePathname()
 
   return (
-    <header className={className}>
-
-      {/* ===== PRESENTATION ===== */}
-      <div className="header-presentation flex flex-col sm:flex-row lg:flex-row justify-start">
+    <header className={`${styles['header-container']} ${className ?? ''}`}>
+      {/* Hero Banner */}
+      <div className="absolute inset-0">
+        <picture className="block w-full h-full">
+          <source media="(max-width: 640px)" srcSet="/bg/svg/blue-mob.svg" />
+          <Image
+            src="/bg/svg/blue-desk.svg"
+            alt=""
+            width={1920}
+            height={1080}
+            priority
+            fetchPriority="high"
+            className="object-cover w-full h-full"
+          />
+        </picture>
+      </div>
+      {/* ===== CONTENT ===== */}
+      <div className={`${styles['header-presentation']} relative z-10 flex flex-col sm:flex-row lg:flex-row justify-start`}>
         
-        <div className="
-          header-presentation-title
+        <div className={`
+          ${styles['header-presentation-title']}
           gap-3xl
           sm:gap-md
           lg:gap-4xs
-        ">
+        `}>
           
           <div className="
-            header-title 
             flex flex-col
             text-center
             sm:text-left
@@ -77,27 +91,28 @@ const Navbar = ({ className }: NavbarProps) => {
       </div>
 
       {/* ===== BUTTONS ===== */}
-      <div className="
-        header-btn-section 
+      <div className={`
+        ${styles['header-btn-section']}
+        relative z-10
         flex
         justify-center
         sm:justify-start
         lg:justify-start
-      ">
-        <ul className="
-          header-list 
+      `}>
+        <ul className={`
+          ${styles['header-list']}
           flex flex-row justify-evenly
           gap-12xl
           sm:flex-col sm:justify-center sm:gap-sm
           lg:flex-col lg:justify-center lg:gap-sm
-        ">
+        `}>
           {navbarTabs.length !== 0 && navbarTabs.map((navbarTab, idx) => {
             const isActive = pathname === navbarTab.href
 
             return (
               <li
                 className={`
-                  header-item
+                  ${styles['header-item']}
                   rounded-md
                   min-w-[17vw] aspect-[2/1]
                   transition-[border,transform] duration-200 ease-in-out
@@ -105,7 +120,7 @@ const Navbar = ({ className }: NavbarProps) => {
                   sm:min-w-[7vw] sm:aspect-[2/1] sm:rounded-lg
                   lg:min-w-[6.5vw]
                   ${isActive 
-                    ? "header-item-active bg-gradient-to-br from-[#4c4c4c] to-[#3c3c3c]" 
+                    ? `${styles['header-item-active']} bg-gradient-to-br from-[#4c4c4c] to-[#3c3c3c]`
                     : "bg-gradient-to-br from-[#484848] to-[#383838]"
                   }
                 `}
@@ -113,7 +128,7 @@ const Navbar = ({ className }: NavbarProps) => {
               >
                 <Link
                   className={`
-                    header-link
+                    ${styles['header-link']}
                     text-16xl sm:text-md lg:text-sm
                     text-[#4ab1d3]
                     focus:outline-none

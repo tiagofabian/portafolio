@@ -1,23 +1,29 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
-import { animate } from "motion";
-import * as AccordionPrimitive from "@radix-ui/react-accordion";
+import { animate } from "motion/mini";
+import { 
+  Root,
+  Item,
+  Header,
+  Trigger,
+  Content,
+} from "@radix-ui/react-accordion";
 import { ChevronDownIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const Accordion = ({
   ...props
-}: React.ComponentProps<typeof AccordionPrimitive.Root>) => {
-  return <AccordionPrimitive.Root data-slot="accordion" {...props} />;
+}: React.ComponentProps<typeof Root>) => {
+  return <Root data-slot="accordion" {...props} />;
 };
 
 const AccordionItem = ({
   className,
   ...props
-}: React.ComponentProps<typeof AccordionPrimitive.Item>) => {
+}: React.ComponentProps<typeof Item>) => {
   return (
-    <AccordionPrimitive.Item
+    <Item
       data-slot="accordion-item"
       className={cn(className)}
       {...props}
@@ -29,10 +35,10 @@ const AccordionTrigger = ({
   className,
   children,
   ...props
-}: React.ComponentProps<typeof AccordionPrimitive.Trigger>) => {
+}: React.ComponentProps<typeof Trigger>) => {
   return (
-    <AccordionPrimitive.Header className="flex">
-      <AccordionPrimitive.Trigger
+    <Header className="flex">
+      <Trigger
         data-slot="accordion-trigger"
         className={cn(
           `
@@ -59,8 +65,8 @@ const AccordionTrigger = ({
             size-4 sm:size-5
           "
         />
-      </AccordionPrimitive.Trigger>
-    </AccordionPrimitive.Header>
+      </Trigger>
+    </Header>
   );
 };
 
@@ -68,7 +74,7 @@ const AccordionContent = ({
   className,
   children,
   ...props
-}: React.ComponentProps<typeof AccordionPrimitive.Content>) => {
+}: React.ComponentProps<typeof Content>) => {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -82,7 +88,7 @@ const AccordionContent = ({
 
     const runAnimation = () => {
       const state = content.getAttribute("data-state");
-      const height = state === "open" ? content.scrollHeight : "0";
+      const height = state === "open" ? content.scrollHeight : 0;
       const opacity = state === "open" ? 1 : 0;
 
       isAnimating = true;
@@ -90,11 +96,10 @@ const AccordionContent = ({
         content,
         { height, opacity },
         {
-          type: "spring",
           stiffness: 120,
           damping: 24,
           duration: 0.4,
-          onComplete: () => { isAnimating = false; }
+          onComplete: () => { isAnimating = false; },
         }
       );
     };
@@ -122,7 +127,7 @@ const AccordionContent = ({
   }, []);
 
   return (
-    <AccordionPrimitive.Content
+    <Content
       {...props}
       forceMount
       ref={ref}
@@ -132,7 +137,7 @@ const AccordionContent = ({
       <div className="flex flex-col">
         {children}
       </div>
-    </AccordionPrimitive.Content>
+    </Content>
   );
 };
 

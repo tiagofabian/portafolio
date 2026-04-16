@@ -1,7 +1,14 @@
+"use client"
+
 import React from 'react'
+import dynamic from 'next/dynamic'
 import { Skills } from "@/components/Skills";
-import { WorkExperience } from "@/components/WorkExperience";
 import { Certs } from "@/components/Certs";
+
+const WorkExperience = dynamic(() => 
+  import("@/components/WorkExperience").then(mod => mod.WorkExperience),
+  { ssr: false }
+)
 
 const page = () => (
   <div className='

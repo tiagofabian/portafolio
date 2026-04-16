@@ -1,14 +1,14 @@
-input:-webkit-autofill,
-input:-webkit-autofill:hover, 
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
+.contactform-input-container input:-webkit-autofill,
+.contactform-input-container input:-webkit-autofill:hover, 
+.contactform-input-container input:-webkit-autofill:focus,
+.contactform-input-container input:-webkit-autofill:active {
   background-color: transparent !important;
   transition: background-color 5000s ease-in-out 0s;
   color: #dedede !important;
   -webkit-text-fill-color: #dedede !important;
 }
 
-input:-webkit-autofill::first-line {
+.contactform-input-container input:-webkit-autofill::first-line {
   color: #dedede;
   font-family: inherit;
 }

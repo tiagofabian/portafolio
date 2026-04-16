@@ -117,7 +117,7 @@ const EmblaCarouselDots = ({
           <button
             onClick={() => emblaApi.scrollTo(i)}
             aria-label={`slide${i + 1}`}
-            aria-selected={i === selectedIndex}
+            aria-current={i === selectedIndex ? 'true' : 'false'}
             className={cn(
               "rounded-full transition-all duration-300",
               "w-[0.6vw] h-[0.6vw]",

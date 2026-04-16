@@ -1,4 +1,4 @@
-footer {
+.footer-container {
   display: flex;
   box-sizing: border-box;
   max-height: 100%;

@@ -67,6 +67,12 @@ const Projects = () => {
                 <Image
                   src={project.preview}
                   alt="alt"
+                  width={2560}
+                  height={1000}
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 80vw"
+                  className="rounded-md object-cover"
+                  quality={85} // Balance entre calidad y peso (80-90 es óptimo)
+                  priority={idx === 0} 
                 />
               </a>
             </div>

@@ -83,6 +83,9 @@ const Certs = () => {
                 <Image
                   src={cert.urlIMG}
                   alt={cert.alt}
+                  width={920}
+                  height={1166}
+                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 20vw"
                   className="rounded-md"
                 />
               </button>

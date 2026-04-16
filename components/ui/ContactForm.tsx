@@ -2,20 +2,13 @@
 
 import { useState, useRef, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
 import { toast } from "react-hot-toast";
-import "@/assets/styles/ui/contact-form.css";
+import styles from "@/assets/styles/ui/contact-form.module.css";
 
-const formSchema = z.object({
-  email: z
-    .string()
-    .min(1, "El email es requerido")
-    .regex(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/i, "Email inválido"),
-  message: z.string().min(15, "mín. 15 caracteres"),
-});
-
-type FormData = z.infer<typeof formSchema>;
+type FormData = {
+  email: string;
+  message: string;
+};
 
 const ContactForm = () => {
   const [showError, setShowError] = useState<string | null>(null);
@@ -32,14 +25,12 @@ const ContactForm = () => {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  // Destructure
   const {
     register,
     handleSubmit,
     reset,
     formState: { errors, isValid },
   } = useForm<FormData>({
-    resolver: zodResolver(formSchema),
     mode: "onChange",
     reValidateMode: "onChange",
   });
@@ -67,35 +58,41 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="
-      contactform-container
+    <div className={`
+      ${styles['contactform-container']}
       gap-sm px-sm py-xs rounded-sm
       flex-grow
       sm:flex-grow-0 sm:px-4xs sm:py-6xs sm:basis-[18vw] sm:gap-5xs
       lg:flex-grow-0 lg:px-3xs lg:py-5xs lg:basis-[18vw]
-    ">
-      <strong className="
-        contactform-title
+    `}>
+      <strong className={`
+        ${styles['contactform-title']}
         text-9xl
         sm:text-4xs
         lg:text-4xs
-      ">
+      `}>
         Deja un mensaje
       </strong>
 
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="
-          contactform-form
+        className={`
+          ${styles['contactform-form']}
           gap-2xs
           sm:gap-5xs
           lg:gap-5xs
-        "
+        `}
       >
         {/* EMAIL */}
-        <div className="contactform-input-container relative gap-7xs">
+        <div className={`${styles['contactform-input-container']} relative gap-7xs`}>
           <input
-            {...register("email")}
+            {...register("email", {
+              required: "El email es requerido",
+              pattern: {
+                value: /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/i,
+                message: "Email inválido",
+              },
+            })}
             value="no-reply@rsworkcontact.site"
             disabled
             autoComplete="email"
@@ -147,9 +144,14 @@ const ContactForm = () => {
         </div>
 
         {/* MESSAGE */}
-        <div className="contactform-textarea-container relative gap-7xs">
+        <div className={`${styles['contactform-textarea-container']} relative gap-7xs`}>
           <textarea
-            {...register("message")}
+            {...register("message", {
+              minLength: {
+                value: 15,
+                message: "mín. 15 caracteres",
+              },
+            })}
             placeholder="Mensaje"
             rows={3}
             className="

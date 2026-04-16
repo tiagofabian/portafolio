@@ -1,21 +1,17 @@
 "use client"
 
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import styles from '@/assets/styles/dashboard/skills.module.css'
-import Image from "next/image";
+import Image from "next/image"
 import { Progress } from "@/components/shared/Progress"
 import { skills } from '@/lib/list/skills'
 
 const Skills = () => {
+  const containerRef = useRef<HTMLDivElement>(null)
+  
   const [skillsState, setSkillsState] = useState(() => ({
-    langs: skills.langs.map(lang => ({
-      ...lang,
-      loaded: false
-    })),
-    techs: skills.techs.map(tech => ({
-      ...tech,
-      loaded: false
-    }))
+    langs: skills.langs.map(lang => ({ ...lang, loaded: false })),
+    techs: skills.techs.map(tech => ({ ...tech, loaded: false }))
   }))
 
   const updateSkills = <T extends { name: string }>(
@@ -24,9 +20,7 @@ const Skills = () => {
     updater: (item: T) => Partial<T>
   ): T[] => {
     return items.map(item =>
-      item.name === name
-        ? { ...item, ...updater(item) }
-        : item
+      item.name === name ? { ...item, ...updater(item) } : item
     )
   }
 
@@ -39,48 +33,54 @@ const Skills = () => {
 
   const flipCard = (name: string) => {
     setSkillsState(prev => ({
-      langs: updateSkills(prev.langs, name, item => ({
-        accDegree: item.accDegree + 180
-      })),
-      techs: updateSkills(prev.techs, name, item => ({
-        accDegree: item.accDegree + 180
-      }))
+      langs: updateSkills(prev.langs, name, item => ({ accDegree: item.accDegree + 180 })),
+      techs: updateSkills(prev.techs, name, item => ({ accDegree: item.accDegree + 180 }))
     }))
   }
 
-  const progressbarCard = () => {
-    const interval = setInterval(() => {
-      setSkillsState((skills) => {
-        const updatedLangs = skills.langs.map(lang => ({
-          ...lang,
-          progressBar: Math.min(lang.progressBar + 1, lang.max)
-        }));
-
-        const updatedTechs = skills.techs.map(tech => ({
-          ...tech,
-          progressBar: Math.min(tech.progressBar + 1, tech.max)
-        }));
-
-        const allSkillsComplete = updatedLangs.every(lang => lang.progressBar >= lang.max);
-        const allTechsComplete = updatedTechs.every(tech => tech.progressBar >= tech.max);
-
-        if (allSkillsComplete && allTechsComplete) {
-          clearInterval(interval);
-        }
-
-        return { langs: updatedLangs, techs: updatedTechs };
-      });
-    }, 30);
-
-    return () => clearInterval(interval);
-  }
-
   useEffect(() => {
-    progressbarCard()
-  }, []);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return
+
+        // Ya es visible, arrancamos el intervalo y dejamos de observar
+        observer.disconnect()
+
+        const interval = setInterval(() => {
+          setSkillsState((prev) => {
+            const updatedLangs = prev.langs.map(lang => ({
+              ...lang,
+              progressBar: Math.min(lang.progressBar + 1, lang.max)
+            }))
+            const updatedTechs = prev.techs.map(tech => ({
+              ...tech,
+              progressBar: Math.min(tech.progressBar + 1, tech.max)
+            }))
+
+            if (
+              updatedLangs.every(l => l.progressBar >= l.max) &&
+              updatedTechs.every(t => t.progressBar >= t.max)
+            ) {
+              clearInterval(interval)
+            }
+
+            return { langs: updatedLangs, techs: updatedTechs }
+          })
+        }, 30)
+
+        return () => clearInterval(interval)
+      },
+      { threshold: 0.1 }
+    )
+
+    if (containerRef.current) observer.observe(containerRef.current)
+
+    return () => observer.disconnect()
+  }, [])
 
   return (
     <div
+      ref={containerRef}
       className={`
         ${styles['skill-container']}
         g-container glass
@@ -174,7 +174,15 @@ const Skills = () => {
                   aria-label='Voltear revés'
                   onClick={() => flipCard(lang.name)}
                 >
-                  {lang.loaded && <Image src={lang.card} alt="flip" />}
+                  {lang.loaded && (
+                    <Image 
+                      src={lang.card} 
+                      alt="flip card" 
+                      width={1000}
+                      height={400}
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 90vw, 80vw"
+                    />
+                  )}
                 </button>
               </div>
             </div>

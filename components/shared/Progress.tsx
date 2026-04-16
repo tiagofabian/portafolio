@@ -4,7 +4,7 @@ import * as React from "react"
 import * as ProgressPrimitive from "@radix-ui/react-progress"
 import { cn } from "@/lib/utils"
 
-import "@/assets/styles/shared/progress.css"
+import styles from "@/assets/styles/shared/progress.module.css"
 
 const Progress = ({
   className,
@@ -15,12 +15,12 @@ const Progress = ({
 
   return (
     <ProgressPrimitive.Root
-      className={cn("progressbar-container", className)}
+      className={cn(styles['progressbar-container'], className)}
       value={safeValue}
       {...props}
     >
       <ProgressPrimitive.Indicator
-        className="progressbar"
+        className={styles['progressbar']}
         style={{
           transform: `translateX(-${100 - safeValue}%)`,
         }}
