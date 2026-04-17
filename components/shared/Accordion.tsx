@@ -91,15 +91,19 @@ const AccordionContent = ({
       const height = state === "open" ? content.scrollHeight : 0;
       const opacity = state === "open" ? 1 : 0;
 
+      content.style.willChange = "height, opacity";
       isAnimating = true;
       animate(
         content,
         { height, opacity },
         {
-          stiffness: 120,
-          damping: 24,
+          stiffness: state === "open" ? 200 : 300,
+          damping:   state === "open" ? 15  : 28,  // rebote solo al abrir
           duration: 0.4,
-          onComplete: () => { isAnimating = false; },
+          onComplete: () => {
+            isAnimating = false;
+            content.style.willChange = "auto";
+          },
         }
       );
     };

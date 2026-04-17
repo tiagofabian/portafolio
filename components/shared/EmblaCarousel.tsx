@@ -103,8 +103,10 @@ const EmblaCarouselItem = ({
 
 const EmblaCarouselDots = ({
   className,
+  dotClassName,
 }: {
   className?: string
+  dotClassName?: string
 }) => {
   const { emblaApi, scrollSnaps, selectedIndex } = useEmbla()
 
@@ -113,17 +115,17 @@ const EmblaCarouselDots = ({
   return (
     <ul className={cn("flex justify-center items-center", className)}>
       {scrollSnaps.map((_, i) => (
-        <li key={i} className="flex justify-center items-center w-[0.75vw] h-[0.75vw]">
+        <li key={i} className={cn("flex justify-center items-center", dotClassName)}>
           <button
             onClick={() => emblaApi.scrollTo(i)}
             aria-label={`slide${i + 1}`}
             aria-current={i === selectedIndex ? 'true' : 'false'}
             className={cn(
-              "rounded-full transition-all duration-300",
-              "w-[0.6vw] h-[0.6vw]",
+              "rounded-full w-full h-full",
+              "transition-colors duration-300",
               i === selectedIndex
-                ? "bg-[#2c90be] scale-125"
-                : "bg-gray-400 scale-100"
+                ? "bg-[#2c90be]"
+                : "bg-gray-400"
             )}
           />
         </li>

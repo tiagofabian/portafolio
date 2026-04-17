@@ -54,6 +54,7 @@ const config: Config = {
         '7xs':  '0.1vw',
         '5xs':  '0.5vw',
         '4xs':  '0.7vw',
+        '3xs':  '0.9vw',
         '2xs':  '1.1vw',
         'xs':   '1.3vw',
         'sm':   '1.5vw',
@@ -98,6 +99,12 @@ const config: Config = {
         'blue-mob':  'url("/bg/svg/blue-mob.svg")',
         'blue-desk': 'url("/bg/svg/blue-desk.svg")',
       },
+      keyframes: {
+        fadeIn: {
+          from: { opacity: "0" },
+          to:   { opacity: "1" },
+        }
+      }
     },
   },
   plugins: [],

@@ -86,6 +86,7 @@ const Certs = () => {
                   height={1166}
                   sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 20vw"
                   className="rounded-md"
+                  priority={cert.id === certs[0].id}
                 />
               </button>
             </EmblaCarouselItem>
@@ -96,10 +97,12 @@ const Certs = () => {
           className={`
             ${styles['embla-carousel-dots']}
             hidden
-            gap-xs
-            sm:mt-md sm:mb-[0.15vw]
-            lg:flex lg:gap-5xs lg:mt-md lg:mb-[0.15vw]
+            sm:flex
+            sm:gap-4xs sm:mt-md sm:mb-[0.15vw]
           `}
+          dotClassName="
+            sm:w-[0.9vw] sm:h-[0.9vw] lg:w-[0.8vw] lg:h-[0.8vw]
+          "
         />
       </EmblaCarousel>
 
