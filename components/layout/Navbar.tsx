@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import { NavLinks } from "@/components/ui/NavLinks";
+import { Download } from "lucide-react";
 import styles from "@/assets/styles/layout/navbar.module.css";
 
 interface NavbarProps {
@@ -25,38 +26,72 @@ const Navbar = ({ className }: NavbarProps) => {
       </div>
 
       {/* ===== CONTENT ===== */}
-      <div className={`${styles['header-presentation']} relative z-10 flex flex-col sm:flex-row lg:flex-row justify-start`}>
+      <div className={`
+        ${styles['header-presentation']} 
+        relative z-10 flex flex-col 
+        sm:flex-row lg:flex-row justify-start
+      `}>
         <div className={`
-          ${styles['header-presentation-title']}
-          gap-3xl
-          sm:gap-md
+          ${styles['header-presentation-head']}
+          gap-3xs
+          sm:gap-4xs
           lg:gap-4xs
         `}>
           <div className="
-            flex flex-col
-            text-center
-            sm:text-left
-            lg:text-left
+            flex flex-col gap-3xs items-center
+            sm:flex-row sm:items-end sm:gap-md
           ">
-            <h1 className="
-              font-bold leading-[1.10]
-              flex flex-row items-center justify-center gap-[0.25em]
-              text-50xl
-              sm:flex-row sm:items-baseline sm:justify-start sm:text-18xl
-              lg:flex-col lg:items-baseline lg:justify-start lg:gap-0 lg:text-20xl
-            ">
-              <span>TIAGO</span>
-              <span className="text-sky">ALCÁZAR</span>
-            </h1>
+            <div className={`
+              ${styles["header-presentation-title"]}
+              flex flex-col
+              text-center
+              sm:text-left
+              lg:text-left
+            `}>
+              <h1 className="
+                font-bold leading-[1.10]
+                flex flex-row items-center justify-center gap-[0.25em]
+                text-50xl
+                sm:flex-row sm:items-baseline sm:justify-start sm:text-18xl
+                lg:flex-col lg:items-baseline lg:justify-start lg:gap-0 lg:text-20xl
+              ">
+                <span>TIAGO</span>
+                <span className="text-sky">ALCÁZAR</span>
+              </h1>
 
-            <p className="
-              font-bold m-0
-              text-19xl
-              sm:text-4xl
-              lg:text-sm
-            ">
-              DESAROLLADOR DE SOFTWARE
-            </p>
+              <p className="
+                font-bold m-0
+                text-19xl
+                sm:text-4xl
+                lg:text-sm
+              ">
+                DESAROLLADOR DE SOFTWARE
+              </p>
+            </div>
+            <a href="/CV_Tiago_Alcazar.pdf"
+              download
+              className="
+                inline-flex items-center gap-4xs
+                px-[2.1vw] py-[1.1vw] mb-6xs
+                text-7xl rounded-md
+                font-normal border
+                border-gray-300 text-gray-300
+                transition-colors
+                sm:text-sm
+                sm:px-[0.6vw] sm:py-[0.3vw] sm:gap-5xs sm:rounded-[4px]
+                lg:text-3xs
+              "
+            >
+              <Download 
+                className="
+                  aspect-square
+                  w-[2.75vw] h-[2.75vw]
+                  sm:w-[1.5vw] sm:h-[1.5vw]
+                  lg:w-[1vw] lg:h-[1vw]
+                "
+              />
+              Descargar CV
+            </a>
           </div>
 
           <p className="

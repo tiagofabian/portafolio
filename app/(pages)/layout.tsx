@@ -25,7 +25,7 @@ const RootLayout = ({
           flex flex-col
           justify-normal
           gap-10xl
-          px-8xl pt-64xl pb-5xl
+          px-8xl pt-26xl pb-5xl
           border-0
           border-[#808080]
           rounded-none
