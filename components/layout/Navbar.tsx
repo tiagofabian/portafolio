@@ -14,15 +14,17 @@ const Navbar = ({ className }: NavbarProps) => {
 
       {/* Hero Banner */}
       <div className="absolute inset-0">
-        <img
-          src="/bg/svg/blue-desk.svg"
-          srcSet="/bg/svg/blue-mob.svg 640w, /bg/svg/blue-desk.svg 1920w"
-          sizes="100vw"
-          fetchPriority="high"
-          decoding="sync"
-          className="object-cover w-full h-full"
-          alt=""
-        />
+        <picture>
+          <source media="(max-width: 639px)" srcSet="/bg/svg/blue-mob3.svg" />
+          <source media="(min-width: 640px)" srcSet="/bg/svg/blue-desk.svg" />
+          <img
+            src="/bg/svg/blue-desk.svg"
+            fetchPriority="high"
+            decoding="sync"
+            className="object-fill w-full h-full scale-[1] sm:scale-100"
+            alt=""
+          />
+        </picture>
       </div>
 
       {/* ===== CONTENT ===== */}
@@ -33,12 +35,12 @@ const Navbar = ({ className }: NavbarProps) => {
       `}>
         <div className={`
           ${styles['header-presentation-head']}
-          gap-3xs
+          gap-xl
           sm:gap-4xs
           lg:gap-4xs
         `}>
           <div className="
-            flex flex-col gap-3xs items-center
+            flex flex-col gap-lg items-center
             sm:flex-row sm:items-end sm:gap-md
           ">
             <div className={`
@@ -71,9 +73,9 @@ const Navbar = ({ className }: NavbarProps) => {
             <a href="/CV_Tiago_Alcazar.pdf"
               download
               className="
-                inline-flex items-center gap-4xs
-                px-[2.1vw] py-[1.1vw] mb-6xs
-                text-7xl rounded-md
+                inline-flex items-center gap-2xs
+                px-[2.5vw] py-[1.2vw] mb-6xs
+                text-9xl rounded-md
                 font-normal border
                 border-gray-300 text-gray-300
                 transition-colors
@@ -85,7 +87,7 @@ const Navbar = ({ className }: NavbarProps) => {
               <Download 
                 className="
                   aspect-square
-                  w-[2.75vw] h-[2.75vw]
+                  w-[3vw] h-[3vw]
                   sm:w-[1.5vw] sm:h-[1.5vw]
                   lg:w-[1vw] lg:h-[1vw]
                 "

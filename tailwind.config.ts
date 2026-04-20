@@ -64,6 +64,7 @@ const config: Config = {
         'sm':   '1.5vw',
         'md':   '1.8vw',
         'lg':   '2vw',
+        'xl':   '2.25vw',
         '2xl':  '2.5vw',
         '3xl':  '3vw',
         '4xl':  '3.5vw',
