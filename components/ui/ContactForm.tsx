@@ -84,7 +84,7 @@ const ContactForm = () => {
         `}
       >
         {/* EMAIL */}
-        <div className={`${styles['contactform-input-container']} relative gap-7xs`}>
+        <div className={`${styles['contactform-input-container']} relative`}>
           <input
             {...register("email", {
               required: "El email es requerido",
@@ -144,7 +144,8 @@ const ContactForm = () => {
         </div>
 
         {/* MESSAGE */}
-        <div className={`${styles['contactform-textarea-container']} relative gap-7xs`}>
+        <div className={`${styles['contactform-textarea-container']} flex relative`}>
+
           <textarea
             {...register("message", {
               required: "El mensaje es requerido", 
@@ -164,14 +165,17 @@ const ContactForm = () => {
           />
 
           {errors.message && (
-            <div className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center">
-              <div className="relative group flex items-center" ref={errorRef}>
-
+            <div className="absolute inset-y-0 right-0 flex items-stretch w-[15%]">
+              <div className="relative group flex items-center w-full" ref={errorRef}>
                 <button
                   type="button"
                   onClick={() => setShowError(prev => prev === 'message' ? null : 'message')}
-                  className="flex items-center justify-center bg-transparent border-none p-0 sm:pointer-events-none
-                    transition-transform duration-100 ease-in-out active:scale-75
+                  className="
+                    flex items-center justify-center bg-transparent w-full 
+                    border-none sm:pointer-events-none
+                    self-stretch
+                    transition-transform duration-100 ease-in-out 
+                    active:scale-75
                   "
                   aria-label="Ver error"
                 >
@@ -193,7 +197,7 @@ const ContactForm = () => {
                   bg-[#cd5f5f] text-white
                   rounded px-4xs py-7xs
                   whitespace-nowrap
-                  right-full mr-1 top-1/2 -translate-y-1/2
+                  right-[90%] mr-1 top-1/2 -translate-y-1/2
                   text-5xl sm:text-4xs lg:text-4xs
 
                   transition-all duration-200 ease-in-out
@@ -212,6 +216,7 @@ const ContactForm = () => {
               </div>
             </div>
           )}
+
         </div>
 
         {/* BUTTON */}
