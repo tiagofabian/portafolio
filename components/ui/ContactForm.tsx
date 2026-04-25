@@ -48,7 +48,7 @@ const ContactForm = () => {
       toast.success("Mensaje enviado");
 
       reset({
-        email: "no-reply@rsworkcontact.site",
+        email: "",
         message: "",
       });
     } catch (err) {
@@ -93,8 +93,6 @@ const ContactForm = () => {
                 message: "Email inválido",
               },
             })}
-            value="no-reply@rsworkcontact.site"
-            disabled
             autoComplete="email"
             placeholder="Tu email"
             className="
