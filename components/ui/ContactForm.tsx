@@ -12,19 +12,8 @@ type FormData = {
 
 const ContactForm = () => {
   const [showError, setShowError] = useState<string | null>(null);
-  const errorRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (errorRef.current && !errorRef.current.contains(e.target as Node)) {
-        setShowError(null);
-      }
-    };
-
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
-
+  const emailErrorRef = useRef<HTMLDivElement>(null);
+  const messageErrorRef = useRef<HTMLDivElement>(null);
   const {
     register,
     handleSubmit,
@@ -34,6 +23,20 @@ const ContactForm = () => {
     mode: "onChange",
     reValidateMode: "onChange",
   });
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (
+        emailErrorRef.current && !emailErrorRef.current.contains(e.target as Node) &&
+        messageErrorRef.current && !messageErrorRef.current.contains(e.target as Node)
+      ) {
+        setShowError(null);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   const onSubmit = async (data: FormData) => {
     try {
@@ -104,35 +107,50 @@ const ContactForm = () => {
           />
 
           {errors.email && (
-            <div className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center">
-              <div className="relative group">
-                <svg
+            <div className="absolute inset-y-0 right-0 flex items-stretch w-[15%]">
+              <div className="relative group flex items-center w-full" ref={emailErrorRef}>
+                <button
+                  type="button"
+                  onClick={() => setShowError(prev => prev === 'email' ? null : 'email')}
                   className="
-                    text-[#cd5f5f]
-                    w-[3vw]
-                    sm:w-[1.8vw]
-                    lg:w-[1.8vw]
+                    flex items-center justify-center bg-transparent w-full 
+                    border-none sm:pointer-events-none
+                    self-stretch
+                    transition-transform duration-100 ease-in-out 
+                    active:scale-75
                   "
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
+                  aria-label="Ver error"
                 >
-                  <path
-                    fillRule="evenodd"
-                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
-                    clipRule="evenodd"
-                  />
-                </svg>
+                  <svg
+                    className="text-[#cd5f5f] w-[3.5vw] h-[3.5vw] sm:w-[1.3vw] sm:h-[1.3vw] lg:w-[1.3vw] lg:h-[1.3vw] block"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </button>
 
-                <div className="
-                  absolute z-10 hidden group-hover:block
+                <div className={`
+                  absolute z-10
                   bg-[#cd5f5f] text-white
-                  rounded px-6xs py-[0.1vw]
+                  rounded px-4xs py-7xs
                   whitespace-nowrap
-                  right-full mr-2 top-1/2 -translate-y-1/2
-                  text-5xl
-                  sm:text-xs
-                  lg:text-xs
-                ">
+                  right-[90%] mr-1 top-1/2 -translate-y-1/2
+                  text-5xl sm:text-4xs lg:text-4xs
+
+                  transition-all duration-200 ease-in-out
+
+                  sm:px-6xs sm:py-[0.1vw]
+                  sm:opacity-0 sm:invisible sm:group-hover:opacity-100 sm:group-hover:visible
+                  ${showError === 'email'
+                    ? 'max-sm:opacity-100 max-sm:visible'
+                    : 'max-sm:opacity-0 max-sm:invisible'
+                  }
+                `}>
                   {errors.email.message}
                   <div className="absolute right-0 top-1/2 w-2 h-2 bg-[#cd5f5f] translate-x-1/2 -translate-y-1/2 rotate-45" />
                 </div>
@@ -155,7 +173,7 @@ const ContactForm = () => {
             placeholder="Mensaje"
             rows={3}
             className="
-              text-8xl rounded-sm px-6xs py-6xs bg-background
+              text-8xl rounded-sm px-6xs py-6xs
               placeholder:text-muted-foreground
               sm:text-3xs
               lg:text-3xs
@@ -164,7 +182,7 @@ const ContactForm = () => {
 
           {errors.message && (
             <div className="absolute inset-y-0 right-0 flex items-stretch w-[15%]">
-              <div className="relative group flex items-center w-full" ref={errorRef}>
+              <div className="relative group flex items-center w-full" ref={messageErrorRef}>
                 <button
                   type="button"
                   onClick={() => setShowError(prev => prev === 'message' ? null : 'message')}
