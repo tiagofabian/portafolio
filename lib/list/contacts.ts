@@ -1,11 +1,11 @@
-import phoneIcon from "@/assets/icons/phone_16x16.png";
-import addressIcon from "@/assets/icons/address_16x16.png";
-import githubIcon from "@/assets/icons/github_16x16.png";
-import linkedinIcon from "@/assets/icons/linkedin_16x16.png";
-import emailIcon from "@/assets/icons/email_16x16.png";
+import phoneIcon from "@/assets/icons/phone-green.png";
+import locationIcon from "@/assets/icons/location.png";
+import githubIcon from "@/assets/icons/github.png";
+import linkedinIcon from "@/assets/icons/linkedin.png";
+import emailIcon from "@/assets/icons/mail.png";
 import { Contact } from "../types";
 
-const sizes = "(max-width: 719.9px) 14px, (max-width: 1024.9px) 16px, 16px"
+const sizes = "(max-width: 640px) 5vw, 1vw"
 
 export const contacts: Contact[] = [
   {
@@ -16,8 +16,8 @@ export const contacts: Contact[] = [
     sizes
   },
   {
-    title: "Santiago, Chile",
-    icon: addressIcon,
+    title: "Puente Alto, Chile",
+    icon: locationIcon,
     alt: "address",
     url: "",
     sizes

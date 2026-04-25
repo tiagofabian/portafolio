@@ -15,9 +15,9 @@ const Footer = ({ className }: FooterProps) => {
       
       <div className={`
         ${styles['foot-element-container']}
-        flex flex-row items-start
-        gap-10xl
-        sm:gap-2xl
+        inline-flex flex-row items-start flex-wrap
+        gap-3xl justify-center
+        sm:gap-2xl sm:justify-start sm:flex-nowrap
         lg:gap-3xl
       `}>
         <ContactInfo />

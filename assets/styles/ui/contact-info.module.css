@@ -1,14 +1,9 @@
 .foot-contactinfo-container {
   display: flex;
-  justify-content: flex-start;
-  width: auto;
 }
 
 .foot-contactinfo-list {
   display: flex;
-  flex-direction: column;
-  padding: 0;
-  margin: 0;
 }
 
 .foot-contactinfo-item {
@@ -17,8 +12,6 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  width: auto;
-  gap: 0.5rem;
 }
 
 .foot-contactinfo-item > span {

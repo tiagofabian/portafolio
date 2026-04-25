@@ -55,7 +55,7 @@ const RootLayout = ({
         className="
           relative flex flex-col
           gap-3xl
-          px-8xl pt-8xl pb-4xs
+          px-8xl pt-18xl pb-4xs
           border-none
           rounded-none
           shadow-box-2

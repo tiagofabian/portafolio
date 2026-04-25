@@ -4,12 +4,12 @@
 .contactform-input-container input:-webkit-autofill:active {
   background-color: transparent !important;
   transition: background-color 5000s ease-in-out 0s;
-  color: #dedede !important;
-  -webkit-text-fill-color: #dedede !important;
+  color: #c8c8c8 !important;
+  -webkit-text-fill-color: #c8c8c8 !important;
 }
 
 .contactform-input-container input:-webkit-autofill::first-line {
-  color: #dedede;
+  color: #c8c8c8;
   font-family: inherit;
 }
 
@@ -42,7 +42,7 @@
 
 .contactform-input-container > input {
   outline: 0.5px solid #a5a5a557;
-  color: #dedede;
+  color: #c8c8c8;
   margin: 0;
   background-color: initial;
 }
@@ -55,7 +55,7 @@
   outline: 0.5px solid #a5a5a557;
   resize: none;
   overflow-y: auto;
-  color: #dedede;
+  color: #c8c8c8;
   margin: 0;
   background-color: initial;
 }

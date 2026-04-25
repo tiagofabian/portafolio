@@ -49,6 +49,7 @@ const config: Config = {
         '8xl':  '3.4vw',
         '10xl': '3.8vw',
         '12xl': '4.2vw',
+        '16xl': '5vw',
         '18xl': '5.6vw',
         '26xl': '7vw',
         '54xl': '9vw',

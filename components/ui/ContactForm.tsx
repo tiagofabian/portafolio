@@ -63,14 +63,15 @@ const ContactForm = () => {
   return (
     <div className={`
       ${styles['contactform-container']}
-      gap-sm px-sm py-xs rounded-sm
-      flex-grow
-      sm:flex-grow-0 sm:px-4xs sm:py-6xs sm:basis-[18vw] sm:gap-5xs
+      gap-2xl px-16xl pt-10xl pb-sm rounded-sm
+      basis-[94%] order-1
+      sm:flex-grow-0 sm:px-4xs sm:py-6xs sm:basis-[18vw] 
+      sm:gap-5xs sm:order-2
       lg:flex-grow-0 lg:px-3xs lg:py-5xs lg:basis-[18vw]
     `}>
       <strong className={`
         ${styles['contactform-title']}
-        text-9xl
+        text-11xl
         sm:text-4xs
         lg:text-4xs
       `}>
@@ -81,7 +82,7 @@ const ContactForm = () => {
         onSubmit={handleSubmit(onSubmit)}
         className={`
           ${styles['contactform-form']}
-          gap-2xs
+          gap-lg
           sm:gap-5xs
           lg:gap-5xs
         `}
@@ -99,15 +100,15 @@ const ContactForm = () => {
             autoComplete="email"
             placeholder="Tu email"
             className="
-              text-8xl rounded-sm px-6xs py-6xs
+              text-11xl rounded-sm px-2xs py-2xs
               placeholder:text-muted-foreground
-              sm:text-3xs
+              sm:text-3xs sm:px-6xs sm:py-6xs
               lg:text-3xs
             "
           />
 
           {errors.email && (
-            <div className="absolute inset-y-0 right-0 flex items-stretch w-[15%]">
+            <div className="absolute inset-y-0 right-0 flex items-stretch w-[12%]">
               <div className="relative group flex items-center w-full" ref={emailErrorRef}>
                 <button
                   type="button"
@@ -173,15 +174,15 @@ const ContactForm = () => {
             placeholder="Mensaje"
             rows={3}
             className="
-              text-8xl rounded-sm px-6xs py-6xs
+              text-11xl rounded-sm px-2xs py-2xs
               placeholder:text-muted-foreground
-              sm:text-3xs
+              sm:text-3xs sm:px-6xs sm:py-6xs
               lg:text-3xs
             "
           />
 
           {errors.message && (
-            <div className="absolute inset-y-0 right-0 flex items-stretch w-[15%]">
+            <div className="absolute inset-y-0 right-0 flex items-stretch w-[12%]">
               <div className="relative group flex items-center w-full" ref={messageErrorRef}>
                 <button
                   type="button"
@@ -240,8 +241,8 @@ const ContactForm = () => {
           type="submit"
           disabled={!isValid}
           className={`
-            text-8xl
-            sm:text-4xs
+            text-8xl px-3xs py-3xs
+            sm:text-4xs sm:px-0 sm:py-0
             lg:text-4xs
             ${!isValid ? "pointer-events-none opacity-50" : ""}
           `}

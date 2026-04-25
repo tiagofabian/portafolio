@@ -41,7 +41,7 @@ const BackToTop = () => {
             className={`
               ${styles['back-to-top']}
               fixed bottom-2 left-1/2 -translate-x-1/2
-              w-[8vw] h-[8vw]
+              w-[10vw] h-[10vw]
               transition-transform duration-100 ease-in-out
               ${visible ? styles['visible'] + ' translate-y-0' : 'translate-y-2'}
               sm:w-[4vw] sm:h-[4vw] sm:bottom-4
@@ -49,7 +49,7 @@ const BackToTop = () => {
             `}
           >
             <svg 
-              className="w-[2.8vw] h-[2.8vw] sm:w-[1.5vw] sm:h-[1.5vw] lg:w-[1vw] lg:h-[1vw]"
+              className="w-[3.4vw] h-[3.4vw] sm:w-[1.5vw] sm:h-[1.5vw] lg:w-[1vw] lg:h-[1vw]"
               viewBox="0 0 16 16" fill="none"
               stroke="currentColor" strokeWidth="2" strokeLinecap="round"
             >

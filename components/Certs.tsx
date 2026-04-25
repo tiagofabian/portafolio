@@ -67,7 +67,7 @@ const Certs = () => {
               key={cert.id}
               className={`
                 ${styles['embla-carousel-item']}
-                basis-1/2
+                basis-3/5
                 sm:basis-1/5
                 mx-2xs
                 sm:mx-3xs

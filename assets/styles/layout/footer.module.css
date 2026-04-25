@@ -22,7 +22,7 @@
 }
 
 .foot-element-container {
-  display: inline-flex;
+  display: flex;
 }
 
 /*********************** date ************************/
@@ -39,5 +39,5 @@
 }
 
 .foot-date-text {
-  color: #dde1e3
+  color: #c8c8c8
 }
