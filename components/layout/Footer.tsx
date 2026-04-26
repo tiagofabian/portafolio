@@ -24,7 +24,12 @@ const Footer = ({ className }: FooterProps) => {
         <ContactForm />
       </div>
 
-      <div className={`${styles['foot-date-container']} flex flex-col items-center gap-sm`}>
+      <div 
+        className={`
+          ${styles['foot-date-container']} 
+          flex flex-col items-center gap-sm
+        `}
+      >
         <Separator 
           orientation="horizontal" 
           className="block bg-[#848484] scale-x-[0.98] origin-center z-0" 

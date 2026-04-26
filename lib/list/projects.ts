@@ -9,7 +9,7 @@ import hosekiPreview from "@/assets/imgs/projects/hoseki-preview.png"
 
 // icons 
 // import HTMLIcon from '@/assets/icons/svg/html.svg';
-import CSSIcon from '@/assets/icons/svg/css.svg';
+import CSSIcon from '@/assets/icons/svg/css3.svg';
 import JavascriptIcon from '@/assets/icons/svg/javascript.svg';
 import TypescriptIcon from '@/assets/icons/svg/typescript.svg';
 // import PHPIcon from '@/assets/icons/svg/php.svg';

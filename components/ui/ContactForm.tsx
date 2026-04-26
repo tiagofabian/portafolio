@@ -108,7 +108,7 @@ const ContactForm = () => {
           />
 
           {errors.email && (
-            <div className="absolute inset-y-0 right-0 flex items-stretch w-[12%]">
+            <div className="absolute inset-y-0 right-0 flex items-stretch w-[7%] sm:w-[12%]">
               <div className="relative group flex items-center w-full" ref={emailErrorRef}>
                 <button
                   type="button"
@@ -182,7 +182,7 @@ const ContactForm = () => {
           />
 
           {errors.message && (
-            <div className="absolute inset-y-0 right-0 flex items-stretch w-[12%]">
+            <div className="absolute inset-y-0 right-0 flex items-stretch w-[7%] sm:w-[12%]">
               <div className="relative group flex items-center w-full" ref={messageErrorRef}>
                 <button
                   type="button"
