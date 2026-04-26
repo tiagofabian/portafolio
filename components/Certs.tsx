@@ -101,7 +101,7 @@ const Certs = () => {
             sm:gap-4xs sm:mt-md sm:mb-[0.15vw]
           `}
           dotClassName="
-            sm:w-[0.9vw] sm:h-[0.9vw] lg:w-[0.8vw] lg:h-[0.8vw]
+            sm:w-[0.8vw] sm:h-[0.8vw] lg:w-[0.7vw] lg:h-[0.7vw]
           "
         />
       </EmblaCarousel>

@@ -1,10 +1,20 @@
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
+import { Ratelimit } from "@upstash/ratelimit";
+import { Redis } from "@upstash/redis";
 
 type EmailRequest = {
   email: string;
   message: string;
 };
+
+const RATE_LIMIT_WINDOW = "1 m";
+const RATE_LIMIT_SECONDS = 60;
+
+const ratelimit = new Ratelimit({
+  redis: Redis.fromEnv(),
+  limiter: Ratelimit.slidingWindow(1, RATE_LIMIT_WINDOW),
+});
 
 const transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
@@ -17,8 +27,19 @@ const transporter = nodemailer.createTransport({
 });
 
 export const POST = async (req: NextRequest) => {
-  if (req.method !== "POST") {
-    return NextResponse.json({ error: "Método no permitido" }, { status: 405 });
+  const ip =
+    req.headers.get("x-forwarded-for")?.split(",")[0].trim() ??
+    req.headers.get("x-real-ip") ??
+    "anonymous";
+
+  const { success, reset } = await ratelimit.limit(ip);
+
+  if (!success) {
+    const retryAfter = Math.ceil((reset - Date.now()) / 1000);
+    return NextResponse.json(
+      { error: "rate_limit", retryAfter },
+      { status: 429 }
+    );
   }
 
   try {
@@ -31,7 +52,6 @@ export const POST = async (req: NextRequest) => {
       );
     }
 
-    // Correo que te llega a ti
     await transporter.sendMail({
       from: `"Portafolio" <${process.env.GMAIL_USER}>`,
       to: process.env.OUTLOOK_DESTINATION,
@@ -40,7 +60,6 @@ export const POST = async (req: NextRequest) => {
       text: `De: ${email}\n\nMensaje:\n${message}`,
     });
 
-    // Correo de confirmación al reclutador
     await transporter.sendMail({
       from: `"Tiago Fabian" <${process.env.GMAIL_USER}>`,
       to: email,
@@ -48,7 +67,10 @@ export const POST = async (req: NextRequest) => {
       text: `Hola,\n\nGracias por escribirme. Recibí tu mensaje y te responderé a la brevedad.\n\nEste es un correo automático, por favor no respondas a este mensaje.\n\nSaludos,\nTiago`,
     });
 
-    return NextResponse.json({ success: true }, { status: 200 });
+    return NextResponse.json(
+      { success: true, retryAfter: RATE_LIMIT_SECONDS },
+      { status: 200 }
+    );
   } catch (error) {
     console.error("Error al enviar el correo:", error);
     return NextResponse.json(

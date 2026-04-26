@@ -21,6 +21,7 @@ const config: Config = {
       '3xl':   '1.6vw',
       '4xl':  '1.7vw',
       '5xl':  '1.8vw',
+      '6xl':  '1.9vw',
       '7xl':  '2vw',
       '8xl':  '2.1vw',
       '9xl':  '2.2vw',
@@ -59,6 +60,7 @@ const config: Config = {
       },
       gap: {
         '7xs':  '0.1vw',
+        '6xs':  '0.3vw',
         '5xs':  '0.5vw',
         '4xs':  '0.7vw',
         '3xs':  '0.9vw',

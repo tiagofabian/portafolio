@@ -10,27 +10,17 @@ interface NavbarProps {
 
 const Navbar = ({ className }: NavbarProps) => {
   return (
-    <header className={`${styles['header-container']} ${className ?? ''}`}>
-
-      {/* Hero Banner */}
-      <div className="absolute inset-0">
-        <picture>
-          <source media="(max-width: 639px)" srcSet="/bg/svg/blue-mob3.svg" />
-          <source media="(min-width: 640px)" srcSet="/bg/svg/blue-desk.svg" />
-          <img
-            src="/bg/svg/blue-desk.svg"
-            fetchPriority="high"
-            decoding="sync"
-            className="object-fill w-full h-full scale-[1] sm:scale-100"
-            alt=""
-          />
-        </picture>
-      </div>
+    <header className={`
+      ${styles['header-container']} ${className ?? ''}
+      bg-[url('/bg/svg/blue-mob3.svg')]
+      sm:bg-[url('/bg/svg/blue-desk.svg')]
+      bg-cover bg-center
+    `}>
 
       {/* ===== CONTENT ===== */}
       <div className={`
         ${styles['header-presentation']} 
-        relative z-10 flex flex-col 
+        flex flex-col 
         sm:flex-row lg:flex-row justify-start
       `}>
         <div className={`
@@ -119,7 +109,6 @@ const Navbar = ({ className }: NavbarProps) => {
       {/* ===== BUTTONS ===== */}
       <div className={`
         ${styles['header-btn-section']}
-        relative z-10
         flex
         justify-center
         sm:justify-start

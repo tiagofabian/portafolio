@@ -26,10 +26,7 @@
 }
 
 .contactform-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+ 
 }
 
 .contactform-input-container,
@@ -42,7 +39,7 @@
 
 .contactform-input-container > input {
   outline: 0.5px solid #a5a5a557;
-  color: #c8c8c8;
+  color: #bbbbbb;
   margin: 0;
   background-color: initial;
 }
@@ -55,7 +52,7 @@
   outline: 0.5px solid #a5a5a557;
   resize: none;
   overflow-y: auto;
-  color: #c8c8c8;
+  color: #bbbbbb;
   margin: 0;
   background-color: initial;
 }
@@ -70,15 +67,15 @@
   color: #ca5e5e;
 }
 
-.contactform-form > button {
-  background-color: #2b2b2b;
-  color: #dedede;
-  font-weight: 600;
-  width: fit-content;
-  aspect-ratio: 3/1;
-  border-radius: 2px;
+/* keyframes */
+@keyframes blink {
+  0%, 100% { opacity: 0; }
+  50%       { opacity: 1; }
 }
 
-.contactform-form > button:hover {
-  transform: scale(1.02);
+.dot {
+  animation: blink 1.2s infinite;
 }
+
+.dot:nth-child(2) { animation-delay: 400ms; }
+.dot:nth-child(3) { animation-delay: 800ms; }

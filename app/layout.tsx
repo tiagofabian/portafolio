@@ -39,9 +39,15 @@ export default function RootLayout({
         <link
           rel="preload"
           as="image"
+          href="/bg/svg/blue-mob3.svg"
+          media="(max-width: 639px)"
+          fetchPriority="high"
+        />
+        <link
+          rel="preload"
+          as="image"
           href="/bg/svg/blue-desk.svg"
-          imageSrcSet="/bg/svg/blue-mob.svg 640w, /bg/svg/blue-desk.svg 1920w"
-          imageSizes="100vw"
+          media="(min-width: 640px)"
           fetchPriority="high"
         />
       </head>

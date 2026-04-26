@@ -40,7 +40,6 @@ const ContactInfo = () => (
               object-cover aspect-square
               w-[2.5vw]
               sm:w-[0.8vw]
-              lg:w-[0.8vw]
             "
           />
           {contact.title !== ""
