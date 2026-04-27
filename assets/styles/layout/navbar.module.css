@@ -7,10 +7,6 @@
 }
 
 /* presentation */
-.header-presentation {
-  display: flex;
-}
-
 .header-presentation-head {
   display: flex;
   flex-direction: column;

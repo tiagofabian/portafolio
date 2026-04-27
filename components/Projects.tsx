@@ -35,7 +35,7 @@ const Projects = () => {
       <h2 className={`
         ${styles['projects-title']}
         g-title font-medium
-        text-15xl
+        text-16xl
         sm:text-xl
         lg:text-xs
       `}>
@@ -79,13 +79,13 @@ const Projects = () => {
             {/* Información */}
             <div className={styles['projects-info-container']}>
               {/* Descripción */}
-              <div className="
-                projects-description
+              <div className={`
+                ${styles['projects-description']}
                 flex w-full flex-wrap
                 gap-4xs
-              ">
+              `}>
                 <p className="
-                  text-9xl
+                  text-12xl
                   sm:text-md
                   lg:text-3xs
                 ">
@@ -130,15 +130,15 @@ const Projects = () => {
                 gap-[0.3vw]
                 leading-[100%]
                 cursor-pointer
-                text-4xl
+                text-8xl
                 sm:text-xs sm:gap-[0.2vw]
-                lg:text-5xs
+                lg:text-4xs
               ">
                 <IconSVG
                   icon={github}
                   className="
                     shrink-0
-                    w-[1.4vw] h-[1.4vw]
+                    w-[1.7vw] h-[1.7vw]
                     sm:w-[0.8vw] sm:h-[0.8vw]
                     lg:w-[0.55vw] lg:h-[0.55vw]
                   "

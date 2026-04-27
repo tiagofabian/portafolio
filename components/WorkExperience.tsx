@@ -36,7 +36,7 @@ const WorkExperience = () => {
       {/* ================= ACADEMIC ================= */}
       <div className={`${styles['we-subcontainer']} gap-13xl sm:gap-2xl`}>
         
-        <h2 className={`${styles['we-title']} g-title font-medium text-15xl sm:text-xl lg:text-xs`}>
+        <h2 className={`${styles['we-title']} g-title font-medium text-16xl sm:text-xl lg:text-xs`}>
           Historial Académico
         </h2>
 
@@ -63,7 +63,7 @@ const WorkExperience = () => {
               <AccordionTrigger
                 className="
                   flex items-center w-full 
-                  text-11xl px-xl py-sm font-bold text-[aliceblue]
+                  text-12xl px-xl py-sm font-bold text-[aliceblue]
                   bg-[linear-gradient(150deg,_#253164_0%,_#0070ef80_85%,_#c3cdd8_92%,_#0070ef80_100%)]
                   [&>svg]:w-[4vw] [&>svg]:h-[4vw] [&>svg]:stroke-[3]
 
@@ -77,13 +77,26 @@ const WorkExperience = () => {
                 {academic.title}
               </AccordionTrigger>
 
-              <AccordionContent className='flex flex-col gap-5xs ml-3xl sm:ml-3xs lg:ml-3xs'>
-                <span className='text-11xl sm:text-2xs lg:text-2xs'>
+              <AccordionContent 
+                className='
+                  flex flex-col gap-5xs ml-3xl 
+                  sm:ml-3xs lg:ml-3xs
+                '>
+                <span 
+                  className='
+                    text-12xl mb-3xs
+                    sm:text-2xs sm:mb-[0.3vw]
+                  '
+                >
                   <strong>{academic.content.subtitle} </strong>
                   <i>{academic.content.yearRange}</i>
                 </span>
 
-                <ul className='text-[2.25vw] ml-md sm:text-[0.85vw] sm:ml-2xs lg:text-[0.85vw] lg:ml-2xs'>
+                <ul 
+                  className='
+                    text-11xl ml-md 
+                    sm:text-[0.85vw] sm:ml-2xs
+                  '>
                   {academic.content.subjects.map((subject, idx) => (
                     <li key={idx}>{subject}</li>
                   ))}
@@ -97,7 +110,7 @@ const WorkExperience = () => {
       {/* ================= PROFESSIONAL ================= */}
       <div className={`${styles['we-subcontainer']} gap-13xl sm:gap-2xl`}>
         
-        <h2 className={`${styles['we-title']} g-title font-medium text-15xl sm:text-xl lg:text-xs`}>
+        <h2 className={`${styles['we-title']} g-title font-medium text-16xl sm:text-xl lg:text-xs`}>
           Historial Laboral
         </h2>
 
@@ -124,7 +137,7 @@ const WorkExperience = () => {
               <AccordionTrigger
                 className="
                   flex items-center w-full 
-                  text-11xl px-xl py-sm font-bold text-[aliceblue]
+                  text-12xl px-xl py-sm font-bold text-[aliceblue]
                   bg-[linear-gradient(150deg,_#0f2f2a_0%,_#00b3a480_85%,_#c2e6e1_92%,_#00b3a480_100%)]
                   [&>svg]:w-[4vw] [&>svg]:h-[4vw] [&>svg]:stroke-[3]
 
@@ -138,13 +151,26 @@ const WorkExperience = () => {
                 {professional.title}
               </AccordionTrigger>
 
-              <AccordionContent className='flex flex-col gap-5xs ml-3xl sm:ml-3xs lg:ml-3xs'>
-                <span className='text-11xl sm:text-2xs lg:text-2xs'>
+              <AccordionContent 
+                className='
+                  flex flex-col gap-5xs ml-3xl 
+                  sm:ml-3xs lg:ml-3xs
+                '>
+                <span 
+                  className='
+                    text-12xl mb-3xs
+                    sm:text-2xs sm:mb-[0.3vw]
+                  '
+                >
                   <strong>{professional.content.subtitle} </strong>
                   <i>{professional.content.yearRange}</i>
                 </span>
 
-                <ul className='text-[2.25vw] ml-md sm:text-[0.85vw] sm:ml-2xs lg:text-[0.85vw] lg:ml-2xs'>
+                <ul 
+                  className='
+                    text-11xl ml-md 
+                    sm:text-[0.85vw] sm:ml-2xs
+                  '>
                   {professional.content.subjects.map((subject, idx) => (
                     <li key={idx}>{subject}</li>
                   ))}

@@ -15,6 +15,24 @@ const Navbar = ({ className }: NavbarProps) => {
       bg-[url('/bg/svg/blue-mob3.svg')]
       sm:bg-[url('/bg/svg/blue-desk.svg')]
       bg-cover bg-center
+
+      relative
+      flex flex-col
+      justify-normal
+      gap-6xl
+      px-8xl pt-26xl pb-5xl
+      border-0 border-[#808080]
+      rounded-none
+      shadow-box-2
+      aspect-[4/3]
+
+      sm:flex-row
+      sm:px-10xl sm:pt-8xl sm:pb-sm sm:gap-12xl
+      sm:border sm:border-t-0
+      sm:rounded-none sm:shadow-box-1
+      sm:aspect-[3.34/1]
+
+      lg:px-5xl lg:pt-3xl lg:pb-2xs lg:gap-20xl
     `}>
 
       {/* ===== CONTENT ===== */}
@@ -25,9 +43,8 @@ const Navbar = ({ className }: NavbarProps) => {
       `}>
         <div className={`
           ${styles['header-presentation-head']}
-          gap-xl
+          gap-lg
           sm:gap-4xs
-          lg:gap-4xs
         `}>
           <div className="
             flex flex-col gap-lg items-center
@@ -38,7 +55,6 @@ const Navbar = ({ className }: NavbarProps) => {
               flex flex-col
               text-center
               sm:text-left
-              lg:text-left
             `}>
               <h1 className="
                 font-bold leading-[1.10]
@@ -87,11 +103,9 @@ const Navbar = ({ className }: NavbarProps) => {
           </div>
 
           <p className="
-            text-center
-            sm:text-left lg:text-left
-            text-11xl
-            sm:text-xs
-            lg:text-3xs
+            text-12xl text-center
+            sm:text-xs sm:text-left
+            lg:text-3xs lg:text-left
           ">
             Desarrollador Fullstack especializado en Javascript, 
             con experiencia en el desarrollo de aplicaciones web, 

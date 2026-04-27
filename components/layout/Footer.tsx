@@ -11,7 +11,25 @@ interface FooterProps {
 
 const Footer = ({ className }: FooterProps) => {
   return (
-    <footer className={`${styles['footer-container']} ${className ?? ''}`}>
+    <footer className={`
+      ${styles['footer-container']} ${className ?? ''}
+
+      relative flex flex-col
+      gap-3xl
+      px-8xl pt-18xl pb-4xs
+      border-none
+      rounded-none
+      shadow-box-2
+
+      sm:flex-row sm:flex-wrap
+      sm:px-4xl sm:pt-sm sm:pb-5xs sm:gap-sm
+      sm:rounded-none sm:shadow-box-1 sm:border-none
+
+      lg:flex-col
+      lg:px-md lg:pt-2xs lg:pb-6xs lg:gap-4xs
+      lg:border lg:border-b-0 lg:border-[#1b1b1b]
+      lg:rounded-md lg:rounded-b-none
+    `}>
       
       <div className={`
         ${styles['foot-element-container']}
@@ -37,7 +55,7 @@ const Footer = ({ className }: FooterProps) => {
 
         <span className={`
           ${styles['foot-date-text']}
-          text-5xl
+          text-6xl
           sm:text-4xs
           lg:text-5xs
         `}>

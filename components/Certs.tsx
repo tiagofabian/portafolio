@@ -43,7 +43,7 @@ const Certs = () => {
       <h2 className={`
         ${styles['certs-title']}
         g-title font-medium
-        text-15xl
+        text-16xl
         sm:text-xl
         lg:text-xs
       `}>

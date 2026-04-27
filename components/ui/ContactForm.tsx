@@ -93,7 +93,7 @@ const ContactForm = () => {
       <strong className={`
         ${styles["contactform-title"]}
         flex flex-row items-center gap-4xs
-        text-11xl leading-normal
+        text-13xl leading-normal
         sm:text-4xs sm:gap-6xs
       `}>
         Deja un mensaje
@@ -103,7 +103,7 @@ const ContactForm = () => {
           width={200}
           height={200}
           className="
-            object-cover w-[3vw] h-auto
+            object-cover w-[3.2vw] h-auto
             sm:w-[0.8vw]
             lg:w-[0.8vw]
           "
@@ -131,13 +131,13 @@ const ContactForm = () => {
             autoComplete="email"
             placeholder="Tu email"
             className="
-              text-11xl rounded-sm px-2xs py-2xs placeholder:opacity-40
+              text-12xl rounded-sm px-sm py-sm placeholder:opacity-60
               sm:text-3xs sm:px-6xs sm:py-6xs
               lg:text-3xs
             "
           />
           {errors.email && watch("email") && (
-            <div className="absolute inset-y-0 right-0 flex items-stretch w-[7%] sm:w-[12%]">
+            <div className="absolute inset-y-0 right-0 flex items-stretch w-[9%] sm:w-[12%]">
               <div className="relative group flex items-center w-full" ref={emailErrorRef}>
                 <button
                   type="button"
@@ -149,15 +149,15 @@ const ContactForm = () => {
                   "
                   aria-label="Ver error"
                 >
-                  <svg className="text-[#cd5f5f] w-[3.5vw] h-[3.5vw] sm:w-[1.3vw] sm:h-[1.3vw] lg:w-[1.3vw] lg:h-[1.3vw] block" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="text-[#cd5f5f] w-[3.8vw] h-[3.8vw] sm:w-[1.3vw] sm:h-[1.3vw] lg:w-[1.3vw] lg:h-[1.3vw] block" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
                   </svg>
                 </button>
                 <div className={`
                   absolute z-10 bg-[#cd5f5f] text-white
-                  rounded px-4xs py-7xs whitespace-nowrap
-                  right-[90%] mr-1 top-1/2 -translate-y-1/2
-                  text-5xl sm:text-4xs lg:text-4xs
+                  rounded px-2xs py-7xs whitespace-nowrap
+                  right-full mr-1 top-1/2 -translate-y-1/2
+                  text-9xl sm:text-4xs lg:text-4xs
                   transition-all duration-200 ease-in-out
                   sm:px-6xs sm:py-[0.1vw]
                   sm:opacity-0 sm:invisible sm:group-hover:opacity-100 sm:group-hover:visible
@@ -177,20 +177,20 @@ const ContactForm = () => {
             {...register("message", {
               required: "El mensaje es requerido",
               minLength: {
-                value: 15,
-                message: "mín. 15 caracteres",
+                value: 30,
+                message: "mín. 30 caracteres",
               },
             })}
             placeholder="Mensaje"
             rows={3}
             className="
-              text-11xl rounded-sm px-2xs py-2xs placeholder:opacity-40
+              text-12xl rounded-sm px-sm py-sm placeholder:opacity-60
               sm:text-3xs sm:px-6xs sm:py-6xs
               lg:text-3xs
             "
           />
           {errors.message && watch("message") && (
-            <div className="absolute inset-y-0 right-0 flex items-stretch w-[7%] sm:w-[12%]">
+            <div className="absolute inset-y-0 right-0 flex items-stretch w-[9%] sm:w-[12%]">
               <div className="relative group flex items-center w-full" ref={messageErrorRef}>
                 <button
                   type="button"
@@ -202,15 +202,15 @@ const ContactForm = () => {
                   "
                   aria-label="Ver error"
                 >
-                  <svg className="text-[#cd5f5f] w-[3.5vw] h-[3.5vw] sm:w-[1.3vw] sm:h-[1.3vw] lg:w-[1.3vw] lg:h-[1.3vw] block" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="text-[#cd5f5f] w-[3.8vw] h-[3.8vw] sm:w-[1.3vw] sm:h-[1.3vw] lg:w-[1.3vw] lg:h-[1.3vw] block" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
                   </svg>
                 </button>
                 <div className={`
                   absolute z-10 bg-[#cd5f5f] text-white
-                  rounded px-4xs py-7xs whitespace-nowrap
-                  right-[90%] mr-1 top-1/2 -translate-y-1/2
-                  text-5xl sm:text-4xs lg:text-4xs
+                  rounded px-2xs py-7xs whitespace-nowrap
+                  right-full mr-1 top-1/2 -translate-y-1/2
+                  text-9xl sm:text-4xs lg:text-4xs
                   transition-all duration-200 ease-in-out
                   sm:px-6xs sm:py-[0.1vw]
                   sm:opacity-0 sm:invisible sm:group-hover:opacity-100 sm:group-hover:visible
@@ -234,7 +234,7 @@ const ContactForm = () => {
           {countdown && (
             <span 
               className="
-                text-[#dedede] text-7xl break-words 
+                text-[#dedede] text-9xl break-words 
                 -mt-4xs
                 sm:text-5xs sm:-mt-[0.3vw]
               "
@@ -250,7 +250,7 @@ const ContactForm = () => {
             disabled={!isValid || isSubmitting || !!countdown}
             className={`
               flex items-center justify-center  font-semibold
-              rounded-sm text-[#dedede] w-fit text-8xl px-8xl py-3xs
+              rounded-sm text-[#dedede] w-fit text-10xl px-8xl py-3xs
               transition-transform duration-100 ease-in-out active:scale-85
               sm:text-4xs sm:px-4xs sm:py-7xs
               ${!isValid || !!countdown
@@ -262,7 +262,7 @@ const ContactForm = () => {
           >
             {isSubmitting ? (
               <>
-                {"Enviando "}
+                Enviando &nbsp;
                 <span className={styles.dot}>.</span>
                 <span className={styles.dot}>.</span>
                 <span className={styles.dot}>.</span>

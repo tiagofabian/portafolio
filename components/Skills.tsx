@@ -83,7 +83,7 @@ const Skills = () => {
       `}
     >
       <div className={`${styles['skill-subcontainer']} gap-13xl sm:gap-6xl lg:gap-2xl`}>
-        <h2 className={`${styles['skill-title']} g-title font-medium text-15xl sm:text-xl lg:text-xs`}>
+        <h2 className={`${styles['skill-title']} g-title font-medium text-16xl sm:text-xl lg:text-xs`}>
           Lenguajes
         </h2>
         <div className={`
@@ -104,7 +104,7 @@ const Skills = () => {
       </div>
 
       <div className={`${styles['skill-subcontainer']} gap-13xl sm:gap-6xl lg:gap-2xl`}>
-        <h2 className={`${styles['skill-title']} g-title font-medium text-15xl sm:text-xl lg:text-xs`}>
+        <h2 className={`${styles['skill-title']} g-title font-medium text-16xl sm:text-xl lg:text-xs`}>
           Tecnologías
         </h2>
         <div className={`

@@ -25,7 +25,7 @@ const ContactInfo = () => (
           key={idx}
           className={`
             ${styles['foot-contactinfo-item']}
-            text-11xl gap-xs w-max
+            text-12xl gap-xs w-max
             sm:text-3xs sm:gap-5xs
             lg:text-3xs
           `}
